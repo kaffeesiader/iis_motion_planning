@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find iis_control)/launch/start_controllers.launch">
+      <arg name="config_name" value="simulation" />
+    </include>
+</launch>

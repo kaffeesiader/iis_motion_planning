@@ -1,0 +1,120 @@
+body left_arm_base_link { pose=<T -0.4923 0.7541 0.6295 0.0400638 0.242025 0.788487 0.564009 > mass=0.233797  }
+body right_arm_base_link { pose=<T -0.4962 0.5992 0.6335 0.322438 0.186041 0.797581 -0.474643 > mass=0.233797  }
+body world_link { mass=326.515 type=2  }
+body target {  }
+body left_arm_1_link { pose=<T -0.4923 0.7541 0.6295 0.676159 0.459242 0.481492 0.316341 > mass=2.942  }
+body right_arm_1_link { pose=<T -0.4962 0.5992 0.6335 0.791974 -0.204072 0.335977 -0.467175 > mass=2.942  }
+body left_arm_2_link { pose=<T -0.388082 1.02381 0.517721 0.688345 -0.137683 0.699338 -0.134728 > mass=2.9438  }
+body right_arm_2_link { pose=<T -0.391502 0.327297 0.527637 0.229668 -0.381872 0.0932706 -0.890352 > mass=2.9438  }
+body left_arm_3_link { pose=<T -0.389501 1.20897 0.442124 0.678292 -0.190713 0.0803966 0.705042 > mass=2.7712  }
+body right_arm_3_link { pose=<T -0.323955 0.151876 0.459338 0.415709 -0.704311 0.567914 -0.0927708 > mass=2.7712  }
+body left_arm_4_link { pose=<T -0.39092 1.39412 0.366526 -0.21232 0.612366 0.502275 0.572406 > mass=2.7391  }
+body right_arm_4_link { pose=<T -0.256408 -0.0235458 0.391039 0.563622 0.695526 0.432424 -0.107625 > mass=2.7391  }
+body left_arm_5_link { pose=<T -0.298246 1.55278 0.318163 -0.83776 0.205029 -0.0282557 -0.505295 > mass=1.3028  }
+body right_arm_5_link { pose=<T -0.192238 -0.190196 0.326155 -0.415709 0.704311 -0.567914 0.0927708 > mass=1.3028  }
+body left_arm_6_link { pose=<T -0.200695 1.71979 0.267255 -0.572406 0.502275 -0.612366 -0.21232 > mass=1.5686  }
+body right_arm_6_link { pose=<T -0.124691 -0.365618 0.257856 0.107625 0.432424 -0.695526 0.563622 > mass=1.5686  }
+body left_arm_7_link { pose=<T -0.16265 1.78493 0.2474 -0.205029 -0.83776 -0.505295 0.0282557 > mass=0.234512  }
+body right_arm_7_link { pose=<T -0.0983481 -0.434032 0.231219 -0.415709 0.704311 -0.567914 0.0927708 > mass=0.234512  }
+body left_sdh_finger_11_link { pose=<T -0.0761661 1.85882 0.211611 -0.0282557 -0.505295 0.83776 -0.205029 >  }
+body left_sdh_finger_21_link { pose=<T -0.132809 1.88557 0.190822 0.83776 -0.205029 0.0282557 0.505295 >  }
+body left_sdh_thumb_2_link { pose=<T -0.113624 1.89346 0.253477 0.254619 0.0778458 0.78817 0.554885 >  }
+body right_sdh_finger_11_link { pose=<T -0.0725521 -0.524303 0.157689 -0.0927708 -0.567914 -0.704311 -0.415709 >  }
+body right_sdh_finger_21_link { pose=<T -0.0248444 -0.523688 0.203292 -0.704311 -0.415709 0.0927708 0.567914 >  }
+body right_sdh_thumb_2_link { pose=<T -0.0831558 -0.551443 0.216909 -0.474643 -0.797581 0.186041 -0.322438 >  }
+body left_sdh_finger_12_link { pose=<T -0.0761661 1.85882 0.211611 0.554885 -0.78817 0.0778458 -0.254619 >  }
+body left_sdh_finger_22_link { pose=<T -0.132809 1.88557 0.190822 0.554885 -0.78817 0.0778458 -0.254619 >  }
+body left_sdh_thumb_3_link { pose=<T -0.0714334 1.9657 0.231459 0.254619 0.0778458 0.78817 0.554885 >  }
+body right_sdh_finger_12_link { pose=<T -0.0725521 -0.524303 0.157689 -0.322438 -0.186041 -0.797581 0.474643 >  }
+body right_sdh_finger_22_link { pose=<T -0.0248444 -0.523688 0.203292 -0.322438 -0.186041 -0.797581 0.474643 >  }
+body right_sdh_thumb_3_link { pose=<T -0.0539417 -0.627313 0.18737 -0.474643 -0.797581 0.186041 -0.322438 >  }
+body left_sdh_finger_13_link { pose=<T -0.0339752 1.93105 0.189593 0.554885 -0.78817 0.0778458 -0.254619 >  }
+body left_sdh_finger_23_link { pose=<T -0.0906176 1.9578 0.168804 0.554885 -0.78817 0.0778458 -0.254619 >  }
+body right_sdh_finger_13_link { pose=<T -0.043338 -0.600173 0.12815 -0.322438 -0.186041 -0.797581 0.474643 >  }
+body right_sdh_finger_23_link { pose=<T 0.00436969 -0.599558 0.173753 -0.322438 -0.186041 -0.797581 0.474643 >  }
+
+shape target (target){ type=5  X = <T 0 0 0 1 0 0 0>  size=[ 0.1 0.05 0.05 0.05 ]  color=[ 0 0.5 0 ]  }
+shape left_kuka_base (left_arm_base_link){ type=3 rel=<T 0.000469366 0.00198303 0.0521916 1 0 0 0 >  mesh='kuka/kuka_base_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape left_kuka_ring_base (left_arm_base_link){ type=4 rel=<T 9.38398e-08 -9.24196e-09 0.12 1 0 0 0 >  size=[ 0.1 0.1 0.02 0.061 ]  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape left_kuka_ring1 (left_arm_1_link){ type=4 rel=<T 0.31 4.73104e-19 -9.24196e-09 0.707107 0.707107 0 0 >  size=[ 0.1 0.1 0.02 0.061 ]  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape left_kuka_ring2 (left_arm_2_link){ type=4 rel=<T 9.38398e-08 0.21 9.24196e-09 0.707107 -0.707107 0 0 >  size=[ 0.1 0.1 0.02 0.061 ]  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape left_kuka_ring3 (left_arm_3_link){ type=4 rel=<T 0.2 -9.24196e-09 0.01 2.22045e-16 0 1 0 >  size=[ 0.1 0.1 0.02 0.061 ]  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape left_kuka_ring4 (left_arm_4_link){ type=4 rel=<T -9.38398e-08 9.24196e-09 0.21 6.12323e-17 0 0 1 >  size=[ 0.1 0.1 0.02 0.061 ]  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape left_kuka_link1 (left_arm_1_link){ type=3 rel=<T 0.239023 0.0308317 -9.04189e-05 0.707107 0 0.707107 0 >  mesh='kuka/kuka_link1_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape left_kuka_link2 (left_arm_2_link){ type=3 rel=<T 0.0308317 0.0709769 -9.04189e-05 0.5 -0.5 0.5 0.5 >  mesh='kuka/kuka_link2_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape left_kuka_link3 (left_arm_3_link){ type=3 rel=<T 0.129023 -9.04189e-05 -0.0308317 0.5 0.5 0.5 0.5 >  contact=true  mesh='kuka/kuka_link3_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape left_kuka_link4 (left_arm_4_link){ type=3 rel=<T 0.0308317 9.04189e-05 0.0709769 -0.707107 0 0 0.707107 >  contact=true  mesh='kuka/kuka_link4_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape left_kuka_link5 (left_arm_5_link){ type=3 rel=<T 0.105708 -0.000169231 0.028627 0.5 0.5 0.5 0.5 >  contact=true  mesh='kuka/kuka_link5_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape left_kuka_link6 (left_arm_6_link){ type=3 rel=<T 0.0117844 0.00564574 -0.000414461 0.5 0.5 -0.5 0.5 >  contact=true  mesh='kuka/kuka_wrist_lo.obj'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape left_kuka_link7 (left_arm_7_link){ type=3 rel=<T -0.00799815 -0.000297504 0.000324351 0.707107 0 0.707107 0 >  contact=true  mesh='kuka/kuka_link7_lo.stl'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_kuka_base (right_arm_base_link){ type=3 rel=<T 0.000469366 0.00198303 0.0521916 1 0 0 0 >  mesh='kuka/kuka_base_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape right_kuka_ring_base (right_arm_base_link){ type=4 rel=<T 9.38398e-08 -9.24196e-09 0.12 1 0 0 0 >  size=[ 0.1 0.1 0.02 0.061 ]  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_kuka_ring1 (right_arm_1_link){ type=4 rel=<T 0.31 4.73104e-19 -9.24196e-09 0.707107 0.707107 0 0 >  size=[ 0.1 0.1 0.02 0.061 ]  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_kuka_ring2 (right_arm_2_link){ type=4 rel=<T 9.38398e-08 0.21 9.24196e-09 0.707107 -0.707107 0 0 >  size=[ 0.1 0.1 0.02 0.061 ]  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_kuka_ring3 (right_arm_3_link){ type=4 rel=<T 0.2 -9.24196e-09 0.01 2.22045e-16 0 1 0 >  size=[ 0.1 0.1 0.02 0.061 ]  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_kuka_ring4 (right_arm_4_link){ type=4 rel=<T -9.38398e-08 9.24196e-09 0.21 6.12323e-17 0 0 1 >  size=[ 0.1 0.1 0.02 0.061 ]  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_kuka_link1 (right_arm_1_link){ type=3 rel=<T 0.239023 0.0308317 -9.04189e-05 0.707107 0 0.707107 0 >  mesh='kuka/kuka_link1_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape right_kuka_link2 (right_arm_2_link){ type=3 rel=<T 0.0308317 0.0709769 -9.04189e-05 0.5 -0.5 0.5 0.5 >  mesh='kuka/kuka_link2_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape right_kuka_link3 (right_arm_3_link){ type=3 rel=<T 0.129023 -9.04189e-05 -0.0308317 0.5 0.5 0.5 0.5 >  contact=true  mesh='kuka/kuka_link3_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape right_kuka_link4 (right_arm_4_link){ type=3 rel=<T 0.0308317 9.04189e-05 0.0709769 -0.707107 0 0 0.707107 >  contact=true  mesh='kuka/kuka_link4_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape right_kuka_link5 (right_arm_5_link){ type=3 rel=<T 0.105708 -0.000169231 0.028627 0.5 0.5 0.5 0.5 >  contact=true  mesh='kuka/kuka_link5_lo.obj'  color=[ 0.015 0.129 0.623 ]  rel_includes_mesh_center=true  }
+shape right_kuka_link6 (right_arm_6_link){ type=3 rel=<T 0.0117844 0.00564574 -0.000414461 0.5 0.5 -0.5 0.5 >  contact=true  mesh='kuka/kuka_wrist_lo.obj'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_kuka_link7 (right_arm_7_link){ type=3 rel=<T -0.00799815 -0.000297504 0.000324351 0.707107 0 0.707107 0 >  contact=true  mesh='kuka/kuka_link7_lo.stl'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_ring (right_arm_7_link){ type=4 rel=<T 0.02 -6.0603e-09 -6.15343e-08 0.707107 0 0.707107 0 >  contact=true  size=[ 0 0 0.008 0.04 ]  color=[ 0.1 0.1 0.1 ]  rel_includes_mesh_center=true  }
+shape right_wrist (right_arm_7_link){ type=3 rel=<T 0.0567366 0.00212123 0.00428078 4.32978e-17 0.707107 4.32978e-17 0.707107 >  contact=true  mesh='schunk/SDH_Gehaeuse_x.tri'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_f1 (right_sdh_thumb_2_link){ type=3 rel=<T 0.000150048 -0.00255454 0.0418468 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Mittelteil_Finger1_x.tri'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_f2 (right_sdh_finger_12_link){ type=3 rel=<T 0.000150048 -0.00255454 0.0418468 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Mittelteil_Finger1_x.tri'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_f3 (right_sdh_finger_22_link){ type=3 rel=<T 0.000150048 -0.00255454 0.0418468 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Mittelteil_Finger1_x.tri'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape right_t1 (right_sdh_thumb_3_link){ type=3 rel=<T -0.000550389 -0.00375346 0.0451398 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Kuppe_Finger1_x.tri'  color=[ 0.5 0.5 0.5 ]  rel_includes_mesh_center=true  }
+shape right_t2 (right_sdh_finger_13_link){ type=3 rel=<T -0.000550389 -0.00375346 0.0451398 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Kuppe_Finger1_x.tri'  color=[ 0.5 0.5 0.5 ]  rel_includes_mesh_center=true  }
+shape right_t3 (right_sdh_finger_23_link){ type=3 rel=<T -0.000550389 -0.00375346 0.0451398 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Kuppe_Finger1_x.tri'  color=[ 0.5 0.5 0.5 ]  rel_includes_mesh_center=true  }
+shape left_ring (left_arm_7_link){ type=4 rel=<T 0.02 -6.0603e-09 -6.15343e-08 0.707107 0 0.707107 0 >  contact=true  size=[ 0 0 0.008 0.04 ]  color=[ 0.1 0.1 0.1 ]  rel_includes_mesh_center=true  }
+shape left_wrist (left_arm_7_link){ type=3 rel=<T 0.0567366 0.00212123 0.00428078 4.32978e-17 0.707107 4.32978e-17 0.707107 >  contact=true  mesh='schunk/SDH_Gehaeuse_x.tri'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape left_f1 (left_sdh_thumb_2_link){ type=3 rel=<T 0.000150048 -0.00255454 0.0418468 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Mittelteil_Finger1_x.tri'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape left_f2 (left_sdh_finger_12_link){ type=3 rel=<T 0.000150048 -0.00255454 0.0418468 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Mittelteil_Finger1_x.tri'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape left_f3 (left_sdh_finger_22_link){ type=3 rel=<T 0.000150048 -0.00255454 0.0418468 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Mittelteil_Finger1_x.tri'  color=[ 0.55 0.55 0.55 ]  rel_includes_mesh_center=true  }
+shape left_t1 (left_sdh_thumb_3_link){ type=3 rel=<T -0.000550389 -0.00375346 0.0451398 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Kuppe_Finger1_x.tri'  color=[ 0.5 0.5 0.5 ]  rel_includes_mesh_center=true  }
+shape left_t2 (left_sdh_finger_13_link){ type=3 rel=<T -0.000550389 -0.00375346 0.0451398 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Kuppe_Finger1_x.tri'  color=[ 0.5 0.5 0.5 ]  rel_includes_mesh_center=true  }
+shape left_t3 (left_sdh_finger_23_link){ type=3 rel=<T -0.000550389 -0.00375346 0.0451398 4.32978e-17 4.32978e-17 0.707107 0.707107 >  contact=true  mesh='schunk/SDH_Kuppe_Finger1_x.tri'  color=[ 0.5 0.5 0.5 ]  rel_includes_mesh_center=true  }
+shape torso (world_link){ type=0 rel=<T -0.5123 0.6767 -0.0939 1 0 0 0 >  contact=true  size=[ 0.16 0.1201 1.2 0 ]  color=[ 0.9 0.9 0.9 ]  rel_includes_mesh_center=true  }
+shape table_plate (world_link){ type=0 rel=<T 0.371 0.81 -0.015 1 0 0 0 >  contact=true  size=[ 0.8 2.22 0.031 0.01 ]  color=[ 0.9 0.85 0.8 ]  rel_includes_mesh_center=true  }
+shape table_surface (world_link){ type=0 rel=<T 0.171 0.81 0.045 1 0 0 0 >  contact=true  size=[ 1.2 2.3 0.09 0.01 ]  color=[ 0.9 0.85 0.8 ]  rel_includes_mesh_center=true  }
+shape right_eef (right_arm_7_link){ type=5 rel=<T 0 0 0 0.5 0.5 0.5 0.5 >  color=[ 1 0 0 ]  size=[ 0.1 0 0 0 ]  }
+shape right_sdh_palm_link (right_arm_7_link){ type=5 rel=<T 0.0168 0 0 4.32978e-17 0.707107 4.32978e-17 0.707107 >  color=[ 1 0 0 ]  size=[ 0.1 0 0 0 ]  }
+shape right_sdh_grasp_link (right_arm_7_link){ type=5 rel=<T 0.15 0 0 4.32978e-17 0.707107 4.32978e-17 0.707107 >  color=[ 1 0 0 ]  size=[ 0.1 0 0 0 ]  }
+shape right_sdh_tip_link (right_arm_7_link){ type=5 rel=<T 0.22 0 0 4.32978e-17 0.707107 4.32978e-17 0.707107 >  color=[ 1 0 0 ]  size=[ 0.1 0 0 0 ]  }
+shape left_eef (left_arm_7_link){ type=5 rel=<T 0 0 0 0.5 -0.5 0.5 -0.5 >  color=[ 1 0 0 ]  size=[ 0.1 0 0 0 ]  }
+shape left_sdh_palm_link (left_arm_7_link){ type=5 rel=<T 0.0168 0 0 4.32978e-17 -0.707107 4.32978e-17 -0.707107 >  color=[ 1 0 0 ]  size=[ 0.1 0 0 0 ]  }
+shape left_sdh_grasp_link (left_arm_7_link){ type=5 rel=<T 0.15 0 0 4.32978e-17 0.707107 4.32978e-17 0.707107 >  color=[ 1 0 0 ]  size=[ 0.1 0 0 0 ]  }
+shape left_sdh_tip_link (left_arm_7_link){ type=5 rel=<T 0.22 0 0 4.32978e-17 0.707107 4.32978e-17 0.707107 >  color=[ 1 0 0 ]  size=[ 0.1 0 0 0 ]  }
+
+joint left_arm_0_joint (left_arm_base_link left_arm_1_link){ type=0 from=<T 0 0 0 0.707107 0 -0.707107 0 > Q=<T 0 0 0 0.984727 -0.174108 0 0 >  limits=[ -2.96706 2.96706 ]  ctrl_limits=[ 0.191986 204 ]  agent=0  }
+joint right_arm_0_joint (right_arm_base_link right_arm_1_link){ type=0 from=<T 0 0 0 0.707107 0 -0.707107 0 >  limits=[ -2.96706 2.96706 ]  ctrl_limits=[ 0.191986 204 ]  agent=0  }
+joint left_arm_1_joint (left_arm_1_link left_arm_2_link){ type=0 from=<T 0.31 0 0 0.707107 0 0 -0.707107 > Q=<T 0 0 0 0.984727 -0.174108 0 0 >  limits=[ -2.0944 2.0944 ]  ctrl_limits=[ 0.191986 306 ]  agent=0  }
+joint right_arm_1_joint (right_arm_1_link right_arm_2_link){ type=0 from=<T 0.31 0 0 0.707107 0 0 -0.707107 >  limits=[ -2.0944 2.0944 ]  ctrl_limits=[ 0.191986 306 ]  agent=0  }
+joint left_arm_2_joint (left_arm_2_link left_arm_3_link){ type=0 from=<T 0 0.2 4.44089e-17 0.5 -0.5 -0.5 0.5 > Q=<T 0 0 0 0.996174 -0.0873884 0 0 >  limits=[ -2.96706 2.96706 ]  ctrl_limits=[ 0.226893 204 ]  agent=0  }
+joint right_arm_2_joint (right_arm_2_link right_arm_3_link){ type=0 from=<T 0 0.2 4.44089e-17 0.5 -0.5 -0.5 0.5 >  limits=[ -2.96706 2.96706 ]  ctrl_limits=[ 0.226893 204 ]  agent=0  }
+joint left_arm_3_joint (left_arm_3_link left_arm_4_link){ type=0 from=<T 0.2 0 4.44089e-17 4.32978e-17 0.707107 4.32978e-17 0.707107 > Q=<T 0 0 0 0.965874 -0.259013 0 0 >  limits=[ -2.0944 2.0944 ]  ctrl_limits=[ 0.226893 306 ]  agent=0  }
+joint right_arm_3_joint (right_arm_3_link right_arm_4_link){ type=0 from=<T 0.2 0 4.44089e-17 4.32978e-17 0.707107 4.32978e-17 0.707107 >  limits=[ -2.0944 2.0944 ]  ctrl_limits=[ 0.226893 306 ]  agent=0  }
+joint left_arm_4_joint (left_arm_4_link left_arm_5_link){ type=0 from=<T 0 0 0.19 4.32978e-17 0.707107 -4.32978e-17 0.707107 >  limits=[ -2.96706 2.96706 ]  ctrl_limits=[ 0.226893 204 ]  agent=0  }
+joint right_arm_4_joint (right_arm_4_link right_arm_5_link){ type=0 from=<T 0 0 0.19 4.32978e-17 0.707107 -4.32978e-17 0.707107 >  limits=[ -2.96706 2.96706 ]  ctrl_limits=[ 0.226893 204 ]  agent=0  }
+joint left_arm_5_joint (left_arm_5_link left_arm_6_link){ type=0 from=<T 0.2 0 4.44089e-17 0.707107 0 0.707107 0 >  limits=[ -2.0944 2.0944 ]  ctrl_limits=[ 0.314159 306 ]  agent=0  }
+joint right_arm_5_joint (right_arm_5_link right_arm_6_link){ type=0 from=<T 0.2 0 4.44089e-17 0.707107 0 0.707107 0 >  limits=[ -2.0944 2.0944 ]  ctrl_limits=[ 0.314159 306 ]  agent=0  }
+joint left_arm_6_joint (left_arm_6_link left_arm_7_link){ type=0 from=<T 1.73195e-17 0 0.078 4.32978e-17 0.707107 -4.32978e-17 0.707107 >  limits=[ -2.96706 2.96706 ]  ctrl_limits=[ 0.314159 204 ]  agent=0  }
+joint right_arm_6_joint (right_arm_6_link right_arm_7_link){ type=0 from=<T 1.73195e-17 0 0.078 0.707107 0 -0.707107 0 >  limits=[ -2.96706 2.96706 ]  ctrl_limits=[ 0.314159 204 ]  agent=0  }
+joint left_sdh_knuckle_joint (left_arm_7_link left_sdh_finger_11_link){ type=0 from=<T 0.113 0.033 0.0190525 1.2326e-32 2.22045e-16 6.12323e-17 1 >  agent=1  }
+joint left_sdh_finger_21_joint (left_arm_7_link left_sdh_finger_21_link){ type=0 from=<T 0.113 -0.033 0.0190525 6.12323e-17 1 0 0 >  mimic="left_sdh_knuckle_joint"  agent=1  }
+joint left_sdh_thumb_2_joint (left_arm_7_link left_sdh_thumb_2_link){ type=0 from=<T 0.113 -4.66652e-18 -0.038105 -0.5 0.5 -0.5 0.5 >  agent=1  }
+joint right_sdh_knuckle_joint (right_arm_7_link right_sdh_finger_11_link){ type=0 from=<T 0.113 0.033 0.0190525 1.2326e-32 2.22045e-16 6.12323e-17 1 >  agent=1  }
+joint right_sdh_finger_21_joint (right_arm_7_link right_sdh_finger_21_link){ type=0 from=<T 0.113 -0.033 0.0190525 6.12323e-17 1 0 0 >  mimic="right_sdh_knuckle_joint"  agent=1  }
+joint right_sdh_thumb_2_joint (right_arm_7_link right_sdh_thumb_2_link){ type=0 from=<T 0.113 -4.66652e-18 -0.038105 -0.5 0.5 -0.5 0.5 >  agent=1  }
+joint left_sdh_finger_12_joint (left_sdh_finger_11_link left_sdh_finger_12_link){ type=0 from=<T 0 0 0 0.5 0.5 -0.5 -0.5 >  agent=1  }
+joint left_sdh_finger_22_joint (left_sdh_finger_21_link left_sdh_finger_22_link){ type=0 from=<T 0 0 0 0.5 -0.5 0.5 -0.5 >  agent=1  }
+joint left_sdh_thumb_3_joint (left_sdh_thumb_2_link left_sdh_thumb_3_link){ type=0 from=<T 0 0 0.0865 1 0 0 0 >  agent=1  }
+joint right_sdh_finger_12_joint (right_sdh_finger_11_link right_sdh_finger_12_link){ type=0 from=<T 0 0 0 0.5 0.5 -0.5 -0.5 >  agent=1  }
+joint right_sdh_finger_22_joint (right_sdh_finger_21_link right_sdh_finger_22_link){ type=0 from=<T 0 0 0 0.5 -0.5 0.5 -0.5 >  agent=1  }
+joint right_sdh_thumb_3_joint (right_sdh_thumb_2_link right_sdh_thumb_3_link){ type=0 from=<T 0 0 0.0865 1 0 0 0 >  agent=1  }
+joint left_sdh_finger_13_joint (left_sdh_finger_12_link left_sdh_finger_13_link){ type=0 from=<T 0 0 0.0865 1 0 0 0 >  agent=1  }
+joint left_sdh_finger_23_joint (left_sdh_finger_22_link left_sdh_finger_23_link){ type=0 from=<T 0 0 0.0865 1 0 0 0 >  agent=1  }
+joint right_sdh_finger_13_joint (right_sdh_finger_12_link right_sdh_finger_13_link){ type=0 from=<T 0 0 0.0865 1 0 0 0 >  agent=1  }
+joint right_sdh_finger_23_joint (right_sdh_finger_22_link right_sdh_finger_23_link){ type=0 from=<T 0 0 0.0865 1 0 0 0 >  agent=1  }

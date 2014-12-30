@@ -1,0 +1,16 @@
+<launch>
+
+    <!-- start an instance of our hardware_adapter -->
+    <node name="iis_control" 
+	pkg="iis_control" 
+	type="hardware_adapter" 
+	output="screen">
+
+	<!-- upload the adapter configuration to the parameter server -->
+	<rosparam command="load" file="$(find iis_komo)/config/adapter_config.yaml" />
+    </node> 	
+
+    <!-- launch controllers -->
+    <include file="$(find iis_komo)/launch/controllers.launch" />
+	      
+</launch>

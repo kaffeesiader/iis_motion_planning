@@ -1,0 +1,34 @@
+body left_arm_base_link { X=<T t(-0.4923 0.7541 0.6295) E(1.9485 -0.2114 2.6898) > }
+
+body left_arm_1_link { mass=2.7082 }
+body left_arm_2_link { mass=2.7100 }
+body left_arm_3_link { mass=2.5374 }
+body left_arm_4_link { mass=2.5053 }
+body left_arm_5_link { mass=1.3028 }
+body left_arm_6_link { mass=1.5686 }
+body left_arm_7_link { mass=0.1943 }
+
+joint left_arm_0_joint (left_arm_base_link left_arm_1_link)  { q=-.35 A=<T t(0 0 0) d(-90 0 1 0)> B=<T t(0.11 0 0)> Q=<T d(0 1 0 0)> limits=[-2.96705972839 2.96705972839]  ctrl_limits=[0.191986217719 204] }
+joint left_arm_1_joint (left_arm_1_link left_arm_2_link) { q=-.35 A=<T t(0.2 -0.0 0) d(-90 0 0 1)> B=<T t(0 0 0) d(-90 1 0 0)> Q=<T d(0 1 0 0)> limits=[-2.09439510239 2.09439510239]  ctrl_limits=[0.191986217719 306] }
+joint left_arm_2_joint (left_arm_2_link left_arm_3_link) { q=-.175 A=<T t(0 0 0.2) d(-90 0 1 0)> B=<T t(0 0 0) d(90 0 1 0)> Q=<T d(0 1 0 0)> limits=[-2.96705972839 2.96705972839]  ctrl_limits=[0.226892802759 204] }
+joint left_arm_3_joint (left_arm_3_link left_arm_4_link) { q=-.524 A=<T t(0.0 0 0.2) d(180 0 0 1)> B=<T t(0 0 0) d(180 0 0 1)> Q=<T d(0 1 0 0)> limits=[-2.09439510239 2.09439510239]  ctrl_limits=[0.226892802759 306] }
+joint left_arm_4_joint (left_arm_4_link left_arm_5_link) {  A=<T t(0 0 0.19) d(-90 0 1 0)> B=<T t(0 0 0) d(90 0 1 0)> Q=<T d(0 1 0 0)> limits=[-2.96705972839 2.96705972839]  ctrl_limits=[0.226892802759 204] }
+joint left_arm_5_joint (left_arm_5_link left_arm_6_link) { A=<T t(0.0 0 0.2)> B=<T t(0 0 0) d(-90 0 1 0)> Q=<T d(0 1 0 0)> limits=[-2.09439510239 2.09439510239]  ctrl_limits=[0.314159265359 306] }
+# definition (d(180 1 0 0)) inserted afterwards to correct gripper orientation - might be incorrect!
+joint left_arm_6_joint (left_arm_6_link left_arm_7_link) { A=<T t(0.078 0 0) d(180 1 0 0) > B=<T t(0 0 0)> Q=<T d(0 1 0 0)>  limits=[-2.96705972839 2.96705972839]  ctrl_limits=[0.314159265359 204] }
+
+shape left_kuka_base(left_arm_base_link)        { type=3, rel=<T t(0 0 0) d(0 1 0 0)>, mesh='kuka/kuka_base_lo.obj' color=[.015 .129 .623] }
+shape left_kuka_ring_base(left_arm_base_link)   { type=4, size=[.1 .1 .02 .061], rel=<T t(0 0 0.12) d(0 1 0 0)> color=[.55 .55 .55] }
+
+shape left_kuka_ring1(left_arm_1_link)   { type=4, size=[.1 .1 .02 .061], rel=<T t(0.2 0.0 0) d(90 1 0 0)>, color=[.55 .55 .55] }
+shape left_kuka_ring2(left_arm_2_link)   { type=4, size=[.1 .1 .02 .061], rel=<T t(0 0 0.21) d(0 1 0 0)>, color=[.55 .55 .55] }
+shape left_kuka_ring3(left_arm_3_link)   { type=4, size=[.1 .1 .02 .061], rel=<T t(-0.01 0 0.2) d(90 0 1 0)>, color=[.55 .55 .55] }
+shape left_kuka_ring4(left_arm_4_link)   { type=4, size=[.1 .1 .02 .061], rel=<T t(0 0 0.21) d(0 1 0 0)>, color=[.55 .55 .55] }
+
+shape left_kuka_link1(left_arm_1_link)   { type=3, rel=<T t(0.2 0 0) d(90 0 1 0)>, mesh='kuka/kuka_link1_lo.obj' color=[.015 .129 .623] }
+shape left_kuka_link2(left_arm_2_link)   { type=3, rel=<T t(0 0 0) d(90 0 0 1)>, mesh='kuka/kuka_link2_lo.obj' color=[.015 .129 .623] }
+shape left_kuka_link3(left_arm_3_link)   { contact,type=3, rel=<T t(0 0 0.2) d(90 0 0 1)>, mesh='kuka/kuka_link3_lo.obj' color=[.015 .129 .623] }
+shape left_kuka_link4(left_arm_4_link)   { contact,type=3, rel=<T t(0 0 0) d(90 0 0 1)>, mesh='kuka/kuka_link4_lo.obj' color=[.015 .129 .623] }
+shape left_kuka_link5(left_arm_5_link)   { contact,type=3, rel=<T t(0 0 0.2) d(90 0 0 1)>, mesh='kuka/kuka_link5_lo.obj' color=[.015 .129 .623] }
+shape left_kuka_link6(left_arm_6_link)   { contact,type=3, rel=<T t(0 0 0) d(90 1 0 0)>, mesh='kuka/kuka_wrist_lo.obj' color=[.55 .55 .55] }
+shape left_kuka_link7(left_arm_7_link)   { contact,type=3, rel=<T t(0 0 0) d(90 0 1 0)>, mesh='kuka/kuka_link7_lo.stl' color=[.55 .55 .55] }

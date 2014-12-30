@@ -1,0 +1,105 @@
+         opt/verbose = opening config file 'MT.cfg'
+1 [j] (default!)
+   opt/stopTolerance =  0.01 [d] (default!)
+       opt/stopEvals =  1000 [j] (default!)
+       opt/stopIters =  1000 [j] (default!)
+        opt/initStep =     1 [d] (default!)
+         opt/minStep =    -1 [d] (default!)
+         opt/maxStep =    -1 [d] (default!)
+         opt/damping =     1 [d] (default!)
+         opt/stepInc =     2 [d] (default!)
+         opt/stepDec =   0.1 [d] (default!)
+      opt/dampingInc =     1 [d] (default!)
+      opt/dampingDec =     1 [d] (default!)
+  opt/nonStrictSteps =     0 [j] (default!)
+   opt/allowOverstep =     0 [b] (default!)
+opt/constrainedMethod =     4 [i]
+         opt/verbose =     1 [j] (default!)
+   opt/stopTolerance =  0.01 [d] (default!)
+       opt/stopEvals =  1000 [j] (default!)
+       opt/stopIters =  1000 [j] (default!)
+        opt/initStep =     1 [d] (default!)
+         opt/minStep =    -1 [d] (default!)
+         opt/maxStep =    -1 [d] (default!)
+         opt/damping =     1 [d] (default!)
+         opt/stepInc =     2 [d] (default!)
+         opt/stepDec =   0.1 [d] (default!)
+      opt/dampingInc =     1 [d] (default!)
+      opt/dampingDec =     1 [d] (default!)
+  opt/nonStrictSteps =     0 [j] (default!)
+   opt/allowOverstep =     0 [b] (default!)
+opt/constrainedMethod =     4 [i]
+Compiled at:     Oct 29 2014 22:20:50
+Execution start: Sun Nov  2 12:41:19 2014
+Program call:    '/home/martin/ros/KOMO/share/examples/KOMO/easy/x.exe '
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/easy'
+opening input file `model.kvg'
+entering path `../../../data/pr2_model' from '/home/martin/ros/KOMO/share/examples/KOMO/easy'
+opening input file `pr2_move_groups.ors'
+opening input file `base_v0/base_L.stl'
+opening input file `base_v0/caster_L.stl'
+opening input file `base_v0/caster_L.stl'
+opening input file `base_v0/caster_L.stl'
+opening input file `base_v0/caster_L.stl'
+opening input file `torso_v0/torso_lift_L.stl'
+opening input file `head_v0/head_pan_L.stl'
+opening input file `head_v0/head_tilt_L.stl'
+opening input file `tilting_laser_v0/tilting_hokuyo_L.stl'
+opening input file `shoulder_v0/shoulder_pan.stl'
+opening input file `shoulder_v0/shoulder_lift.stl'
+opening input file `shoulder_v0/upper_arm_roll_L.stl'
+opening input file `upper_arm_v0/upper_arm.stl'
+opening input file `upper_arm_v0/forearm_roll_L.stl'
+opening input file `upper_arm_v0/elbow_flex.stl'
+opening input file `forearm_v0/forearm.stl'
+opening input file `forearm_v0/wrist_flex.stl'
+opening input file `forearm_v0/wrist_roll_L.stl'
+opening input file `gripper_v0/gripper_palm.stl'
+opening input file `gripper_v0/l_finger.stl'
+opening input file `gripper_v0/l_finger.stl'
+opening input file `gripper_v0/l_finger_tip.stl'
+opening input file `gripper_v0/l_finger_tip.stl'
+opening input file `shoulder_v0/shoulder_pan.stl'
+opening input file `shoulder_v0/shoulder_lift.stl'
+opening input file `shoulder_v0/upper_arm_roll_L.stl'
+opening input file `upper_arm_v0/upper_arm.stl'
+opening input file `upper_arm_v0/forearm_roll_L.stl'
+opening input file `upper_arm_v0/elbow_flex.stl'
+opening input file `forearm_v0/forearm.stl'
+opening input file `forearm_v0/wrist_flex.stl'
+opening input file `forearm_v0/wrist_roll_L.stl'
+opening input file `gripper_v0/gripper_palm.stl'
+opening input file `gripper_v0/l_finger.stl'
+opening input file `gripper_v0/l_finger.stl'
+opening input file `gripper_v0/l_finger_tip.stl'
+opening input file `gripper_v0/l_finger_tip.stl'
+opening input file `r_gripper_l_finger_joint'
+opening input file `r_gripper_l_finger_joint'
+opening input file `r_gripper_l_finger_joint'
+opening input file `l_gripper_l_finger_joint'
+opening input file `l_gripper_l_finger_joint'
+opening input file `l_gripper_l_finger_joint'
+leaving path `../../../data/pr2_model' back to '/home/martin/ros/KOMO/share/examples/KOMO/easy'
+entering path `../../../examples/Ors/ors_editor' from '/home/martin/ros/KOMO/share/examples/KOMO/easy'
+opening input file `regal.ors'
+leaving path `../../../examples/Ors/ors_editor' back to '/home/martin/ros/KOMO/share/examples/KOMO/easy'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/easy'
+KOMO/moveTo/precision =  1000 [d] (default!)
+KOMO/moveTo/collisionPrecision =    -1 [d] (default!)
+KOMO/moveTo/collisionMargin =   0.1 [d] (default!)
+KOMO/moveTo/finalVelocityZeroPrecision =    10 [d] (default!)
+KOMO/moveTo/alignPrecision =  1000 [d] (default!)
+         swiftCutoff =  0.11 [d] (default!)
+            duration =     5 [d]
+           timeSteps =   100 [j]
+     noInteractivity = Motion/TaskMapTransition/vecCoeff =     0 [d] (default!)
+Motion/TaskMapTransition/accCoeff =     1 [d] (default!)
+               Hdiag =                Hrate =     1 [d]
+                seed =     0 [j] (default!)
+/opt/optConstrained/anyTimeAulaStopTolInc =     2 [d] (default!)
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/easy'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/easy'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/easy'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/easy'

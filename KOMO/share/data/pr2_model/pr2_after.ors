@@ -1,0 +1,19 @@
+joint worldTranslationRotation (world base_footprint){ type=8  ctrl_H=3 }
+
+## attach a shape to the 'virtual' gripper frame: to prevent it being pruned
+shape l_gripper_frame (l_gripper_l_finger_tip_frame){ type=5 size=[.1 0 0 0] }
+shape r_gripper_frame (r_gripper_l_finger_tip_frame){ type=5 size=[.1 0 0 0] }
+
+## CASTERS
+Merge fl_caster_rotation_joint {   type=10   }
+Merge fl_caster_l_wheel_joint {   type=10   }
+Merge fl_caster_r_wheel_joint {   type=10   }
+Merge fr_caster_rotation_joint {   type=10   }
+Merge fr_caster_l_wheel_joint {   type=10   }
+Merge fr_caster_r_wheel_joint {   type=10   }
+Merge bl_caster_rotation_joint {   type=10   }
+Merge bl_caster_l_wheel_joint {   type=10   }
+Merge bl_caster_r_wheel_joint {   type=10   }
+Merge br_caster_rotation_joint {   type=10   }
+Merge br_caster_l_wheel_joint {   type=10   }
+Merge br_caster_r_wheel_joint {   type=10   }

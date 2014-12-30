@@ -1,0 +1,18 @@
+<launch>
+      
+  <!-- Load controller configurations to the parameter server -->
+  <rosparam command="load" file="$(find iis_komo)/config/arm_controllers.yaml" />
+  
+  <arg name="spawn_controllers" default="true"/>
+  
+  <!-- Controllers that come up started -->
+  <!-- spawn controller -->
+  <node if="$(arg spawn_controllers)"
+	name="controller_spawner" 
+	pkg="controller_manager" 
+	type="spawner"
+	output="screen"
+	args="right_arm left_arm" />
+  
+</launch>
+

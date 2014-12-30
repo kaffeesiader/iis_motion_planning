@@ -1,0 +1,15 @@
+#
+# Executes a given path, in a configurable speed
+
+# the name of the planning group.
+# can be either 'left_arm' or 'right_arm'
+string planning_group
+
+# the trajectory to execute
+trajectory_msgs/JointTrajectory trajectory
+
+# the desired speed (value between 0 and 1, indicating the percentage of max speed)
+float64 velocity_factor
+---
+
+bool result

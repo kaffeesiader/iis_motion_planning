@@ -1,0 +1,8 @@
+#!/bin/bash
+
+KOMO_DIR=$(cd `rospack find iis_komo`/../KOMO && pwd)
+
+FILE=`pwd`/$1
+
+cd ${KOMO_DIR}/share/examples/Ors/ors_editor/
+./x.exe -file $FILE $2

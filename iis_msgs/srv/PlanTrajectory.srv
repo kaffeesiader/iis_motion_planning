@@ -1,0 +1,81 @@
+#
+# Plans a path, using the KOMO motion planner
+
+# the name of the planning group.
+# can be either 'left_arm' or 'right_arm'
+string planning_group
+
+# the desired planning mode
+# can be either CART_SPACE_MODE=0 or JOINT_SPACE_MODE=1
+int32 mode
+
+int32 CART_SPACE_MODE = 0
+int32 JOINT_SPACE_MODE = 1
+
+#[OPTIONAL] the start state that has to be considered
+# if no start state is provided, komo will use the robot's current state
+sensor_msgs/JointState start_state
+
+# description of the desired goal position
+# CART_SPACE_MODE:
+# - 6 values [x,y,z,roll,pitch,yaw]
+# - 7 values [x,y,z,qx,qy,qz,qw]
+# - 3 values [x,y,z] (position only)
+# JOINT_SPACE_MODE:
+# - joint position for each single joint in selected planning_group
+float64[] target
+
+# the name of the end effector link (only for CART_SPACE_MODE)
+string eef_link
+
+# which axis to align (bit coded) - combine like axes_to_align = X_AXIS | Y_AXIS | Z_AXIS
+int32 axes_to_align
+
+int32 X_AXIS = 1
+int32 Y_AXIS = 2
+int32 Z_AXIS = 4
+
+# a vector, specifying the allowed position tolerances,
+# to consider a planning attempt to be successful (only for CART_SPACE_MODE)
+geometry_msgs/Vector3 position_tolerance
+
+# a vector, specifying the allowed angular tolerances,
+# to consider a planning attempt to be successful (only for CART_SPACE_MODE)
+geometry_msgs/Vector3 angular_tolerance
+
+# should collisions with the table surface be tolerated?
+bool allow_support_surface_contact
+
+---
+# the planning group, this planning request was done for
+string planning_group
+
+# the resulting trajectory (only positions, no time parameterization!)
+trajectory_msgs/JointTrajectory trajectory
+
+# the error in position
+geometry_msgs/Vector3 linear_error
+
+# the angular error
+geometry_msgs/Vector3 angular_error
+
+# the calculated goal pose
+geometry_msgs/Pose goal_pose
+
+# the overall status(i.e. planning was successful or not)
+int32 status
+
+# contains an error message in case that planning failed
+string error
+
+# the measured planning time
+float64 planning_time
+
+# Possible Status values
+
+# planning was successful and goal constraints are met
+int32 SUCCESS = 1
+# resulting motion plan is valid but the goal tolerances are violated
+int32 APPROXIMATE = 2
+# planning failed (joint limit constraint violated or a collision was detected)
+int32 FAILED = 0

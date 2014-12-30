@@ -1,0 +1,11 @@
+# QTCreator
+*.user
+
+# KOMO
+
+*.log
+tmp/*.AugmentedLagrangian
+tmp/*.costReport
+tmp/*.costReport.plt
+tmp/*.opt
+tmp/z.*

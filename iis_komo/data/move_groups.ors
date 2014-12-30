@@ -1,0 +1,40 @@
+# MOVE_GROUPS
+# left_arm
+Merge left_arm_0_joint { agent=0 }
+Merge left_arm_1_joint { agent=0 }
+Merge left_arm_2_joint { agent=0 }
+Merge left_arm_3_joint { agent=0 }
+Merge left_arm_4_joint { agent=0 }
+Merge left_arm_5_joint { agent=0 }
+Merge left_arm_6_joint { agent=0 }
+
+# right_arm
+Merge right_arm_0_joint { agent=0 }
+Merge right_arm_1_joint { agent=0 }
+Merge right_arm_2_joint { agent=0 }
+Merge right_arm_3_joint { agent=0 }
+Merge right_arm_4_joint { agent=0 }
+Merge right_arm_5_joint { agent=0 }
+Merge right_arm_6_joint { agent=0 }
+
+# left_sdh
+Merge left_sdh_knuckle_joint { agent=1 }
+Merge left_sdh_finger_12_joint { agent=1 }
+Merge left_sdh_finger_13_joint { agent=1 }
+Merge left_sdh_thumb_1_joint { agent=1 }
+Merge left_sdh_thumb_2_joint { agent=1 }
+Merge left_sdh_thumb_3_joint { agent=1 }
+Merge left_sdh_finger_21_joint { agent=1 }
+Merge left_sdh_finger_22_joint { agent=1 }
+Merge left_sdh_finger_23_joint { agent=1 }
+
+# right_sdh
+Merge right_sdh_knuckle_joint { agent=1 }
+Merge right_sdh_finger_12_joint { agent=1 }
+Merge right_sdh_finger_13_joint { agent=1 }
+Merge right_sdh_thumb_1_joint { agent=1 }
+Merge right_sdh_thumb_2_joint { agent=1 }
+Merge right_sdh_thumb_3_joint { agent=1 }
+Merge right_sdh_finger_21_joint { agent=1 }
+Merge right_sdh_finger_22_joint { agent=1 }
+Merge right_sdh_finger_23_joint { agent=1 }

@@ -1,0 +1,15 @@
+#any comment after a # sign
+body base (){
+  X=<T t(0 0 1)>              #coordinate system of this body
+}
+body arm {}
+shape some_shape_name (arm) {
+  rel =<T d(10 0 1 0)>        #rel . transf . torso -> shape
+  type=2
+  size=[0 0 1 .1]
+#  mesh='filename.tri'
+}
+joint some_joint_name (base arm){
+  A=<T t(0 0 .5) d(90 0 1 0)> #rel . transf . torso -> joint
+  B=<T t(0 0 .5)>             #rel . transf . joint -> arm
+}

@@ -1,0 +1,29 @@
+adapter_list:
+  - left_arm
+  - right_arm
+  
+left_arm:
+    joint_state_topic: "left_arm/joint_control/get_state"
+    joint_command_topic: "left_arm/joint_control/move"
+    joint_name_prefix: "left_"
+    joints:
+      - arm_0_joint
+      - arm_1_joint
+      - arm_2_joint
+      - arm_3_joint
+      - arm_4_joint
+      - arm_5_joint
+      - arm_6_joint
+      
+right_arm:
+    joint_state_topic: "right_arm/joint_control/get_state"
+    joint_command_topic: "right_arm/joint_control/move"
+    joint_name_prefix: "right_"
+    joints:
+      - arm_0_joint
+      - arm_1_joint
+      - arm_2_joint
+      - arm_3_joint
+      - arm_4_joint
+      - arm_5_joint
+      - arm_6_joint

@@ -1,0 +1,290 @@
+         opt/verbose = opening config file 'MT.cfg'
+1 [j] (default!)
+   opt/stopTolerance =  0.01 [d] (default!)
+       opt/stopEvals =  1000 [j] (default!)
+       opt/stopIters =  1000 [j] (default!)
+        opt/initStep =     1 [d] (default!)
+         opt/minStep =    -1 [d] (default!)
+         opt/maxStep =    -1 [d] (default!)
+         opt/damping =     1 [d] (default!)
+         opt/stepInc =     2 [d] (default!)
+         opt/stepDec =   0.1 [d] (default!)
+      opt/dampingInc =     1 [d] (default!)
+      opt/dampingDec =     1 [d] (default!)
+  opt/nonStrictSteps =     0 [j] (default!)
+   opt/allowOverstep =     0 [b] (default!)
+opt/constrainedMethod =     2 [i] (default!)
+         opt/verbose =     1 [j] (default!)
+   opt/stopTolerance =  0.01 [d] (default!)
+       opt/stopEvals =  1000 [j] (default!)
+       opt/stopIters =  1000 [j] (default!)
+        opt/initStep =     1 [d] (default!)
+         opt/minStep =    -1 [d] (default!)
+         opt/maxStep =    -1 [d] (default!)
+         opt/damping =     1 [d] (default!)
+         opt/stepInc =     2 [d] (default!)
+         opt/stepDec =   0.1 [d] (default!)
+      opt/dampingInc =     1 [d] (default!)
+      opt/dampingDec =     1 [d] (default!)
+  opt/nonStrictSteps =     0 [j] (default!)
+   opt/allowOverstep =     0 [b] (default!)
+opt/constrainedMethod =     2 [i] (default!)
+Compiled at:     Oct 29 2014 22:20:50
+Execution start: Thu Nov 13 11:47:10 2014
+Program call:    './x.exe '
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening input file `ikea2.kvg.txt'
+entering path `../../../data/pr2_model' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening input file `pr2_model.ors'
+opening input file `pr2_clean.ors'
+opening input file `base_v0/base_L.stl'
+opening input file `base_v0/caster_L.stl'
+opening input file `base_v0/caster_L.stl'
+opening input file `base_v0/caster_L.stl'
+opening input file `base_v0/caster_L.stl'
+opening input file `torso_v0/torso_lift_L.stl'
+opening input file `head_v0/head_pan_L.stl'
+opening input file `head_v0/head_tilt_L.stl'
+opening input file `tilting_laser_v0/tilting_hokuyo_L.stl'
+opening input file `shoulder_v0/shoulder_pan.stl'
+opening input file `shoulder_v0/shoulder_lift.stl'
+opening input file `shoulder_v0/upper_arm_roll_L.stl'
+opening input file `upper_arm_v0/upper_arm.stl'
+opening input file `upper_arm_v0/forearm_roll_L.stl'
+opening input file `upper_arm_v0/elbow_flex.stl'
+opening input file `forearm_v0/forearm.stl'
+opening input file `forearm_v0/wrist_flex.stl'
+opening input file `forearm_v0/wrist_roll_L.stl'
+opening input file `gripper_v0/gripper_palm.stl'
+opening input file `gripper_v0/l_finger.stl'
+opening input file `gripper_v0/l_finger.stl'
+opening input file `gripper_v0/l_finger_tip.stl'
+opening input file `gripper_v0/l_finger_tip.stl'
+opening input file `shoulder_v0/shoulder_pan.stl'
+opening input file `shoulder_v0/shoulder_lift.stl'
+opening input file `shoulder_v0/upper_arm_roll_L.stl'
+opening input file `upper_arm_v0/upper_arm.stl'
+opening input file `upper_arm_v0/forearm_roll_L.stl'
+opening input file `upper_arm_v0/elbow_flex.stl'
+opening input file `forearm_v0/forearm.stl'
+opening input file `forearm_v0/wrist_flex.stl'
+opening input file `forearm_v0/wrist_roll_L.stl'
+opening input file `gripper_v0/gripper_palm.stl'
+opening input file `gripper_v0/l_finger.stl'
+opening input file `gripper_v0/l_finger.stl'
+opening input file `gripper_v0/l_finger_tip.stl'
+opening input file `gripper_v0/l_finger_tip.stl'
+opening input file `pr2_modifications.ors'
+leaving path `../../../data/pr2_model' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening input file `pr2_augmentations.ors'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening input file `chair_leg_scaled.off'
+opening input file `chair_leg_scaled.off'
+opening input file `chair_leg_scaled.off'
+opening input file `chair_leg_scaled.off'
+opening input file `chair_back_scaled.off'
+opening input file `chair_sitting_scaled.off'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+     noInteractivity =          swiftCutoff =  0.11 [d] (default!)
+            duration =     5 [d]
+           timeSteps =    50 [j]
+      transitionType =     1 [i]
+            duration =     5 [d]
+           timeSteps =    50 [j]
+               Wdiag =                Hrate =   0.1 [d]
+graspPlanPositionPrec =  1000 [d]
+graspPlanAlignmentPrec =   100 [d]
+graspPlanFingerDistPrec =   100 [d]
+    graspPlanColPrec =     1 [d]
+    graspPlanLimPrec =    10 [d]
+  graspPlanZeroQPrec = 1e-05 [d]
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+graspPlanPositionPrec =  1000 [d]
+graspPlanAlignmentPrec =   100 [d]
+graspPlanFingerDistPrec =   100 [d]
+    graspPlanColPrec =     1 [d]
+    graspPlanLimPrec =    10 [d]
+  graspPlanZeroQPrec = 1e-05 [d]
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+graspPlanPositionPrec =  1000 [d]
+graspPlanAlignmentPrec =   100 [d]
+graspPlanFingerDistPrec =   100 [d]
+    graspPlanColPrec =     1 [d]
+    graspPlanLimPrec =    10 [d]
+  graspPlanZeroQPrec = 1e-05 [d]
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+graspPlanPositionPrec =  1000 [d]
+graspPlanAlignmentPrec =   100 [d]
+graspPlanFingerDistPrec =   100 [d]
+    graspPlanColPrec =     1 [d]
+    graspPlanLimPrec =    10 [d]
+  graspPlanZeroQPrec = 1e-05 [d]
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+graspPlanPositionPrec =  1000 [d]
+graspPlanAlignmentPrec =   100 [d]
+graspPlanFingerDistPrec =   100 [d]
+    graspPlanColPrec =     1 [d]
+    graspPlanLimPrec =    10 [d]
+  graspPlanZeroQPrec = 1e-05 [d]
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+graspPlanPositionPrec =  1000 [d]
+graspPlanAlignmentPrec =   100 [d]
+graspPlanFingerDistPrec =   100 [d]
+    graspPlanColPrec =     1 [d]
+    graspPlanLimPrec =    10 [d]
+  graspPlanZeroQPrec = 1e-05 [d]
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+graspPlanPositionPrec =  1000 [d]
+graspPlanAlignmentPrec =   100 [d]
+graspPlanFingerDistPrec =   100 [d]
+    graspPlanColPrec =     1 [d]
+    graspPlanLimPrec =    10 [d]
+  graspPlanZeroQPrec = 1e-05 [d]
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+graspPlanPositionPrec =  1000 [d]
+graspPlanAlignmentPrec =   100 [d]
+graspPlanFingerDistPrec =   100 [d]
+    graspPlanColPrec =     1 [d]
+    graspPlanLimPrec =    10 [d]
+  graspPlanZeroQPrec = 1e-05 [d]
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+graspPlanPositionPrec =  1000 [d]
+graspPlanAlignmentPrec =   100 [d]
+graspPlanFingerDistPrec =   100 [d]
+    graspPlanColPrec =     1 [d]
+    graspPlanLimPrec =    10 [d]
+  graspPlanZeroQPrec = 1e-05 [d]
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+graspPlanPositionPrec =  1000 [d]
+graspPlanAlignmentPrec =   100 [d]
+graspPlanFingerDistPrec =   100 [d]
+    graspPlanColPrec =     1 [d]
+    graspPlanLimPrec =    10 [d]
+  graspPlanZeroQPrec = 1e-05 [d]
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+entering path `.' from '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'
+opening output file `z.plotcmd'
+leaving path `.' back to '/home/martin/ros/KOMO/share/examples/KOMO/ikea_chair'

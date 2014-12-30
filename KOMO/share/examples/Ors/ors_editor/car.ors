@@ -1,0 +1,9 @@
+
+body world { X=<T t(0 0 .1)> fixed }
+body transx {}
+body transxy {}
+body car {type=0  size=[0.2 0.5 .1 .0] color=[.8 0 0] }
+
+joint (world transx) { type=1 }
+joint (transx transxy) { type=1 A=<T d(90 0 0 1)> B=<T d(-90 0 0 1)> }
+joint (transxy car) { type=0 A=<T d(-90 0 1 0)> B=<T d(90 0 1 0) t(0 .13 0)> }

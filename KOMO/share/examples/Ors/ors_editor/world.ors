@@ -1,0 +1,185 @@
+# door1 {{{
+body door1-frame {
+  type=3
+  mesh='door_model/frame_hacd.obj'
+  meshscale=.01
+  fixed
+}
+body target {
+  type=3
+  mesh='door_model/door_hacd.obj'
+  meshscale=.01
+  color=[1 0 0]
+  mass=2000000
+}
+body door1-handle {
+  type=3
+  mesh='door_model/handle_hacd.obj'
+  meshscale=.01
+  color=[0 0 0]
+}
+#joint (door1-frame, door1-door) {
+  #A=<T t(.46 0 0) d(90 0 1 0)>
+  #limit=[-.9 .9 0 0 0]
+  #BinvA
+#}
+#joint (door1-door, door1-handle) {
+  #A=<T t(-.39 0 1) d(90 0 0 1)>
+  #limit=[0 .1 0 0 0]
+  #BinvA
+#}
+# }}}
+# door2 {{{
+body door2-frame {
+  X=<T t(-2 -2 0) d(90 0 0 1)>
+  type=3
+  mesh="door_model/frame_hacd.obj"
+  meshscale=.01
+  fixed
+}
+body door2-door {
+  X=<T t(-2 -2 0) d(90 0 0 1)>
+  type=3 mesh='door_model/door_hacd.obj'
+  meshscale=.01
+  color=[1 0 0]
+  mass=2000000
+}
+body door2-handle {
+  X=<T t(-2 -2 0) d(90 0 0 1)>
+  type=3
+  mesh='door_model/handle_hacd.obj'
+  meshscale=.01
+  color=[0 0 0]
+}
+#joint (door2-frame, door2-door) {
+  #A=<T t(.46 0 0) d(90 0 1 0)>
+  #BinvA
+#}
+#joint (door2-door, door2-handle) {
+  #A=<T t(-.39 0 1) d(90 0 0 1)>
+  #limit=[0 .1 0 0 0]
+  #BinvA
+#}
+# }}}
+# door3 (locked) {{{
+# this door is locked (due to a bug in the rotation of the joint)
+body door3-frame {
+  X=<T t(2 0 0)>
+  type=3
+  mesh="door_model/frame_hacd.obj"
+  meshscale=.01
+  fixed
+  contact
+}
+body door3-door {
+  X=<T t(2 0 0)>
+  type=3 mesh='door_model/door_hacd.obj'
+  meshscale=.01
+  color=[1 0 0]
+  contact
+}
+body door3-handle {
+  X=<T t(2 0 0)>
+  type=3
+  mesh='door_model/handle_hacd.obj'
+  meshscale=.01
+  submeshsizes=[73 50 71 51]
+  contact
+}
+#joint (door3-frame, door3-door) {
+  #A=<T t(.46 0 0) d(90 0 1 0)>
+  #BinvA
+#}
+#joint (door3-door, door3-handle) {
+  #A=<T t(-.39 0 1)>
+  #limit=[0 .1 0 0 0]
+  #BinvA
+#}
+# }}}
+# environment {{{
+#body wall_left {
+  #type=0
+  #size=[.1 10 3 0]
+  #X=<T t(-5 0 1)>
+  #color=[0.8 0.8 0.8]
+  #fixed
+  #contact
+#}
+body wall_left_small {
+  type=0
+  size=[.1 3 3 0]
+  X=<T t(-2 0 1)>
+  color=[0.8 0.8 0.8]
+  fixed
+  contact
+}
+#body wall_right {
+#  type=0
+#  size=[.1 10 2 10]
+#  X=<T t(5 0 1)>
+#  color=[0 0 1]
+#  kinematic
+#}
+body wall_back {
+  type=0
+  size=[10 .1 3 0]
+  X=<T t(0 5 1)>
+  color=[0.8 0.8 0.8]
+  fixed
+  contact
+}
+#body wall_left_to_middle {
+  #type=0
+  #size=[5 .1 3 0]
+  #X=<T t(-3 0 1)>
+  #color=[0.8 0.8 0.8]
+  #fixed
+  #contact
+#}
+body wall_middle_to_right {
+  type=0
+  size=[1 .1 3 0]
+  X=<T t(1 0 1)>
+  color=[0.8 0.8 0.8]
+  fixed
+  contact
+}
+body wall_right_to_right {
+  type=0
+  size=[3 .1 3 0]
+  X=<T t(4 0 1)>
+  color=[0.8 0.8 0.8]
+  fixed
+  contact
+}
+#body ground {
+  #type=0
+  #size=[10 10 .01 0]
+  #X=<T t(-5 -5 0)>
+  #color=[.9 .9 .9]
+  #fixed
+  #contact
+#}
+# }}}
+# robot {{{
+body endeff {
+  type=1
+  size=[.1 .1 .1 .1]
+  X=<T t(-5. -2. 1.)>
+  color=[0 1 0]
+  mass=100
+  kinematic
+  contact
+}
+body base {
+  type=2
+  size=[.01 .01 .01 .01]
+  X=<T t(0. 0. 0.)>
+  kinematic
+  fixed
+}
+
+joint (base endeff) { type=6 Q=<T t(-5. -2. 1.)> }
+
+# }}}
+// vim:ft=ors:foldmethod=indent:

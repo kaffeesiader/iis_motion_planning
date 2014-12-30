@@ -1,0 +1,72 @@
+body world {}
+body base { X=<T t(0 0 0.87)> }
+
+body Link1 { mass=2.7082 }
+body Link2 { mass=2.7100 }
+body Link3 { mass=2.5374 }
+body Link4 { mass=2.5053 }
+body Link5 { mass=1.3028 }
+body Link6 { mass=1.5686 }
+body endeff { type=2 mass=0.1943 size=[0.01 0.01 .01 .001]}
+
+joint (base Link1)  { A=<T t(0 0 0) d(-90 0 1 0)> B=<T t(0.11 0 0)> Q=<T d(0 1 0 0)>}
+joint (Link1 Link2) { A=<T t(0.2 -0.0 0) d(-90 0 0 1)> B=<T t(0 0 0) d(-90 1 0 0)> Q=<T d(0 1 0 0)>}
+joint (Link2 Link3) { A=<T t(0 0 0.2) d(-90 0 1 0)> B=<T t(0 0 0) d(90 0 1 0)> Q=<T d(0 1 0 0)>}
+joint (Link3 Link4) { A=<T t(0.0 0 0.2) d(180 0 0 1)> B=<T t(0 0 0) d(180 0 0 1)> Q=<T d(0 1 0 0)>}
+joint (Link4 Link5) { A=<T t(0 0 0.19) d(-90 0 1 0)> B=<T t(0 0 0) d(90 0 1 0)> Q=<T d(0 1 0 0)>}
+joint (Link5 Link6) { A=<T t(0.0 0 0.2)> B=<T t(0 0 0) d(-90 0 1 0)> Q=<T d(0 1 0 0)>}
+joint (Link6 endeff) { A=<T t(0.078 0 0)> B=<T t(0 0 0)> Q=<T d(0 1 0 0)>}
+
+body target { X=<T t(-0.8 0.1 1.0)>  type=1 mass=.1 size=[.1 .1 .1 .05] color=[0 .5 0] fixed }
+
+body obstacle1 { X=<T t(-0.4 0.0 1.6)>  type=1 mass=.1 size=[.3 .3 .3 .1] color=[1 0 0] contact fixed }
+
+body knuck1 {}
+body knuck2 {}
+body knuck3 {}
+body fing1  {}
+body fing2  {}
+body fing3  {}
+body tip1   {}
+body tip2   {}
+body tip3   {}
+
+# 107.4 to the root of the hand, then  98 (-10mm ring) to the finger joints
+joint (endeff knuck1) { A=<T d(180 1 0 0) t(-0.0 0 0) d(90 0 1 0) t(-.038105    0   .113) d(-90 0 1 0)>, B=<T d(90 0 1 0)>, Q=<T d(0 1 0 0)> }
+joint (endeff knuck2) { A=<T d(180 1 0 0) t(-0.0 0 0) d(90 0 1 0) t( .0190525  .033 .113) d(-90 0 1 0)>, B=<T d(90 0 1 0)>, Q=<T d( 5 1 0 0)>  }
+joint (endeff knuck3) { A=<T d(180 1 0 0) t(-0.0 0 0) d(90 0 1 0) t( .0190525 -.033 .113) d(-90 0 1 0)>, B=<T d(90 0 1 0)>, Q=<T d(-5 1 0 0)>  }
+
+### THE ORDER IS IMPORTANT -- SHOULD CORRESPOND TO SCHUNK'S CONVENTION FOR ODERING!
+joint (knuck3 fing3) { A=<T d(-90 0 0 1)> }
+joint (fing3 tip3) { A=<T t(0 0 .0865)> B=<T t(0 0 0.035)> }
+
+joint (knuck1 fing1) { A=<T d( 90 0 0 1)> }
+joint (fing1 tip1) { A=<T t(0 0 .0865)> B=<T t(0 0 0.035)> }
+
+joint (knuck2 fing2) { A=<T d(-90 0 0 1)> }
+joint (fing2 tip2) { A=<T t(0 0 .0865)> B=<T t(0 0 0.035)> }
+
+shape ring   (endeff) { rel=<T d(90 0 1 0) t(0 0 0.02)>, contact, type=4, size=[0 0 .008 .04], color=[.1 .1 .1] }
+shape wrist  (endeff) { contact,rel=<T d(90 0 1 0) t(0 0 0.07) d(180 0 0 1)>, contact, type=3, mesh='schunk/SDH_Gehaeuse_x.tri' color=[.55 .55 .55] }
+shape f1(fing1)  { type=3, rel=<T t(0 0  -.0175) d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Mittelteil_Finger1_x.tri' color=[.55 .55 .55] }
+shape f2(fing2)  { type=3, rel=<T t(0 0  -.0175) d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Mittelteil_Finger1_x.tri' color=[.55 .55 .55] }
+shape f3(fing3)  { type=3, rel=<T t(0 0  -.0175) d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Mittelteil_Finger1_x.tri' color=[.55 .55 .55] }
+shape t1(tip1)   { type=3, rel=<T t(0 0 -.1385) d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Kuppe_Finger1_x.tri'  color=[.5 .5 .5]}
+shape t2(tip2)   { type=3, rel=<T t(0 0 -.1385) d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Kuppe_Finger1_x.tri'  color=[.5 .5 .5]}
+shape t3(tip3)   { type=3, rel=<T t(0 0 -.1385) d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Kuppe_Finger1_x.tri' color=[.5 .5 .5] }
+
+shape kuka_base(base)   { type=3, rel=<T t(0 0 0) d(0 1 0 0)>, mesh='kuka/kuka_base_lo.obj' color=[.015 .129 .623] }
+shape kuka_ring_base(base)   { type=4, size=[.1 .1 .02 .061], rel=<T t(0 0 0.12) d(0 1 0 0)> color=[.55 .55 .55] }
+shape table (base) { contact, type=0,rel=<T t(0 0 -0.435) d(0 1 0 0)>, size=[.72 .72 .87 .01], color=[.9 .85 .8] }
+
+shape kuka_ring1(Link1)   { type=4, size=[.1 .1 .02 .061], rel=<T t(0.2 0.0 0) d(90 1 0 0)>, color=[.55 .55 .55] }
+shape kuka_ring2(Link2)   { type=4, size=[.1 .1 .02 .061], rel=<T t(0 0 0.21) d(0 1 0 0)>, color=[.55 .55 .55] }
+shape kuka_ring3(Link3)   { type=4, size=[.1 .1 .02 .061], rel=<T t(-0.01 0 0.2) d(90 0 1 0)>, color=[.55 .55 .55] }
+shape kuka_ring4(Link4)   { type=4, size=[.1 .1 .02 .061], rel=<T t(0 0 0.21) d(0 1 0 0)>, color=[.55 .55 .55] }
+
+shape kuka_link1(Link1)   { type=3, rel=<T t(0.2 0 0) d(90 0 1 0)>, mesh='kuka/kuka_link1_lo.obj' color=[.015 .129 .623] }
+shape kuka_link2(Link2)   { type=3, rel=<T t(0 0 0) d(90 0 0 1)>, mesh='kuka/kuka_link2_lo.obj' color=[.015 .129 .623] }
+shape kuka_link3(Link3)   { contact,type=3, rel=<T t(0 0 0.2) d(90 0 0 1)>, mesh='kuka/kuka_link3_lo.obj' color=[.015 .129 .623] }
+shape kuka_link4(Link4)   { contact,type=3, rel=<T t(0 0 0) d(90 0 0 1)>, mesh='kuka/kuka_link4_lo.obj' color=[.015 .129 .623] }
+shape kuka_link5(Link5)   { contact,type=3, rel=<T t(0 0 0.2) d(90 0 0 1)>, mesh='kuka/kuka_link5_lo.obj' color=[.015 .129 .623] }
+shape kuka_wrist(Link6)   { contact,type=3, rel=<T t(0 0 0) d(90 1 0 0)>, mesh='kuka/kuka_wrist_lo.obj' color=[.55 .55 .55] }

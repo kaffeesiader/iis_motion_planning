@@ -1,0 +1,20 @@
+%include iis_robot/left_arm.ors
+%include iis_robot/right_arm.ors
+%include iis_robot/right_sdh.ors
+%include iis_robot/left_sdh.ors
+
+%include env.ors
+%include move_groups.ors
+
+# add some additional reference frames that can be used as planning links
+
+shape right_eef(right_arm_7_link){ rel=<T t(0 0 0) d(90 0 1 0) d(90 0 0 1) > type=5 color=[1 0 0] size=[.1 0 0 0]}
+shape right_sdh_palm_link(right_arm_7_link){ rel=<T t(0.0168 0. 0.) d(90 0 1 0) d(180 0 0 1) > type=5 color=[1 0 0] size=[.1 0 0 0]}
+shape right_sdh_grasp_link(right_arm_7_link){ rel=<T t(0.15 0 0) d(90 0 1 0) d(180 0 0 1) > type=5 color=[1 0 0] size=[.1 0 0 0]}
+shape right_sdh_tip_link(right_arm_7_link){ rel=<T t(0.22 0 0) d(90 0 1 0) d(180 0 0 1) > type=5 color=[1 0 0] size=[.1 0 0 0]}
+
+shape left_eef(left_arm_7_link){ rel=<T t(0 0 0) d(90 0 1 0) d(-90 0 0 1) > type=5 color=[1 0 0] size=[.1 0 0 0]}
+shape left_sdh_palm_link(left_arm_7_link){ rel=<T t(0.0168 0 0) d(90 0 1 0) d(-180 0 0 1) > type=5 color=[1 0 0] size=[.1 0 0 0]}
+shape left_sdh_grasp_link(left_arm_7_link){ rel=<T t(0.15 0 0) d(90 0 1 0) d(180 0 0 1) > type=5 color=[1 0 0] size=[.1 0 0 0]}
+shape left_sdh_tip_link(left_arm_7_link){ rel=<T t(0.22 0 0) d(90 0 1 0) d(180 0 0 1) > type=5 color=[1 0 0] size=[.1 0 0 0]}
+

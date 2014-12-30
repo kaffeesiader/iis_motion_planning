@@ -1,0 +1,43 @@
+body effector { type=0 X=<T t(0 0 .5)> size=[.07 .02 .1 .05] }
+
+body fing1a { type=1 size=[0 0 0 .01] color=[0 0 0]}
+joint (effector fing1a) { from=<T t(.03 0 .05) d(90 0 0 1) d(10 1 0 0)> to=<T d(-90 0 0 1)> }
+body fing1b { type=2 size=[0 0 .025 .01] }
+joint (fing1a fing1b) { B=<T t(0 0 .015)> }
+body fing1c { type=2 size=[0 0 .025 .01] }
+joint (fing1b fing1c) { A=<T t(0 0 .0125)> B=<T t(0 0 .0125)> }
+body fing1d { type=2 size=[0 0 .025 .01] }
+joint (fing1c fing1d) { A=<T t(0 0 .0125)> B=<T t(0 0 .0125)> }
+
+body fing2a { type=2 size=[0 0 .025 .01] }
+joint (effector fing2a) { A=<T t(.01 0 .05) d(5 0 1 0) d(20 1 0 0)> Q=<T d(32 1 0 0)> B=<T t(0 0 .0165)> }
+body fing2b { type=2 size=[0 0 .025 .01] }
+joint (fing2a fing2b) { A=<T t(0 0 .0125) d(20 1 0 0)> Q=<T d(12 1 0 0)> B=<T t(0 0 .0125)> }
+body fing2c { type=2 size=[0 0 .025 .01] }
+joint (fing2b fing2c) { A=<T t(0 0 .0125) d(20 1 0 0)> Q=<T d(12 1 0 0)> B=<T t(0 0 .0125)> }
+
+body fing3a { type=2 size=[0 0 .025 .01] }
+joint (effector fing3a) { A=<T t(-.01 0 .05) d(0 0 1 0) d(20 1 0 0)> Q=<T d(32 1 0 0)> B=<T t(0 0 .0165)> }
+body fing3b { type=2 size=[0 0 .025 .01] }
+joint (fing3a fing3b) { A=<T t(0 0 .0125) d(20 1 0 0)> Q=<T d(12 1 0 0)> B=<T t(0 0 .0125)> }
+body fing3c { type=2 size=[0 0 .025 .01] }
+joint (fing3b fing3c) { A=<T t(0 0 .0125) d(20 1 0 0)> Q=<T d(12 1 0 0)> B=<T t(0 0 .0125)> }
+
+body fing4a { type=2 size=[0 0 .025 .01] }
+joint (effector fing4a) { A=<T t(-.03 0 .05) d(-5 0 1 0) d(20 1 0 0)> Q=<T d(32 1 0 0)> B=<T t(0 0 .0165)> }
+body fing4b { type=2 size=[0 0 .025 .01] }
+joint (fing4a fing4b) { A=<T t(0 0 .0125) d(20 1 0 0)> Q=<T d(32 1 0 0)> B=<T t(0 0 .0125)> }
+body fing4c { type=2 size=[0 0 .025 .01] }
+joint (fing4b fing4c) { A=<T t(0 0 .0125) d(20 1 0 0)> Q=<T d(32 1 0 0)> B=<T t(0 0 .0125)> }
+
+# ## thumb
+
+body fing0a { type=1 size=[0 0 0 .01] color=[0 0 0]}
+joint (effector fing0a) { from=<T t(.035 0 -.02) d(90 0 0 1)> to=<T d(-90 0 0 1)> }
+
+body fing0b { type=2 size=[0 0 .025 .01] }
+joint (fing0a fing0b) { A=<T d(-90 0 1 0)> Q=<T d(-60 1 0 0)> B=<T d(150 0 1 0) t(0 0 .015)> }
+body fing0c { type=2 size=[0 0 .025 .01] }
+joint (fing0b fing0c) { A=<T t(0 0 .0125)> Q=<T d(30 1 0 0)> B=<T t(0 0 .0125)> }
+body fing0d { type=2 size=[0 0 .025 .01] }
+joint (fing0c fing0d) { A=<T t(0 0 .0125)> Q=<T d(30 1 0 0)> B=<T t(0 0 .0125)> }

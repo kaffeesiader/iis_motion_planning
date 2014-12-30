@@ -1,0 +1,33 @@
+#body  right_arm_7_link { type=5 size=[0.1 0.1 .1 .001] X=<T d(90 0 -1 0)>}
+
+body right_sdh_thumb_1_link {}
+body right_sdh_finger_11_link {}
+body right_sdh_finger_21_link {}
+body right_sdh_thumb_2_link  {}
+body right_sdh_finger_12_link  {}
+body right_sdh_finger_22_link  {}
+body right_sdh_thumb_3_link   {}
+body right_sdh_finger_13_link   {}
+body right_sdh_finger_23_link   {}
+
+joint right_sdh_knuckle_joint   (right_arm_7_link right_sdh_finger_11_link)         { A=<T d(180 1 0 0) t(-0.0 0 0) d(90 0 1 0) t( .0190525 -.033 .113) d(90 0 1 0)>, B=<T d(-90 0 1 0)>, Q=<T d(0 1 0 0)> }
+joint right_sdh_finger_12_joint (right_sdh_finger_11_link right_sdh_finger_12_link) { A=<T d(-90 0 0 1)> }
+joint right_sdh_finger_13_joint (right_sdh_finger_12_link right_sdh_finger_13_link) { A=<T t(0 0 .0865)> B=<T t(0 0 0.035)> }
+
+joint right_sdh_thumb_1_joint (right_arm_7_link right_sdh_thumb_1_link)       { type=10 A=<T d(180 1 0 0) t(-0.0 0 0) d(90 0 1 0) t(-.038105    0   .113) d(-90 0 1 0)>, B=<T d(90 0 1 0)>, Q=<T d(0 1 0 0)> }
+joint right_sdh_thumb_2_joint (right_sdh_thumb_1_link right_sdh_thumb_2_link) { A=<T d( 90 0 0 1)> }
+joint right_sdh_thumb_3_joint (right_sdh_thumb_2_link right_sdh_thumb_3_link) { A=<T t(0 0 .0865)> B=<T t(0 0 0.035)> }
+
+joint right_sdh_finger_21_joint (right_arm_7_link right_sdh_finger_21_link)         { A=<T d(180 1 0 0) t(-0.0 0 0) d(90 0 1 0) t( .0190525  .033 .113) d(-90 0 1 0)>, B=<T d(90 0 1 0)>, Q=<T d( 0 1 0 0)> mimic=right_sdh_knuckle_joint }
+joint right_sdh_finger_22_joint (right_sdh_finger_21_link right_sdh_finger_22_link) { A=<T d(-90 0 0 1)> }
+joint right_sdh_finger_23_joint (right_sdh_finger_22_link right_sdh_finger_23_link) { A=<T t(0 0 .0865)> B=<T t(0 0 0.035)> }
+
+
+shape right_ring   (right_arm_7_link)    { contact, type=4, rel=<T d(90 0 1 0) t(0 0 0.02)>, size=[0 0 .008 .04], color=[.1 .1 .1] }
+shape right_wrist  (right_arm_7_link)    { contact, type=3, rel=<T d(90 0 1 0) t(0 0 0.07) d(180 0 0 1)>, mesh='schunk/SDH_Gehaeuse_x.tri' color=[.55 .55 .55] }
+shape right_f1(right_sdh_thumb_2_link)   { contact, type=3, rel=<T t(0 0  -.0175) d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Mittelteil_Finger1_x.tri' color=[.55 .55 .55] }
+shape right_f2(right_sdh_finger_12_link) { contact, type=3, rel=<T t(0 0  -.0175) d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Mittelteil_Finger1_x.tri' color=[.55 .55 .55] }
+shape right_f3(right_sdh_finger_22_link) { contact, type=3, rel=<T t(0 0  -.0175) d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Mittelteil_Finger1_x.tri' color=[.55 .55 .55] }
+shape right_t1(right_sdh_thumb_3_link)   { contact, type=3, rel=<T t(0 0 -.1385)  d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Kuppe_Finger1_x.tri'  color=[.5 .5 .5]}
+shape right_t2(right_sdh_finger_13_link) { contact, type=3, rel=<T t(0 0 -.1385)  d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Kuppe_Finger1_x.tri'  color=[.5 .5 .5]}
+shape right_t3(right_sdh_finger_23_link) { contact, type=3, rel=<T t(0 0 -.1385)  d(90 1 0 0) d(180 0 1 0)>, mesh='schunk/SDH_Kuppe_Finger1_x.tri' color=[.5 .5 .5] }

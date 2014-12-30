@@ -1,0 +1,342 @@
+/**
+\defgroup group_ors ors -- Open Robot Simulation Toolkit
+
+The simulator toolkit of MLR.
+
+\todo ors::Frame does not exist anymore. Update the doc accordingly.
+
+\section ors_install Installation and testing
+
+The README file has more detailed installation instructions. The super
+quick way: on Ubuntu/Debian copy this to your console:
+\verbatim
+sudo apt-get install liblapack-dev freeglut3-dev \
+     libqhull-dev libf2c2-dev
+wget http://user.cs.tu-berlin.de/~mtoussai/source-code/libORS.10.1.tgz
+tar xvzf libORS.10.1.tgz
+cd libORS
+make
+cd test/ors
+./x.exe
+\endverbatim
+
+Then test all executables \c x.exe in the directories \c test/*.
+
+
+\section ors_scope Scope and overview
+
+Basic tools for robot simulation. The lib defines basic data
+structures to describe robot configurations (trees/graphs of rigid
+bodies), implements the basic computation of
+kinematic/Jacobian/Hessian functions, and links to many external
+libraries and engines for more sophisticated things. It uses:
+- SWIFT++ to compute shape distances/collisions
+- Featherstone's Articulated Body Dynamics as an implementation of exact dynamics on articulated tree structures (much more precise than IBDS or ODE)
+- IBDS (a rather robust impuls-based physical simulator)
+- ODE (I don't like it)
+- OpenGL for display
+- read/write of file formats for robot configurations, shape/mesh files (e.g., obj files), etc
+
+
+\section ors_data_structures ORS data structures
+
+All of the following data structures can be found under src/MT/ors.h and are in the namespacs \c ors.
+
+\subsection array
+- Check the class MT::Array in src/MT/array.h - it's yet
+  another generic container class.
+  The Array class is central in all my code. To get a first
+  impression of its usage, check the test/array. In the context of ORS,
+  we mainly use double arrays to represent vectors, matrices and do
+  linear algebra.
+  Note the typedef
+  \code
+typedef MT::Array<double> arr;
+  \endcode
+  There are many reasons why I decided
+  reimplementing such a generic container (instead of using std::vector,
+  blast, or whatever):
+  - it's fully transparent, easy debugging
+  - very robust range checking
+  - direct linkage to LAPACK
+  - tensor (multi-dimensional array) functions which are beyond most existing matrix implementations
+  - etc
+
+\subsection ors_list_graphs_etc Lists, Graphs, etc
+- \e Lists, \e Graphs, \e etc In my convention a \e List is
+  simply an array of pointers. Since arrays allow memmove operations,
+  insertion, deletion etc are all O(1). I also represent graph
+  structures via lists: e.g. a list of nodes and a list of edges, a node
+  may maintain a list of adjoint edges, etc..
+
+- For Lists (Arrays of pointers) it makes sense to have additional
+  methods, like calling delete for all pointers, or writing the
+  referenced objects to some output -- at the bottom of array.h
+  there are a number of template functions for lists and graphs.
+
+\subsection ors_ors_h Ors data structures
+- See the ors.h file. It defines a number of trivial data
+  structures and methods that should be self-explanatory:
+  - ors::Vector
+  - ors::Matrix
+  - ors::Quaternion
+  - ors::Mesh (a triangulated surface)
+  - ors::Spline
+  - ors::Frame (a coordinate system)
+    \todo ors::Frame does not exist anymore. what is it now?
+
+
+- Given these types, a dynamic physical configuration is
+  defined by lists of the following objects:
+  - ors::Body: describes the physical (inertial) properties of a rigid body.
+    This is mainly simply a Frame (position, orientation,
+    velocities). Optionally (for dynamic physical simulation) this also
+    includes inertial properties (mass etc) and forces.
+  - ors::Joint: desribes how two bodies are geometrically linked and
+    what/where its degree of freedom is. The geometry of a ors::Joint is
+    given by a rigid transformation \f$A\f$ (from body1 into the joint frame), a
+    free transformation \f$Q\f$ (the transformation of the degrees of
+    freedom), and a rigid transformation \f$B\f$ (from the joint frame to
+    body2). Overall, the transformation from body1 to body2 is the
+    concatenation \f$B \circ Q \circ A\f$
+  - ors::Shape: describes the collision and shape properties of a rigid
+    body. To each rigid body we may associate multiple Shapes, like
+    primitive shapes (box, sphere, etc) or ors::Mesh; each shape has a
+    relative transformation from its body.
+  - ors::Proxy: describes a proximity between two ors::Shape objects, i.e., when two
+    shapes are close to each other. This includes information like the
+    closest points on the two shapes and the normal. This information
+    is computed from external libraries like SWIFT.
+
+- The ors::Graph data structure contains the lists of these
+  objects and thereby describes the configuration of the whole
+  physical system. It includes a number of low level routines, in
+  particular for computing kinematics, Jacobians, dynamics
+  etc. We don't describe these routines here -- the SOC abstraction
+  will provide a higher-level interface to such quantities which is
+  closer to the mathematical notation of stochastic optimal control.
+
+- Use the \c ors_editor application to define your own
+  physical configuration (described later in the user's
+  guide). Learning to define a configuration should also give you
+  sufficient understanding of the ors::Body, ors::Joint, and ors::Shape data
+  structures.
+
+\section ors_tools Tools
+
+\subsection ors_editor ors_editor and the ors-file format
+
+- \c ors_editor is a very simple program that helps editing
+   ors-files. ors-files contain the definition of a physical
+   configuration. See the directory shrare/test/ors_editor/, the binary
+   program is /x.exe, a symbolic link bin/ors_editor exists.
+   It works like this:
+  \code
+emacs test.ors &
+./ors_editor test.ors &
+  \endcode
+  Then you edit the test.ors file in your standard text editor (here,
+  emacs). Whenever you like, you press \c enter within the OpenGL window to
+  update the display -- when you made mistakes in the syntax, error
+  messages will be output to the console.
+
+- The general syntax of the ors-file is very simple: it lists elements
+  in the syntax
+\code
+elem_type elem_name (list of parents) { key-value list }
+\endcode
+  (This is a general hypergraph syntax, which I also use in other
+  contexts (factor graphs), where elements may connect an arbitrary
+  number of parent elements; nodes are special case in that they connect no
+  parents, edges are special case in that they connect exactly two
+  parents, etc)
+  In our case we have three possible types: \c body, \c joint, \c shape. This is
+  a simple example:
+  \verbatim
+# everythin after a # sign is a comment
+body base (){
+  X=<t(0 0 1)>              #coordinate system of this body
+}
+body arm {}
+shape some_shape_name (arm) {
+  rel =<d(10 0 1 0)>        #rel . transf . torso -> shape
+  type=2
+  size=[0 0 1 .1]
+  # mesh='filename.tri'     #if you had a mesh file: set type=3
+}
+joint some_joint_name (base arm){
+  A=<t(0 0 .5) d(90 0 1 0)> #rel . transf . torso -> joint
+  B=<t(0 0 .5)>             #rel . transf . joint -> arm
+}
+  \endverbatim
+  The attribute list is simply a list of tag=something declarations. The
+  something can be a single double number, an array <tt>[1 2 3 4]</tt> of
+  numbers, a string in quotes, a transformation \f$<\cdots>\f$, or a list of
+  strings in parenthesis <tt>(string1 string2 etc)</tt>. Generally, you can set
+  any attributes you like. But only some special tags have effects right
+  now -- the most important ones are explained in the example. See the
+  routines ors::Body.read(), ors::Joint.read(), ors::Shape.read()
+  for details on which attributes have actually effects. The
+  routine ors::Graph.read() parses a whole ors-file and creates
+  the respective data structures.
+
+- We need to explain coordinate systems and how to specify
+  transformations. A transformation is given as a sequence of primitive
+  transformations enclosed in brackets \f$<...>\f$ . The most
+  important primitive transformations are 
+  - a translation <tt>t(x y z)</tt>,
+  - a rotation <tt>d(degrees axis_x axis_y axis_z)</tt>.
+   Concatenating them you can generate any transformation. See
+  the ors::Frame.read routine to learn about all primitive
+  transformations.
+
+- Every body has its own coordinate system (position and rotation in
+  world coordinates), which you can specify
+  with <tt>X=<...></tt>. Also every joint has its own coordinate
+  system -- we assume that the x-axis is always the rotation axis of the
+  joint. One can specify the coordinate system of a joint directly
+  with <tt>X=<...></tt> (in world coordinates), or the relative
+  transformations from parent\f$\to\f$joint\f$\to\f$child
+  with <tt>A=<...></tt> and <tt>B=<...></tt>,
+  respectively. Specifying all these transformations at the same time is
+  redundant, of course. Whatever transformations you do not specify
+  (including body coordinates), the parser tries to compute from the
+  given absolute or relative transformations and the tree structure of
+  the kinematics.
+  \note This doesn't work fully automatically in the current version!
+
+
+
+\subsection ors_fileconverter ors_fileConverter
+
+To view, convert, resize, and cleanup meshfiles, there is a little
+application share/test/ors_fileConverter/x.exe (and a symbolic
+link \c bin/ors_fileConverter). It simply provides an
+application interface to the functionalities of the ors::Mesh data
+structure. Please see the share/test/ors_fileConverter/main.cpp to
+learn about all functionalities. Test something like
+\verbatim
+./ors_fileConverter filename.obj -view -box
+./ors_fileConverter filename.stl -view -box -center -qhull -save
+\endverbatim
+
+\todo ors_fileConverter has a new name...I think.
+
+
+
+\section ors_appendix Thinking in sequences of transformations
+
+An intuitive way to describe transformations is to specify a sequence
+of translations and rotations.
+The turtle way to do this is to assume
+that <em>each transformation is interpreted relative to the
+"current" carried-along turtle frame</em>.
+For instance, if \f$A\f$ and \f$B\f$ are two rotations.
+Then the turtle notation \f$< A \cdot B >\f$
+describes the transformation that first rotates \f$A\f$ and then rotates
+\f$B\f$ which is interpreted relative to the coordinate frame that is the
+outcome of the \f$A\f$ rotation.
+Let us compare this to standard math
+notation: The matrix expression \f$A B) x = A (B x)\f$ means to first
+apply \f$B\f$ on the vector \f$x\f$
+(both represented in "world coordinates") and then apply \f$A\f$ on \f$Bx\f$
+(again both represented in "world coordinates").
+The turtle notation \f$<A \cdot B>\f$ means to first apply \f$A\f$ on \f$x\f$
+and then \f$A B A^T\f$ (i.e., \f$B\f$ interpreted relative to the outcome frame
+of the \f$A\f$ rotation) on \f$A x\f$ But that is the same as \f$A B A^T) (A x)
+= ABx\f$ In conclusion, the turtle notation \f$<A \cdot B>\f$ describes exactly
+the same transformation as the matrix expression \f$A B\f$ -- but the turtle
+notation interprets this as first applying \f$A\f$ and then applying \f$B\f$
+(interpreted relative), whereas the matrix expression means first applying
+\f$B\f$ (intepreted in global coordinates) and then \f$A\f$ The same also works
+for translations:
+ When \f$T\f$ is a translation \f$<T \cdot A>\f$ means
+a translation by a vector \f$T\f$ followd by a rotation where \f$A\f$ is
+intepreted as a rotation \emph{around the current frame origin \f$T\f$} and
+pnot around the world coordinate origin.
+Thus, applying \f$<T \cdot A>\f$
+on a vector \f$x\f$ we get \f$T + A x\f$ which in affine matrix notation
+is the same as \f$T A x\f$ Again, the turtle interpretation is first
+applying \f$T\f$ then \f$A\f$ whereas the matrix intepretation is first
+applying \f$A\f$ and then the affine translation \f$T\f$
+
+The turtle view on concatenating transformations is rather intuitive,
+especially for mechalically linked system where we think of one body
+being attached to another.
+It also corresponds to the usual OpenGL thinking of stacking transformations,
+where (in \c GL_PROJECTION mode) we typically first load the identity matrix
+(\c glLoadIdentity), and then "add" transformations on top (using \c
+glTranslate  or \c glRotate).
+This procedure directly corresponds to the turtle notation.
+
+ORS uses the following ascii notation for transformations:
+
+- <tt>t(x y z) </tt>  translation by \f$(x,y,z)\f$
+- <tt>q(q0 q1 q2 q3) </tt>  rotation by a quaternion \f$(q_0,q_1,q_2,q_3)\f$
+- <tt>r(r x y z) </tt>  rotation by \f$r\f$ radians around the axis \f$(x,y,z)\f$
+- <tt>d(d x y z) </tt>  rotation by \f$d\f$ degrees around the axis \f$(x,y,z)\f$
+- <tt>v(x y z)</tt>  addition of linear velocity \f$(x,y,z)\f$
+- <tt>w(x y z) </tt>  addition of angular velocity \f$(x,y,z)\f$
+- <tt>s(x z y) </tt>  a scaling (diagonal matrix) with factors \f$(x,y,z)\f$
+
+For instance the notation <tt><t(0 0 1) d(90 1 0 0)></tt> means a
+translation along the \f$z\f$-axis followed by a rotation (90 degrees)
+around the \f$x\f$-axis.
+
+
+
+\section ors_swig orspy -- Python interface for ors
+There exists a python interface of ors which uses SWIG. It's called \a orspy.
+\a orspy makes it easy to use ors interactively in the python shell. You can
+change the ors data structures and display them easily.
+
+\note Not all classes are properly wrapeed yet (Array, String, and many more need improvements! Feel free to help!).
+
+Try the following to get the inline documentation from within a python shell:
+\verbatim
+import orspy
+help(orspy)
+\endverbatim
+
+\subsection ors_swig_compile Compile orspy
+- make sure you have all dependencies installed (especially SWIG). See \a install/INSTALL_DEPENDENCIES.sh.
+- create the python interface (and *.so files) with the makefile src/MT/Makefile_ors_for_python
+  \verbatim
+cd share/src/Ors
+make -f Makefile_orspy
+  \endverbatim
+  It moves the created files to share/lib/.
+- you should be able to run \a orspy. Go to share/unittest/Ors/ and run
+  \verbatim
+py.test
+  \endverbatim
+  The unittests should also give you a good idea of how to use \a orspy interactively in the python shell.
+
+
+\subsection ors_swig_getting_started Getting Started with orspy
+In general the interface is pretty similar to the pure c++ implementation.
+However, \a orspy offers some additional python features.  There are several ways
+to get familiar with \a orspy:
+
+- there are a few examples
+- the unittests under share/unittests/Ors/ kinda document the API.
+  At least they make it clear how to use certain basic features of \a orspy.
+- use an interactive python shell (ipython or bpython or ...) to explore \a orspy
+  \verbatim
+  >>> import orspy
+  >>> doc(orspy)
+  >>> orspy.<TAB>
+  \endverbatim
+
+
+\subsection ors_swig_extension Extending orspy
+There are only a couple of files which are important:
+- the SWIG interface file src/MT/ors.i which defines the mapping from C++ to python (and potentially different languages)
+- the makefile share/src/MT/Makefile_ors_for_swig
+
+If you want to extend \a orspy you normally only need to edit ors.i. Todos are kept in the ors.i file.
+
+The SWIG documentation is available under http://www.swig.org/Doc2.0/
+
+*/
+// vim: :noai:ts=2:sw=2:set expandtab

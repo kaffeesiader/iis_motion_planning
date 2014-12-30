@@ -1,0 +1,20 @@
+
+%include ../../../data/pr2_model/pr2-3-comfi.ors
+
+%include pr2_augmentations.ors
+
+
+#body  OBJECTS{ X=<T t(.5 .2 .7)> }
+body  OBJECTS{ X=<T t(0 0 0)> }
+body  mobile{ X=<T t( .5 .1 1.0) d(50 0 0 1) d(30 0 1 0)> glue }
+
+#joint test(l_gripper_r_finger_tip_link OBJECTS) { type = 10}
+
+#shape target2{ contact, type=4, X=<T t( .5 .1 1.0) d(50 0 0 1) d(30 0 1 0)>, size=[.1 .1 .15 .02], color=[.3 .9 .1] }
+
+shape target2(mobile){ contact, type=4 , size=[.1 .1 .15 .02], color=[.3 .9 .1] }
+
+
+#shape target1(OBJECTS){ contact, type=4, rel=<T t( .6 .1 0) d(50 0 0 1) d(30 0 1 0)>, size=[.0 .0 .108 .0375], color=[.3 .9 .1] }
+
+shape target1(OBJECTS){ contact, type=3, rel=<T t( .6 .4 0.7) d(50 0 0 1) d(30 0 1 0)>, mesh='chair_leg.off', meshscale=.001, color=[.3 .9 .1] }

@@ -1,0 +1,5 @@
+# %include ../../../data/pr2_model/pr2_model.ors
+%include ../../../data/pr2_model/pr2_move_groups.ors
+%include ../../../examples/Ors/ors_editor/regal.ors
+
+shape endeff(r_wrist_roll_link){ rel=<T t(.2 0 0)> type=5 color=[1 0 0] size=[.1 0 0 0]}

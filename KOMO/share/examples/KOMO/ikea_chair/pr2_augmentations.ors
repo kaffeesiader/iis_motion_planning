@@ -1,0 +1,7 @@
+#augmentations
+
+shape graspCenter (l_wrist_roll_link) { rel=<T t(.18 .0 -.0)>, type=5, size=[.1 .0 .0 .5] color = [0 1 0] }
+
+shape tipNormal1 (l_gripper_l_finger_tip_link)   { rel=<T t(0 -.015 .01)>, type=5, size=[.1 .0 .0 .5] color = [0 1 1] }
+
+shape tipNormal2 (l_gripper_r_finger_tip_link)   { rel=<T t(0 .015 -.01)>, type=5, size=[.1 .0 .0 .5] color = [0 1 1] }

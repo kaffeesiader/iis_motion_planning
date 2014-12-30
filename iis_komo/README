@@ -1,0 +1,268 @@
+iis_komo
+========
+
+This package contains prototype code to integrate the KOMO motion optimization framework into the iis_lab setup.
+General information about KOMO can be found at http://arxiv.org/pdf/1407.0414v1.pdf.
+Please note that this node is still under development and not very well tested. Also the described service definitions
+might change.
+
+Installation and build
+======================
+
+The code within that package depends on the KOMO framework which is located in $IIS_INCLUDE_PATH/external_libs/KOMO.
+Before the framework code can be compiled, it is necessary to install all required dependecies. This can be done,
+using the provided installation script:
+
+  cd $IIS_INCLUDE_PATH/iis_catkin_ws/src/iis_komo
+  ./INSTALL_KOMO_DEPENDENCIES.sh
+
+This script requires root privileges to install the required libraries.
+After that, all compilation steps can be executed, using the make targets in the top-level
+makefile:
+
+  cd $IIS_INCLUDE_PATH
+  make komo
+  make catkin
+
+Starting the komo node
+======================
+
+The execution produces output files and depends on the configuration file MT.cfg. Therefore
+it is necessary to set the working directory to iis_komo/tmp before starting the node. This happens
+automatically when using the provided launch file:
+
+  roslaunch iis_komo iis_komo.launch
+  
+This statement launches the komo node for the simulator (default). To use it with the real robot, you
+can use:
+
+  roslaunch iis_komo iis_komo.launch config_name:=real
+  
+This launchfile also starts the controllers that are required to execute the generated trajectories.
+The responsible node is located in the iis_control package.
+  
+Usage:
+======
+
+Please have a look into the files 'test/move_cart.cpp' and 'test/move_joint.cpp' for detailed usage examples of
+the planning and execution services! Those tests can be launched as follows:
+
+- Start the komo node in desired namespace (either 'simulation' or 'real')
+    roslaunch iis_komo iis_komo.launch config_name:=[NAMESPACE]
+
+- Set the 'ROS_NAMESPACE' environment variable in the terminal you use to the desired namespace:
+    export ROS_NAMESPACE=[NAMESPACE]
+
+- Start the sample code:
+
+    rosrun iis_komo move_cart [MOVE_GROUP] [EEF_LINK] posX posY posZ
+or
+    rosrun iis_komo move_cart [MOVE_GROUP] [EEF_LINK] posX posY posZ ROLL PITCH YAW
+or
+    rosrun iis_komo move_cart [MOVE_GROUP] [EEF_LINK] posX posY posZ quatX quatY quatZ quatW
+
+for Cartesian space targets or
+
+    rosrun iis_komo move_joint [MOVE_GROUP] JNT0 JNT1 JNT2 JNT3 JNT4 JNT5 JNT6
+
+for joint space targets.
+MOVE_GROUP can be either 'left_arm' or 'right_arm'
+EEF_LINK can be 'left_arm_7_link', 'left_sdh_grasp_link', 'left_sdh_tip_link', 'left_sdh_palm_link',
+		'right_arm_7_link', 'right_sdh...
+
+The iis_komo node provides two basic services for planning/executing trajectories:
+
+  - /[NAMESPACE]/motion_control/plan_trajectory
+  
+    This service handles planning requests, based on the provided parameters. There are two modes available -
+    planning in joint space and planning in Cartesian space
+    
+    Service type:	iis_msgs/PlanTrajectory.srv
+    Request params:
+    ===============
+    
+      string planning_group	
+	    Currently either 'left_arm' or 'right_arm'. The plan is to create additional planning groups,
+	    for example arm + gripper or both arms at once...
+	    
+      string eef_link	
+	    The name of the reference frame we want to plan for (only considered in CART_SPACE_MODE).
+	    Currently available: left_arm_7_link, left_sdh_palm_link, left_sdh_grasp_link, left_sdh_tip_link,
+				 right_arm_7_link, right_...
+	    Those reference frames are defined within iis_komo/data/iis_robot.kvg. Additional frames can easily be added, 
+	    if necessary (config file 'iis_komo/data/iis_robot.kvg').
+
+      int32 mode
+	    The planning mode - can be either CART_SPACE_MODE=0 or JOINT_SPACE_MODE=1
+	    
+      sensor_msgs/Jointstate start_state [OPTIONAL]
+	    An alternating start state. If no start state is provided, komo wil use the robot's current state.
+	    
+      float64[] target
+	    An array of values, describing the desired goal. The target specification is interpreted as follows:
+	    CART_SPACE_MODE:
+	    - 6 values -> [x,y,z,roll,pitch,yaw]
+	    - 7 values -> [x,y,z,qx,qy,qz,qw]
+	    - 3 values -> [x,y,z] (position only)
+	    JOINT_SPACE_MODE:
+	    - 7 values -> one value for each joint
+      
+      geometry_msgs/Vector3 position_tolerance
+	    A vector, specifying the allowed position tolerances, to consider a planning attempt to be successful.
+	    If the desired position tolerances are not satisfied but the result is not invalid because of a collision
+	    or joint limit violation, the resulting solution will be marked as APPROXIMATE in the response. This
+	    parameter is only considered in CART_SPACE_MODE
+	    
+      geometry_msgs/Vector3 angular_tolerance
+	    A vector, specifying the allowed angular tolerances, to consider a planning attempt to be successful.
+	    If the desired position tolerances are not satisfied but the result is not invalid because of a collision
+	    or joint limit violation, the resulting solution will be marked as APPROXIMATE in the response. This
+	    parameter is only considered in CART_SPACE_MODE
+
+      int32 axes_to_align
+	    This parameter allows to select, which axes of the end effector reference frame need to be alligned with
+	    the corresponding axes of the target reference frame. The value is bit coded and can be combined like
+
+		axes_to_align = X_AXIS | Y_AXIS | Z_AXIS;
+
+	    where X_AXIS=1, Y_AXIS=2 and Z_AXIS=4. For example if only the z-axis of the end effector reference frame
+	    should be aligned it could be done like
+
+		axes_to_align = 4;
+	    
+      bool allow_support_surface_contact
+	    If true, the sponge on the table will be removed from collision checking. HANDLE WITH CARE!
+
+	    
+    Response params:
+    ================
+
+      string planning_group
+	    The planning group, the planning request was done for
+
+      trajectory_msgs/JointTrajectory trajectory_msgs
+	    The resulting trajectory (only positions, no time parameterization!)
+	    
+      geometry_msgs/Vector3 linear_error
+	    The calculated error in position
+
+      geometry_msgs/Vector3 angular_error
+	    The calculated angular error (angle between desired and actual orientation for each axis in radiant)
+	    
+      geometry_msgs/Pose goal_pose
+	    The calculated goal pose
+
+      int32 status
+	    The overall status(i.e. planning was successful or not).
+	    Possible values:
+		SUCCESS = 1	-> Planning was successful and goal tolerances were met
+		APPROXIMATE = 2	-> Resulting goal pose lies not within specified goal tolerances
+		FAILED = 0	-> Planning failed because of joint limit violation or detected collision
+
+      string error
+	    Contains an error message in case that planning failed or solution is only approximate.
+
+      float64 planning_time
+	    The measured planning time in seconds
+
+  
+  - /[NAMESPACE]/motion_control/execute_trajectory
+  
+    This service executes a given trajectory. The desirec velocity can be specified.
+  
+    Service type:	iis_msgs/ExecuteTrajectory.srv
+    Request params:
+    ===============
+
+      string planning_group
+	    The name of the planning group. Can be either 'left_arm' or 'right_arm'.
+
+      trajectory_msgs/JointTrajectory trajectory_msgs	
+	    The trajectory to execute on the given planning group. This is usually the outcome of a previous 
+	    planning request. The given trajectory needs only joint positions for each waypoint, as the time-parameterization
+	    will be computed, based on the specified velocity_factor
+	    
+      float64 velocity_factor
+	    A value between 0 and 1 specifying the percentage of maximum allowed velocity.
+	    
+    Response params:
+    ================
+    
+      bool result
+	    Specifies whether execution was successful or not.
+      
+   
+The folder iis_komo/test contains different examples for using those services. There are also two topics that allow to 
+add/remove primitive objects to/from the planning scene:
+
+  - /[NAMESPACE]/motion_control/scene/add_primitive_shape
+  
+    Message type:	iis_msgs/AddPrimitiveShape
+    
+    Adds a primitive shape to the planning scene. The shape will be inserted at the given pose, with given name. The message type
+    is the same that is used by the simulator to add shapes to the simulation scene, but the message definition was moved into the
+    'iis_msgs' package to avoid unnecessary dependecies. The message definitions of the simulator will also be moved into that 
+    package in future. The 'mass' parameter can be set but it is ignored currently. The origin of the shape is always located at the
+    center of the shape. The 'type' parameter specifies the type of the required shape. Supported shape types are BOX (type: 1), 
+    SPHERE (type: 2) and CYLINDER (type: 3).
+
+    The 'dimensions' parameter specifies the required dimensions, based on given shape type:
+  
+      BOX 		- dimensions: [SIZE_X, SIZE_Y, SIZE_Z]
+      SPHERE 		- dimensions: [RADIUS]
+      CYLINDER 		- dimensions: [CYLINDER_HEIGHT, CYLINDER_RADIUS]
+     
+    The 'disable_collision_checking' parameter allows to exclude the new shape from collision checking.
+	
+    Example call (creates a box named 'my_box' with given dimensions on given position):
+	rostopic pub -1 /simulation/motion_control/scene/add_primitive_shape iis_msgs/AddPrimitiveShape "object_id: 'my_box'
+	pose:
+	  position: {x: 0.0, y: 0.0, z: 0.1}
+	  orientation: {x: 0.0, y: 0.0, z: 0.0, w: 0.0}
+	disable_collision_checking: true
+	type: 1
+	dimensions: [0.2, 0.2, 0.2]" 
+	
+    Example call (creates a cylinder named 'my_cylinder' with given dimensions on given position):
+	rostopic pub -1 /simulation/motion_control/scene/add_primitive_shape iis_msgs/AddPrimitiveShape "object_id: 'my_cylinder'
+	pose:
+	  position: {x: 0.0, y: 0.0, z: 0.1}
+	  orientation: {x: 0.0, y: 0.0, z: 0.0, w: 0.0}
+	disable_collision_checking: false
+	type: 3
+	dimensions: [0.2, 0.05]" 
+  
+  - /[NAMESPACE]/motion_control/scene/remove_object
+  
+    Message type:	std_msgs/String
+    
+    Removes the object with given name from the planning scene.
+    
+    Example call:
+	rostopic pub -1 /simulation/motion_control/scene/remove_object std_msgs/String "data: 'my_object'"
+
+Notes:
+======
+
+- The results may differ on different computers. So it could be necessary to play with the precision parameters,
+  set in the 'config/MT.cfg' configuration file. Try to raise or lower the settings for position and alignment
+  precision until you receive the desired results.
+- KOMO did compile on the Lab-computer properly, but the iis_komo package did not, because of an linker error.
+  I solved the problem by copying the libOptim.so from my computer to the KOMO/share/lib folder
+
+Open questions:
+==============
+
+- How to keep the robot in "good" configurations?
+- How to improve and maximize reachability?
+
+TODO:
+=====
+
+- Decouple trajectory execution from planning. Currently, the komo_node does both.
+  Execution functionality should be moved to iis_control package.
+- Allow to specify maximum velocities in config file
+- provide a way to disable collision checking for specific pairs of shapes 
+- provide a way to attach objects to gripper
+- Test adding/remove collision object functionality (especially removed objects could result in an error
+  during subsequent planning requests...)

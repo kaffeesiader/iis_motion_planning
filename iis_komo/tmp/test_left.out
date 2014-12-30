@@ -1,0 +1,1640 @@
+[0m[ INFO] [1417621575.648492173]: Starting test run for input file 'positive_left' for EEF_LINK 'left_eef'[0m
+[0m[ INFO] [1417621575.648540888]: Opening input file 'positive_left'[0m
+[0m[ INFO] [1417621575.703593384]: 7840 test poses loaded.[0m
+ -- SwiftInterface init.........................................................done
+creating ProxyTaskMap with shape list[ 0 ]
+Testing pose 1 out of 100
+*** Entering Thread 'GTK thread'
+Iteration 1 of 2
+Position error   : (-0.00128422 0.00570589 -0.000898427)
+Angular error    : (0.0314781 0.0159326 0.0274367)
+Optimization time: 1.98
+Reported costs   : 2.57045
+Pose 1 successful
+
+Testing pose 2 out of 100
+Iteration 1 of 2
+Position error   : (-0.00306932 0.00207688 -0.001094)
+Angular error    : (0.0238953 0.0187107 0.0250322)
+Optimization time: 1.22
+Reported costs   : 1.43427
+Pose 2 successful
+
+Testing pose 3 out of 100
+Iteration 1 of 2
+Position error   : (-0.016897 -0.00589599 0.00852511)
+Angular error    : (0.0461366 0.0289874 0.0370512)
+Iteration 2 of 2
+Position error   : (-0.00953292 -0.00430019 0.00418158)
+Angular error    : (0.0564423 0.0572241 0.0313627)
+Optimization time: 3.54
+Reported costs   : 1.51888
+Pose 3 failed
+
+Testing pose 4 out of 100
+Iteration 1 of 2
+Position error   : (-0.022451 -0.120237 -0.122576)
+Angular error    : (0.28903 0.397056 0.466774)
+Iteration 2 of 2
+Position error   : (7.16091e-06 -0.000987391 -0.000917598)
+Angular error    : (0.0136535 0.00851302 0.0137367)
+Optimization time: 6.1
+Reported costs   : 0.0904606
+Pose 4 successful
+
+Testing pose 5 out of 100
+Iteration 1 of 2
+Position error   : (0.00134329 -0.00222459 0.000241029)
+Angular error    : (0.0206564 0.0372948 0.0352785)
+Optimization time: 1.14
+Reported costs   : 3.07519
+Pose 5 successful
+
+Testing pose 6 out of 100
+Iteration 1 of 2
+Position error   : (-0.00116196 0.00223299 -0.00225149)
+Angular error    : (0.0425345 0.0339902 0.0491125)
+Optimization time: 1.37
+Reported costs   : 6.82272
+Pose 6 successful
+
+Testing pose 7 out of 100
+Iteration 1 of 2
+Position error   : (0.000249978 -0.000550344 0.000822814)
+Angular error    : (0.00640144 0.025625 0.0260908)
+Optimization time: 1
+Reported costs   : 0.796572
+Pose 7 successful
+
+Testing pose 8 out of 100
+Iteration 1 of 2
+Position error   : (-0.0453738 0.00694484 0.00787906)
+Angular error    : (0.13499 0.155906 0.0780161)
+Iteration 2 of 2
+Position error   : (-0.0446878 -0.00224234 0.00887909)
+Angular error    : (0.133429 0.150457 0.0703686)
+Optimization time: 6.3
+Reported costs   : 32.7773
+Pose 8 failed
+
+Testing pose 9 out of 100
+Iteration 1 of 2
+Position error   : (-0.234304 -0.0702697 0.181157)
+Angular error    : (0.57841 0.593401 0.128879)
+Joint '12' in point '59' closed to lower limit - offset: -0 
+Iteration 2 of 2
+Position error   : (-0.287024 0.0462996 0.213565)
+Angular error    : (0.744583 0.772679 0.19726)
+Optimization time: 13.9
+Reported costs   : 3627.32
+Pose 9 failed
+
+Testing pose 10 out of 100
+Iteration 1 of 2
+Position error   : (6.05997e-05 0.00116827 0.00412637)
+Angular error    : (0.0381761 0.0241995 0.0299699)
+Optimization time: 1.88
+Reported costs   : 4.27831
+Pose 10 successful
+
+Testing pose 11 out of 100
+Iteration 1 of 2
+Position error   : (0.0246871 -0.00124563 -0.0329502)
+Angular error    : (0.201207 0.174515 0.203346)
+Joint '10' in point '54' closed to upper limit - offset: 0 
+Joint '10' in point '55' closed to upper limit - offset: 0 
+Joint '12' in point '56' closed to lower limit - offset: -0 
+Joint '12' in point '57' closed to lower limit - offset: -0 
+Joint '12' in point '58' closed to lower limit - offset: -0 
+Joint '10' in point '59' closed to upper limit - offset: -0 
+Joint '12' in point '59' closed to lower limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.019758 0.00752891 -0.0181069)
+Angular error    : (0.155947 0.101994 0.117876)
+Joint '12' in point '0' closed to lower limit - offset: -0 
+Joint '12' in point '1' closed to lower limit - offset: -0 
+Joint '12' in point '2' closed to lower limit - offset: -0 
+Joint '12' in point '3' closed to lower limit - offset: -0 
+Joint '12' in point '4' closed to lower limit - offset: -0 
+Joint '12' in point '5' closed to lower limit - offset: -0 
+Joint '12' in point '6' closed to lower limit - offset: -0 
+Joint '12' in point '7' closed to lower limit - offset: -0 
+Joint '12' in point '8' closed to lower limit - offset: -0 
+Joint '12' in point '9' closed to lower limit - offset: -0 
+Joint '12' in point '10' closed to lower limit - offset: -0 
+Joint '12' in point '11' closed to lower limit - offset: -0 
+Joint '12' in point '12' closed to lower limit - offset: -0 
+Joint '12' in point '13' closed to lower limit - offset: -0 
+Joint '12' in point '14' closed to lower limit - offset: -0 
+Joint '12' in point '15' closed to lower limit - offset: -0 
+Joint '12' in point '16' closed to lower limit - offset: -0 
+Joint '12' in point '17' closed to lower limit - offset: -0 
+Joint '12' in point '18' closed to lower limit - offset: -0 
+Joint '12' in point '19' closed to lower limit - offset: -0 
+Joint '12' in point '20' closed to lower limit - offset: -0 
+Joint '12' in point '21' closed to lower limit - offset: -0 
+Joint '12' in point '22' closed to lower limit - offset: -0 
+Joint '12' in point '23' closed to lower limit - offset: -0 
+Joint '12' in point '24' closed to lower limit - offset: -0 
+Joint '12' in point '25' closed to lower limit - offset: -0 
+Joint '12' in point '26' closed to lower limit - offset: -0 
+Joint '12' in point '27' closed to lower limit - offset: -0 
+Joint '12' in point '28' closed to lower limit - offset: -0 
+Joint '12' in point '29' closed to lower limit - offset: -0 
+Joint '12' in point '30' closed to lower limit - offset: -0 
+Joint '12' in point '31' closed to lower limit - offset: -0 
+Joint '12' in point '32' closed to lower limit - offset: -0 
+Joint '12' in point '33' closed to lower limit - offset: -0 
+Joint '12' in point '34' closed to lower limit - offset: -0 
+Joint '12' in point '35' closed to lower limit - offset: -0 
+Joint '12' in point '36' closed to lower limit - offset: -0 
+Joint '12' in point '37' closed to lower limit - offset: -0 
+Joint '12' in point '38' closed to lower limit - offset: -0 
+Joint '12' in point '39' closed to lower limit - offset: -0 
+Joint '12' in point '40' closed to lower limit - offset: -0 
+Joint '12' in point '41' closed to lower limit - offset: -0 
+Joint '12' in point '42' closed to lower limit - offset: -0 
+Joint '12' in point '43' closed to lower limit - offset: -0 
+Joint '12' in point '44' closed to lower limit - offset: -0 
+Joint '12' in point '45' closed to lower limit - offset: -0 
+Joint '12' in point '46' closed to lower limit - offset: -0 
+Joint '12' in point '47' closed to lower limit - offset: -0 
+Joint '12' in point '48' closed to lower limit - offset: -0 
+Joint '12' in point '49' closed to lower limit - offset: -0 
+Joint '12' in point '50' closed to lower limit - offset: -0 
+Joint '12' in point '51' closed to lower limit - offset: -0 
+Joint '12' in point '52' closed to lower limit - offset: -0 
+Joint '12' in point '53' closed to lower limit - offset: -0 
+Joint '12' in point '54' closed to lower limit - offset: -0 
+Joint '10' in point '55' closed to upper limit - offset: 0 
+Joint '12' in point '55' closed to lower limit - offset: -0 
+Joint '10' in point '56' closed to upper limit - offset: -0 
+Joint '12' in point '56' closed to lower limit - offset: -0 
+Joint '10' in point '57' closed to upper limit - offset: -0 
+Joint '12' in point '57' closed to lower limit - offset: -0 
+Joint '10' in point '58' closed to upper limit - offset: -0 
+Joint '12' in point '58' closed to lower limit - offset: -0 
+Joint '10' in point '59' closed to upper limit - offset: -0 
+Joint '12' in point '59' closed to lower limit - offset: -0 
+Optimization time: 9.1
+Reported costs   : 6868.29
+Pose 11 failed
+
+Testing pose 12 out of 100
+Iteration 1 of 2
+Position error   : (0.000759229 -0.0059343 -0.00570198)
+Angular error    : (0.0727241 0.021663 0.0699679)
+Iteration 2 of 2
+Position error   : (-0.000274898 -0.000253366 -0.000174506)
+Angular error    : (0.0186418 0.0172467 0.0245926)
+Optimization time: 5.58
+Reported costs   : 0.0381657
+Pose 12 successful
+
+Testing pose 13 out of 100
+Iteration 1 of 2
+Position error   : (0.00273172 0.00269726 0.00223315)
+Angular error    : (0.0151833 0.0267615 0.0224517)
+Optimization time: 1.18
+Reported costs   : 0.58825
+Pose 13 successful
+
+Testing pose 14 out of 100
+Iteration 1 of 2
+Position error   : (0.00300682 -0.00486743 0.001548)
+Angular error    : (0.0389317 0.0490934 0.0616958)
+Iteration 2 of 2
+Position error   : (7.28968e-05 -8.91518e-05 -1.01264e-05)
+Angular error    : (0.0174514 0.0152021 0.0213857)
+Optimization time: 1.7
+Reported costs   : 0.00873621
+Pose 14 successful
+
+Testing pose 15 out of 100
+Iteration 1 of 2
+Position error   : (0.00200548 0.00225317 0.00308439)
+Angular error    : (0.0116454 0.0104313 0.0155013)
+Optimization time: 1.45
+Reported costs   : 1.14468
+Pose 15 successful
+
+Testing pose 16 out of 100
+Iteration 1 of 2
+Position error   : (-0.00110053 -0.0091075 -0.000600047)
+Angular error    : (0.0363089 0.032478 0.0354074)
+Optimization time: 1.75
+Reported costs   : 3.98103
+Pose 16 successful
+
+Testing pose 17 out of 100
+Iteration 1 of 2
+Position error   : (0.00300783 0.0655902 -0.0163988)
+Angular error    : (0.275801 0.200108 0.245444)
+Joint '10' in point '49' closed to upper limit - offset: 0 
+Joint '10' in point '50' closed to upper limit - offset: 0 
+Joint '10' in point '51' closed to upper limit - offset: 0 
+Joint '12' in point '57' closed to lower limit - offset: -0 
+Joint '12' in point '58' closed to lower limit - offset: -0 
+Joint '12' in point '59' closed to lower limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.0169204 0.0318973 0.0110461)
+Angular error    : (0.20509 0.25081 0.158637)
+Joint '12' in point '0' closed to lower limit - offset: -0 
+Joint '12' in point '1' closed to lower limit - offset: 0 
+Joint '12' in point '58' closed to lower limit - offset: -0 
+Joint '12' in point '59' closed to lower limit - offset: -0 
+Optimization time: 6.68
+Reported costs   : 1302.86
+Pose 17 failed
+
+Testing pose 18 out of 100
+Iteration 1 of 2
+Position error   : (0.00488612 -0.000102831 0.00522288)
+Angular error    : (0.0374072 0.0480751 0.030437)
+Optimization time: 2.17
+Reported costs   : 7.28485
+Pose 18 successful
+
+Testing pose 19 out of 100
+Iteration 1 of 2
+Position error   : (0.00130036 -0.00153513 -0.000374522)
+Angular error    : (0.0164404 0.0371634 0.0405321)
+Optimization time: 2.06
+Reported costs   : 2.11764
+Pose 19 successful
+
+Testing pose 20 out of 100
+Iteration 1 of 2
+Position error   : (0.00356917 0.00563865 -0.00646918)
+Angular error    : (0.0356542 0.0337828 0.0432543)
+Optimization time: 1.31
+Reported costs   : 1.741
+Pose 20 successful
+
+Testing pose 21 out of 100
+Iteration 1 of 2
+Position error   : (0.000887956 -0.00439482 0.00541285)
+Angular error    : (0.0341894 0.0340323 0.0454146)
+Joint '6' in point '40' closed to lower limit - offset: 0 
+Optimization time: 1.93
+Reported costs   : 7.15955
+Pose 21 successful
+
+Testing pose 22 out of 100
+Iteration 1 of 2
+Position error   : (-0.00460269 0.00131744 0.00436947)
+Angular error    : (0.0408089 0.0215413 0.0401351)
+Optimization time: 1.98
+Reported costs   : 3.34621
+Pose 22 successful
+
+Testing pose 23 out of 100
+Iteration 1 of 2
+Position error   : (0.00114719 0.0024767 -0.00030087)
+Angular error    : (0.0132187 0.0127527 0.0143213)
+Optimization time: 1.09
+Reported costs   : 0.381021
+Pose 23 successful
+
+Testing pose 24 out of 100
+Iteration 1 of 2
+Position error   : (0.00146614 -0.00235084 0.00218585)
+Angular error    : (0.0163629 0.0152876 0.0223835)
+Optimization time: 1.09
+Reported costs   : 0.936204
+Pose 24 successful
+
+Testing pose 25 out of 100
+Iteration 1 of 2
+Position error   : (-0.000409628 0.00177258 0.000566259)
+Angular error    : (0.0250244 0.0146879 0.0278746)
+Optimization time: 3.58
+Reported costs   : 1.30603
+Pose 25 successful
+
+Testing pose 26 out of 100
+Iteration 1 of 2
+Position error   : (0.0022357 -0.00270202 0.00363371)
+Angular error    : (0.036189 0.0357208 0.0419577)
+Optimization time: 1.66
+Reported costs   : 4.6809
+Pose 26 successful
+
+Testing pose 27 out of 100
+Iteration 1 of 2
+Position error   : (0.00472816 -0.00503685 0.0009212)
+Angular error    : (0.0420187 0.0534603 0.0383736)
+Joint '6' in point '36' closed to lower limit - offset: 0 
+Joint '6' in point '37' closed to lower limit - offset: 0 
+Joint '6' in point '38' closed to lower limit - offset: 0 
+Iteration 2 of 2
+Position error   : (1.84238e-05 -0.000103735 9.59666e-05)
+Angular error    : (0.010917 0.0167562 0.0163223)
+Optimization time: 1.96
+Reported costs   : 0.00588272
+Pose 27 successful
+
+Testing pose 28 out of 100
+Iteration 1 of 2
+Position error   : (0.0247514 0.0018418 0.0587894)
+Angular error    : (0.0377929 0.161264 0.160742)
+Joint '10' in point '38' closed to lower limit - offset: 0 
+Joint '10' in point '39' closed to lower limit - offset: 0 
+Joint '10' in point '40' closed to lower limit - offset: 0 
+Joint '10' in point '41' closed to lower limit - offset: 0 
+Joint '10' in point '42' closed to lower limit - offset: 0 
+Joint '10' in point '43' closed to lower limit - offset: 0 
+Joint '10' in point '44' closed to lower limit - offset: 0 
+Joint '10' in point '45' closed to lower limit - offset: 0 
+Joint '0' in point '47' closed to lower limit - offset: 0 
+Joint '0' in point '48' closed to lower limit - offset: 0 
+Joint '0' in point '57' closed to lower limit - offset: 0 
+Joint '0' in point '58' closed to lower limit - offset: 0 
+Joint '4' in point '58' closed to upper limit - offset: 0 
+Joint '0' in point '59' closed to lower limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.0611768 -0.00678795 0.0871703)
+Angular error    : (0.029296 0.0857432 0.0837596)
+Joint '4' in point '0' closed to upper limit - offset: 0 
+Optimization time: 7.57
+Reported costs   : 283.876
+Pose 28 failed
+
+Testing pose 29 out of 100
+Iteration 1 of 2
+Position error   : (0.0312698 0.0842555 0.00380823)
+Angular error    : (0.10212 0.145404 0.176071)
+Joint '2' in point '57' closed to upper limit - offset: 0 
+Joint '2' in point '58' closed to upper limit - offset: -0 
+Joint '2' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.0389119 0.0820798 0.00174851)
+Angular error    : (0.109848 0.155114 0.181961)
+Joint '2' in point '0' closed to upper limit - offset: 0 
+Joint '2' in point '59' closed to upper limit - offset: -0 
+Optimization time: 13.85
+Reported costs   : 576.574
+Pose 29 failed
+
+Testing pose 30 out of 100
+Iteration 1 of 2
+Position error   : (0.00139619 -0.00628097 0.00331636)
+Angular error    : (0.0133786 0.0147872 0.0192515)
+Optimization time: 1.06
+Reported costs   : 1.72157
+Pose 30 successful
+
+Testing pose 31 out of 100
+Iteration 1 of 2
+Position error   : (0.00206408 0.00157793 -0.00234839)
+Angular error    : (0.038778 0.0331525 0.04532)
+Optimization time: 2.63
+Reported costs   : 2.78095
+Pose 31 successful
+
+Testing pose 32 out of 100
+Iteration 1 of 2
+Position error   : (0.0042218 0.000893496 0.00285607)
+Angular error    : (0.033247 0.0452981 0.0461016)
+Optimization time: 2.42
+Reported costs   : 4.74347
+Pose 32 successful
+
+Testing pose 33 out of 100
+Iteration 1 of 2
+Position error   : (0.0298936 -0.0190195 0.0222518)
+Angular error    : (0.0548608 0.0574486 0.0376182)
+Joint '6' in point '47' closed to lower limit - offset: 0 
+Joint '6' in point '48' closed to lower limit - offset: 0 
+Joint '0' in point '50' closed to lower limit - offset: 0 
+Joint '0' in point '51' closed to lower limit - offset: 0 
+Joint '0' in point '52' closed to lower limit - offset: 0 
+Joint '4' in point '58' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.015172 0.0136726 0.0318334)
+Angular error    : (0.0456921 0.0570371 0.0688956)
+Joint '4' in point '0' closed to upper limit - offset: 0 
+Optimization time: 11.57
+Reported costs   : 28.9095
+Pose 33 failed
+
+Testing pose 34 out of 100
+Iteration 1 of 2
+Position error   : (0.00121957 0.00184014 -0.00413385)
+Angular error    : (0.0275261 0.027906 0.0307301)
+Optimization time: 1.31
+Reported costs   : 2.3635
+Pose 34 successful
+
+Testing pose 35 out of 100
+Iteration 1 of 2
+Position error   : (-0.00147627 0.00251131 0.00179439)
+Angular error    : (0.0121788 0.0162478 0.0165431)
+Optimization time: 0.88
+Reported costs   : 0.455949
+Pose 35 successful
+
+Testing pose 36 out of 100
+Iteration 1 of 2
+Position error   : (0.00234846 0.000631988 -0.00361838)
+Angular error    : (0.014099 0.0316803 0.0326207)
+Optimization time: 1.2
+Reported costs   : 1.16625
+Pose 36 successful
+
+Testing pose 37 out of 100
+Iteration 1 of 2
+Position error   : (0.00150987 -0.00180226 0.000615784)
+Angular error    : (0.0144501 0.0291849 0.0260496)
+Optimization time: 1.47
+Reported costs   : 1.51187
+Pose 37 successful
+
+Testing pose 38 out of 100
+Iteration 1 of 2
+Position error   : (0.000822835 0.00239502 -0.00375677)
+Angular error    : (0.0220157 0.0252882 0.0314979)
+Optimization time: 1.13
+Reported costs   : 1.13864
+Pose 38 successful
+
+Testing pose 39 out of 100
+Iteration 1 of 2
+Position error   : (0.00411993 0.00296872 -0.00480058)
+Angular error    : (0.0343233 0.0295368 0.035707)
+Optimization time: 1.34
+Reported costs   : 2.74557
+Pose 39 successful
+
+Testing pose 40 out of 100
+Iteration 1 of 2
+Position error   : (-0.00153114 0.00225656 0.00207552)
+Angular error    : (0.0269307 0.0220373 0.0341189)
+Optimization time: 1.57
+Reported costs   : 1.73917
+Pose 40 successful
+
+Testing pose 41 out of 100
+Iteration 1 of 2
+Position error   : (0.0192897 0.00612626 0.0348955)
+Angular error    : (0.0618936 0.036702 0.0541908)
+Iteration 2 of 2
+Position error   : (0.0215142 0.00372916 0.0356456)
+Angular error    : (0.0634422 0.0180794 0.0631062)
+Optimization time: 7.09
+Reported costs   : 14.03
+Pose 41 failed
+
+Testing pose 42 out of 100
+Iteration 1 of 2
+Position error   : (-0.000450736 -0.000448927 -0.00162703)
+Angular error    : (0.0175845 0.0155589 0.0197071)
+Optimization time: 0.72
+Reported costs   : 0.285285
+Pose 42 successful
+
+Testing pose 43 out of 100
+Iteration 1 of 2
+Position error   : (-0.00155558 0.000523447 0.00241628)
+Angular error    : (0.0362926 0.035514 0.0452636)
+Optimization time: 3.21
+Reported costs   : 4.29834
+Pose 43 successful
+
+Testing pose 44 out of 100
+Iteration 1 of 2
+Position error   : (0.00159326 0.00269817 0.00117216)
+Angular error    : (0.0235758 0.0162653 0.0171683)
+Optimization time: 1.29
+Reported costs   : 1.36263
+Pose 44 successful
+
+Testing pose 45 out of 100
+Iteration 1 of 2
+Position error   : (0.00101702 -0.00163855 -0.00777495)
+Angular error    : (0.0386136 0.042305 0.055427)
+Iteration 2 of 2
+Position error   : (-6.01792e-05 -7.04502e-05 -0.00013055)
+Angular error    : (0.0222434 0.0246586 0.0200933)
+Optimization time: 2.43
+Reported costs   : 0.0258254
+Pose 45 successful
+
+Testing pose 46 out of 100
+Iteration 1 of 2
+Position error   : (0.00173124 0.000134321 -0.000242298)
+Angular error    : (0.025248 0.0221722 0.0186937)
+Optimization time: 0.88
+Reported costs   : 0.527363
+Pose 46 successful
+
+Testing pose 47 out of 100
+Iteration 1 of 2
+Position error   : (0.00190572 -0.000197146 -0.000660834)
+Angular error    : (0.0178602 0.0249963 0.0296354)
+Optimization time: 1.02
+Reported costs   : 0.417918
+Pose 47 successful
+
+Testing pose 48 out of 100
+Iteration 1 of 2
+Position error   : (-0.00260985 -0.00184484 0.00288985)
+Angular error    : (0.0141905 0.0273844 0.0308289)
+Optimization time: 1.06
+Reported costs   : 1.50069
+Pose 48 successful
+
+Testing pose 49 out of 100
+Iteration 1 of 2
+Position error   : (0.00228274 0.00359912 0.000480876)
+Angular error    : (0.0220025 0.0187441 0.0202451)
+Optimization time: 1.07
+Reported costs   : 1.20655
+Pose 49 successful
+
+Testing pose 50 out of 100
+Iteration 1 of 2
+Position error   : (0.109946 -0.296229 -0.00233389)
+Angular error    : (0.517222 0.564669 0.226983)
+Iteration 2 of 2
+Position error   : (0.133588 -0.31741 -0.0261008)
+Angular error    : (0.426199 0.448329 0.243277)
+Optimization time: 16.39
+Reported costs   : 1293.27
+Pose 50 failed
+
+Testing pose 51 out of 100
+Iteration 1 of 2
+Position error   : (0.000976769 0.00151907 -0.00127995)
+Angular error    : (0.0250757 0.0455165 0.0431736)
+Optimization time: 2.18
+Reported costs   : 4.53938
+Pose 51 successful
+
+Testing pose 52 out of 100
+Iteration 1 of 2
+Position error   : (0.00194346 -0.000294792 0.00299806)
+Angular error    : (0.0215421 0.00885078 0.0227383)
+Optimization time: 1.36
+Reported costs   : 2.13666
+Pose 52 successful
+
+Testing pose 53 out of 100
+Iteration 1 of 2
+Position error   : (-0.0331838 -0.0156674 -0.0600907)
+Angular error    : (0.0670038 0.0738052 0.099599)
+Iteration 2 of 2
+Position error   : (-0.034679 -0.0133776 -0.0596053)
+Angular error    : (0.0688648 0.0578757 0.0899602)
+Optimization time: 5.89
+Reported costs   : 51.8698
+Pose 53 failed
+
+Testing pose 54 out of 100
+Iteration 1 of 2
+Position error   : (-0.00107229 9.08118e-05 -0.00148402)
+Angular error    : (0.025123 0.0133459 0.0283344)
+Optimization time: 1.07
+Reported costs   : 0.576644
+Pose 54 successful
+
+Testing pose 55 out of 100
+Iteration 1 of 2
+Position error   : (0.000886264 0.00503216 0.00167021)
+Angular error    : (0.014118 0.0160194 0.00942901)
+Optimization time: 2.34
+Reported costs   : 1.08525
+Pose 55 successful
+
+Testing pose 56 out of 100
+Iteration 1 of 2
+Position error   : (0.0155808 0.00345092 0.0118752)
+Angular error    : (0.0965679 0.0546577 0.0911083)
+Joint '4' in point '57' closed to upper limit - offset: 0 
+Joint '4' in point '58' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.0167873 0.00836887 0.028071)
+Angular error    : (0.0467593 0.0302078 0.055242)
+Optimization time: 5.12
+Reported costs   : 15.9842
+Pose 56 failed
+
+Testing pose 57 out of 100
+Iteration 1 of 2
+Position error   : (-0.00276605 0.00320206 -0.00202267)
+Angular error    : (0.035277 0.0349341 0.0202056)
+Optimization time: 1.69
+Reported costs   : 4.12814
+Pose 57 successful
+
+Testing pose 58 out of 100
+Iteration 1 of 2
+Position error   : (0.00182846 0.0030367 0.00286569)
+Angular error    : (0.0264624 0.0366994 0.042755)
+Optimization time: 1.43
+Reported costs   : 3.42944
+Pose 58 successful
+
+Testing pose 59 out of 100
+Iteration 1 of 2
+Position error   : (0.00454211 -0.00234351 -0.00152124)
+Angular error    : (0.0182935 0.0278259 0.0233965)
+Optimization time: 1.66
+Reported costs   : 1.9347
+Pose 59 successful
+
+Testing pose 60 out of 100
+Iteration 1 of 2
+Position error   : (0.00481418 -0.00243905 0.0016775)
+Angular error    : (0.0633461 0.0255519 0.0581152)
+Iteration 2 of 2
+Position error   : (0.000270047 -8.78794e-05 0.000156971)
+Angular error    : (0.0239798 0.0101883 0.0256926)
+Optimization time: 3.15
+Reported costs   : 0.0421416
+Pose 60 successful
+
+Testing pose 61 out of 100
+Iteration 1 of 2
+Position error   : (-0.00104917 0.00258408 0.00108208)
+Angular error    : (0.0483644 0.0304876 0.0431936)
+Optimization time: 2.34
+Reported costs   : 5.14088
+Pose 61 successful
+
+Testing pose 62 out of 100
+Iteration 1 of 2
+Position error   : (0.010044 0.00332753 -0.00116674)
+Angular error    : (0.0771007 0.0452875 0.0659536)
+Joint '10' in point '38' closed to lower limit - offset: 0 
+Joint '10' in point '39' closed to lower limit - offset: 0 
+Iteration 2 of 2
+Position error   : (0.000220496 -3.26162e-05 1.55571e-05)
+Angular error    : (0.0228056 0.0139764 0.0197582)
+Optimization time: 4.17
+Reported costs   : 0.0127517
+Pose 62 successful
+
+Testing pose 63 out of 100
+Iteration 1 of 2
+Position error   : (0.00125741 0.00386169 0.00710468)
+Angular error    : (0.030236 0.0357094 0.0294073)
+Optimization time: 1.5
+Reported costs   : 4.1951
+Pose 63 successful
+
+Testing pose 64 out of 100
+Iteration 1 of 2
+Position error   : (-0.0555926 -0.00934256 -0.000448881)
+Angular error    : (0.0812605 0.216506 0.210906)
+Iteration 2 of 2
+Position error   : (-0.0622665 0.00154734 -0.0104601)
+Angular error    : (0.104647 0.17922 0.170044)
+Joint '4' in point '57' closed to upper limit - offset: 0 
+Joint '4' in point '58' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Optimization time: 7.09
+Reported costs   : 279.776
+Pose 64 failed
+
+Testing pose 65 out of 100
+Iteration 1 of 2
+Position error   : (0.00512827 0.00228206 -0.00535254)
+Angular error    : (0.0357734 0.0177189 0.0399175)
+Optimization time: 2.85
+Reported costs   : 5.76592
+Pose 65 successful
+
+Testing pose 66 out of 100
+Iteration 1 of 2
+Position error   : (0.000695481 -0.00381473 0.00158651)
+Angular error    : (0.0271256 0.0344515 0.0212656)
+Optimization time: 1.65
+Reported costs   : 1.46805
+Pose 66 successful
+
+Testing pose 67 out of 100
+Iteration 1 of 2
+Position error   : (0.122969 -0.136642 -0.174811)
+Angular error    : (0.768768 0.824449 0.290144)
+Joint '10' in point '51' closed to lower limit - offset: 0 
+Joint '10' in point '52' closed to lower limit - offset: 0 
+Joint '10' in point '53' closed to lower limit - offset: 0 
+Joint '10' in point '54' closed to lower limit - offset: 0 
+Joint '12' in point '56' closed to upper limit - offset: 0 
+Joint '12' in point '57' closed to upper limit - offset: 0 
+Joint '12' in point '58' closed to upper limit - offset: -0 
+Joint '12' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.113944 -0.102926 -0.128365)
+Angular error    : (0.759567 0.759534 0.105767)
+Joint '12' in point '0' closed to upper limit - offset: -0 
+Joint '12' in point '1' closed to upper limit - offset: 0 
+Joint '4' in point '2' closed to upper limit - offset: 0 
+Joint '4' in point '3' closed to upper limit - offset: -0 
+Joint '4' in point '4' closed to upper limit - offset: -0 
+Joint '4' in point '5' closed to upper limit - offset: -0 
+Joint '4' in point '6' closed to upper limit - offset: 0 
+Joint '4' in point '7' closed to upper limit - offset: 0 
+Joint '12' in point '10' closed to upper limit - offset: 0 
+Joint '12' in point '11' closed to upper limit - offset: 0 
+Joint '12' in point '12' closed to upper limit - offset: 0 
+Joint '12' in point '13' closed to upper limit - offset: 0 
+Joint '12' in point '14' closed to upper limit - offset: 0 
+Joint '12' in point '15' closed to upper limit - offset: 0 
+Joint '12' in point '16' closed to upper limit - offset: 0 
+Joint '12' in point '17' closed to upper limit - offset: 0 
+Joint '12' in point '18' closed to upper limit - offset: 0 
+Joint '12' in point '19' closed to upper limit - offset: 0 
+Joint '12' in point '20' closed to upper limit - offset: -0 
+Joint '12' in point '21' closed to upper limit - offset: 0 
+Joint '12' in point '22' closed to upper limit - offset: 0 
+Joint '12' in point '23' closed to upper limit - offset: 0 
+Joint '12' in point '24' closed to upper limit - offset: 0 
+Joint '12' in point '25' closed to upper limit - offset: -0 
+Joint '12' in point '26' closed to upper limit - offset: 0 
+Joint '12' in point '27' closed to upper limit - offset: 0 
+Joint '12' in point '28' closed to upper limit - offset: 0 
+Joint '12' in point '29' closed to upper limit - offset: 0 
+Joint '12' in point '30' closed to upper limit - offset: 0 
+Joint '12' in point '31' closed to upper limit - offset: 0 
+Joint '12' in point '32' closed to upper limit - offset: 0 
+Joint '12' in point '33' closed to upper limit - offset: 0 
+Joint '12' in point '34' closed to upper limit - offset: 0 
+Joint '12' in point '35' closed to upper limit - offset: 0 
+Joint '12' in point '36' closed to upper limit - offset: 0 
+Joint '12' in point '37' closed to upper limit - offset: 0 
+Joint '12' in point '38' closed to upper limit - offset: 0 
+Joint '12' in point '39' closed to upper limit - offset: 0 
+Joint '12' in point '40' closed to upper limit - offset: -0 
+Joint '12' in point '41' closed to upper limit - offset: 0 
+Joint '12' in point '42' closed to upper limit - offset: 0 
+Joint '12' in point '43' closed to upper limit - offset: 0 
+Joint '12' in point '44' closed to upper limit - offset: 0 
+Joint '12' in point '45' closed to upper limit - offset: 0 
+Joint '12' in point '46' closed to upper limit - offset: -0 
+Joint '12' in point '47' closed to upper limit - offset: -0 
+Joint '12' in point '48' closed to upper limit - offset: -0 
+Joint '12' in point '49' closed to upper limit - offset: -0 
+Joint '12' in point '50' closed to upper limit - offset: -0 
+Joint '12' in point '51' closed to upper limit - offset: -0 
+Joint '12' in point '52' closed to upper limit - offset: -0 
+Joint '12' in point '53' closed to upper limit - offset: -0 
+Joint '12' in point '54' closed to upper limit - offset: -0 
+Joint '4' in point '55' closed to upper limit - offset: 0 
+Joint '12' in point '55' closed to upper limit - offset: -0 
+Joint '12' in point '56' closed to upper limit - offset: -0 
+Joint '12' in point '57' closed to upper limit - offset: -0 
+Joint '4' in point '58' closed to upper limit - offset: 0 
+Joint '12' in point '58' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Joint '12' in point '59' closed to upper limit - offset: -0 
+Optimization time: 17.35
+Reported costs   : 32837
+Pose 67 failed
+
+Testing pose 68 out of 100
+Iteration 1 of 2
+Position error   : (0.00297893 2.08962e-05 0.00233533)
+Angular error    : (0.0427276 0.0650564 0.0588975)
+Iteration 2 of 2
+Position error   : (-1.17067e-05 4.3007e-05 9.94133e-05)
+Angular error    : (0.0134552 0.0132662 0.0169753)
+Optimization time: 4.99
+Reported costs   : 0.0132508
+Pose 68 successful
+
+Testing pose 69 out of 100
+Iteration 1 of 2
+Position error   : (-0.029907 -0.00675598 -0.0383366)
+Angular error    : (0.217377 0.161242 0.269459)
+Joint '4' in point '56' closed to upper limit - offset: 0 
+Joint '4' in point '57' closed to upper limit - offset: -0 
+Joint '4' in point '58' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (-0.0271078 -0.00864545 -0.0427348)
+Angular error    : (0.205552 0.0795588 0.200055)
+Joint '4' in point '0' closed to upper limit - offset: -0 
+Joint '4' in point '1' closed to upper limit - offset: 0 
+Joint '10' in point '5' closed to upper limit - offset: 0 
+Joint '10' in point '48' closed to upper limit - offset: 0 
+Joint '10' in point '49' closed to upper limit - offset: 0 
+Joint '10' in point '50' closed to upper limit - offset: 0 
+Joint '10' in point '51' closed to upper limit - offset: 0 
+Joint '10' in point '52' closed to upper limit - offset: 0 
+Joint '10' in point '53' closed to upper limit - offset: 0 
+Joint '10' in point '54' closed to upper limit - offset: 0 
+Joint '10' in point '55' closed to upper limit - offset: 0 
+Joint '4' in point '58' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Optimization time: 5.69
+Reported costs   : 1608.86
+Pose 69 failed
+
+Testing pose 70 out of 100
+Iteration 1 of 2
+Position error   : (0.0963073 0.123008 -0.0122265)
+Angular error    : (0.38883 0.384116 0.518402)
+Joint '4' in point '0' closed to upper limit - offset: -0 
+Joint '4' in point '1' closed to upper limit - offset: -0 
+Joint '10' in point '5' closed to upper limit - offset: 0 
+Joint '4' in point '52' closed to upper limit - offset: 0 
+Joint '4' in point '53' closed to upper limit - offset: 0 
+Joint '4' in point '54' closed to upper limit - offset: 0 
+Joint '4' in point '55' closed to upper limit - offset: -0 
+Joint '10' in point '55' closed to upper limit - offset: 0 
+Joint '4' in point '56' closed to upper limit - offset: -0 
+Joint '10' in point '56' closed to upper limit - offset: -0 
+Joint '4' in point '57' closed to upper limit - offset: -0 
+Joint '10' in point '57' closed to upper limit - offset: -0 
+Joint '4' in point '58' closed to upper limit - offset: 0 
+Joint '8' in point '58' closed to upper limit - offset: -0 
+Joint '8' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.108418 0.0863142 -0.0321437)
+Angular error    : (0.329249 0.378794 0.438529)
+Joint '8' in point '0' closed to upper limit - offset: -0 
+Joint '4' in point '3' closed to upper limit - offset: 0 
+Joint '4' in point '4' closed to upper limit - offset: 0 
+Joint '4' in point '5' closed to upper limit - offset: 0 
+Joint '4' in point '6' closed to upper limit - offset: 0 
+Joint '10' in point '45' closed to upper limit - offset: 0 
+Joint '10' in point '46' closed to upper limit - offset: 0 
+Joint '10' in point '47' closed to upper limit - offset: 0 
+Joint '10' in point '48' closed to upper limit - offset: 0 
+Joint '10' in point '49' closed to upper limit - offset: -0 
+Joint '10' in point '50' closed to upper limit - offset: -0 
+Joint '10' in point '51' closed to upper limit - offset: 0 
+Joint '8' in point '52' closed to upper limit - offset: 0 
+Joint '10' in point '52' closed to upper limit - offset: -0 
+Joint '8' in point '53' closed to upper limit - offset: -0 
+Joint '10' in point '53' closed to upper limit - offset: 0 
+Joint '8' in point '54' closed to upper limit - offset: -0 
+Joint '10' in point '54' closed to upper limit - offset: 0 
+Joint '8' in point '55' closed to upper limit - offset: -0 
+Joint '8' in point '56' closed to upper limit - offset: -0 
+Joint '8' in point '57' closed to upper limit - offset: -0 
+Joint '8' in point '58' closed to upper limit - offset: -0 
+Joint '8' in point '59' closed to upper limit - offset: -0 
+Optimization time: 14.71
+Reported costs   : 22780.2
+Pose 70 failed
+
+Testing pose 71 out of 100
+Iteration 1 of 2
+Position error   : (0.167981 -0.00704522 0.173099)
+Angular error    : (0.553434 0.379644 0.663764)
+Joint '8' in point '0' closed to upper limit - offset: -0 
+Joint '8' in point '1' closed to upper limit - offset: -0 
+Joint '8' in point '5' closed to upper limit - offset: 0 
+Joint '8' in point '6' closed to upper limit - offset: 0 
+Joint '8' in point '7' closed to upper limit - offset: 0 
+Joint '8' in point '8' closed to upper limit - offset: 0 
+Joint '8' in point '9' closed to upper limit - offset: 0 
+Joint '8' in point '10' closed to upper limit - offset: 0 
+Joint '8' in point '11' closed to upper limit - offset: 0 
+Joint '8' in point '12' closed to upper limit - offset: 0 
+Joint '8' in point '13' closed to upper limit - offset: 0 
+Joint '8' in point '14' closed to upper limit - offset: 0 
+Joint '8' in point '15' closed to upper limit - offset: 0 
+Joint '8' in point '16' closed to upper limit - offset: 0 
+Joint '8' in point '17' closed to upper limit - offset: 0 
+Joint '8' in point '18' closed to upper limit - offset: 0 
+Joint '8' in point '19' closed to upper limit - offset: 0 
+Joint '8' in point '20' closed to upper limit - offset: 0 
+Joint '8' in point '21' closed to upper limit - offset: 0 
+Joint '8' in point '22' closed to upper limit - offset: 0 
+Joint '8' in point '23' closed to upper limit - offset: 0 
+Joint '8' in point '24' closed to upper limit - offset: 0 
+Joint '8' in point '25' closed to upper limit - offset: 0 
+Joint '8' in point '26' closed to upper limit - offset: 0 
+Joint '8' in point '27' closed to upper limit - offset: 0 
+Joint '8' in point '28' closed to upper limit - offset: 0 
+Joint '8' in point '29' closed to upper limit - offset: 0 
+Joint '8' in point '30' closed to upper limit - offset: 0 
+Joint '8' in point '31' closed to upper limit - offset: 0 
+Joint '8' in point '32' closed to upper limit - offset: 0 
+Joint '8' in point '37' closed to upper limit - offset: 0 
+Joint '8' in point '38' closed to upper limit - offset: 0 
+Joint '8' in point '39' closed to upper limit - offset: 0 
+Joint '8' in point '40' closed to upper limit - offset: 0 
+Joint '8' in point '41' closed to upper limit - offset: 0 
+Joint '10' in point '43' closed to upper limit - offset: 0 
+Joint '10' in point '44' closed to upper limit - offset: 0 
+Joint '10' in point '45' closed to upper limit - offset: 0 
+Joint '10' in point '46' closed to upper limit - offset: 0 
+Joint '10' in point '47' closed to upper limit - offset: 0 
+Joint '10' in point '48' closed to upper limit - offset: -0 
+Joint '10' in point '49' closed to upper limit - offset: -0 
+Joint '10' in point '50' closed to upper limit - offset: -0 
+Joint '10' in point '51' closed to upper limit - offset: -0 
+Joint '10' in point '52' closed to upper limit - offset: -0 
+Joint '10' in point '53' closed to upper limit - offset: -0 
+Joint '10' in point '54' closed to upper limit - offset: -0 
+Joint '10' in point '55' closed to upper limit - offset: -0 
+Joint '6' in point '56' closed to lower limit - offset: 0 
+Joint '10' in point '56' closed to upper limit - offset: -0 
+Joint '4' in point '57' closed to upper limit - offset: -0 
+Joint '6' in point '57' closed to lower limit - offset: -0 
+Joint '10' in point '57' closed to upper limit - offset: -0 
+Joint '4' in point '58' closed to upper limit - offset: -0 
+Joint '6' in point '58' closed to lower limit - offset: 0 
+Joint '10' in point '58' closed to upper limit - offset: -0 
+Joint '0' in point '59' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.164712 -0.0231638 0.199459)
+Angular error    : (0.519381 0.380808 0.649171)
+Joint '4' in point '0' closed to upper limit - offset: -0 
+Joint '4' in point '1' closed to upper limit - offset: -0 
+Joint '4' in point '2' closed to upper limit - offset: 0 
+Joint '4' in point '3' closed to upper limit - offset: 0 
+Joint '4' in point '4' closed to upper limit - offset: 0 
+Joint '4' in point '5' closed to upper limit - offset: 0 
+Joint '4' in point '6' closed to upper limit - offset: 0 
+Joint '4' in point '7' closed to upper limit - offset: 0 
+Joint '4' in point '8' closed to upper limit - offset: 0 
+Joint '4' in point '9' closed to upper limit - offset: 0 
+Joint '4' in point '10' closed to upper limit - offset: 0 
+Joint '4' in point '11' closed to upper limit - offset: 0 
+Joint '4' in point '12' closed to upper limit - offset: 0 
+Joint '4' in point '13' closed to upper limit - offset: 0 
+Joint '4' in point '14' closed to upper limit - offset: 0 
+Joint '4' in point '15' closed to upper limit - offset: 0 
+Joint '4' in point '16' closed to upper limit - offset: 0 
+Joint '4' in point '17' closed to upper limit - offset: 0 
+Joint '4' in point '18' closed to upper limit - offset: 0 
+Joint '4' in point '19' closed to upper limit - offset: 0 
+Joint '4' in point '20' closed to upper limit - offset: 0 
+Joint '4' in point '21' closed to upper limit - offset: 0 
+Joint '4' in point '22' closed to upper limit - offset: 0 
+Joint '4' in point '23' closed to upper limit - offset: 0 
+Joint '4' in point '24' closed to upper limit - offset: 0 
+Joint '4' in point '25' closed to upper limit - offset: 0 
+Joint '4' in point '26' closed to upper limit - offset: 0 
+Joint '4' in point '27' closed to upper limit - offset: 0 
+Joint '4' in point '28' closed to upper limit - offset: 0 
+Joint '4' in point '29' closed to upper limit - offset: 0 
+Joint '4' in point '30' closed to upper limit - offset: 0 
+Joint '4' in point '31' closed to upper limit - offset: 0 
+Joint '4' in point '32' closed to upper limit - offset: 0 
+Joint '4' in point '33' closed to upper limit - offset: 0 
+Joint '4' in point '34' closed to upper limit - offset: 0 
+Joint '4' in point '35' closed to upper limit - offset: 0 
+Joint '4' in point '36' closed to upper limit - offset: 0 
+Joint '4' in point '37' closed to upper limit - offset: 0 
+Joint '4' in point '38' closed to upper limit - offset: 0 
+Joint '4' in point '39' closed to upper limit - offset: 0 
+Joint '4' in point '40' closed to upper limit - offset: 0 
+Joint '4' in point '41' closed to upper limit - offset: 0 
+Joint '10' in point '43' closed to upper limit - offset: 0 
+Joint '10' in point '44' closed to upper limit - offset: 0 
+Joint '10' in point '45' closed to upper limit - offset: 0 
+Joint '10' in point '46' closed to upper limit - offset: 0 
+Joint '10' in point '47' closed to upper limit - offset: 0 
+Joint '10' in point '48' closed to upper limit - offset: -0 
+Joint '10' in point '49' closed to upper limit - offset: -0 
+Joint '10' in point '50' closed to upper limit - offset: -0 
+Joint '10' in point '51' closed to upper limit - offset: -0 
+Joint '10' in point '52' closed to upper limit - offset: -0 
+Joint '10' in point '53' closed to upper limit - offset: -0 
+Joint '10' in point '54' closed to upper limit - offset: -0 
+Joint '10' in point '55' closed to upper limit - offset: -0 
+Joint '10' in point '56' closed to upper limit - offset: -0 
+Joint '0' in point '57' closed to upper limit - offset: -0 
+Joint '10' in point '57' closed to upper limit - offset: -0 
+Joint '0' in point '58' closed to upper limit - offset: -0 
+Joint '10' in point '58' closed to upper limit - offset: -0 
+Joint '0' in point '59' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Optimization time: 16.39
+Reported costs   : 28234.3
+Pose 71 failed
+
+Testing pose 72 out of 100
+Iteration 1 of 2
+Position error   : (0.0156338 -0.0379175 -0.0268569)
+Angular error    : (0.0596725 0.0883926 0.106365)
+Joint '0' in point '0' closed to upper limit - offset: -0 
+Joint '10' in point '3' closed to upper limit - offset: 0 
+Joint '10' in point '4' closed to upper limit - offset: 0 
+Joint '10' in point '5' closed to upper limit - offset: 0 
+Joint '10' in point '6' closed to upper limit - offset: 0 
+Joint '10' in point '7' closed to upper limit - offset: 0 
+Joint '10' in point '8' closed to upper limit - offset: 0 
+Joint '10' in point '9' closed to upper limit - offset: 0 
+Joint '6' in point '40' closed to lower limit - offset: 0 
+Joint '6' in point '41' closed to lower limit - offset: 0 
+Joint '6' in point '42' closed to lower limit - offset: 0 
+Joint '6' in point '43' closed to lower limit - offset: 0 
+Joint '6' in point '44' closed to lower limit - offset: 0 
+Joint '0' in point '49' closed to upper limit - offset: 0 
+Joint '0' in point '50' closed to upper limit - offset: 0 
+Joint '0' in point '51' closed to upper limit - offset: 0 
+Joint '0' in point '52' closed to upper limit - offset: -0 
+Joint '0' in point '53' closed to upper limit - offset: -0 
+Joint '0' in point '54' closed to upper limit - offset: -0 
+Joint '0' in point '55' closed to upper limit - offset: -0 
+Joint '0' in point '56' closed to upper limit - offset: -0 
+Joint '0' in point '57' closed to upper limit - offset: -0 
+Joint '0' in point '58' closed to upper limit - offset: -0 
+Joint '0' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (-0.011331 -0.0250519 -0.0218527)
+Angular error    : (0.0835308 0.038785 0.0921048)
+Joint '0' in point '0' closed to upper limit - offset: -0 
+Joint '0' in point '1' closed to upper limit - offset: 0 
+Joint '0' in point '6' closed to upper limit - offset: 0 
+Joint '0' in point '30' closed to upper limit - offset: 0 
+Joint '0' in point '31' closed to upper limit - offset: 0 
+Joint '0' in point '37' closed to upper limit - offset: 0 
+Joint '0' in point '41' closed to upper limit - offset: 0 
+Joint '0' in point '54' closed to upper limit - offset: 0 
+Joint '0' in point '55' closed to upper limit - offset: 0 
+Joint '0' in point '56' closed to upper limit - offset: -0 
+Joint '0' in point '57' closed to upper limit - offset: -0 
+Joint '0' in point '58' closed to upper limit - offset: -0 
+Joint '0' in point '59' closed to upper limit - offset: -0 
+Optimization time: 15.74
+Reported costs   : 1334.22
+Pose 72 failed
+
+Testing pose 73 out of 100
+Iteration 1 of 2
+Position error   : (0.00443462 0.00623046 -0.0102024)
+Angular error    : (0.0436144 0.02418 0.0418295)
+Joint '0' in point '0' closed to upper limit - offset: 0 
+Joint '4' in point '37' closed to upper limit - offset: 0 
+Joint '4' in point '38' closed to upper limit - offset: 0 
+Iteration 2 of 2
+Position error   : (8.31154e-05 0.000148436 -0.000224733)
+Angular error    : (0.0119737 0.0256063 0.0251226)
+Optimization time: 4.25
+Reported costs   : 0.0229688
+Pose 73 successful
+
+Testing pose 74 out of 100
+Iteration 1 of 2
+Position error   : (0.00176047 5.73377e-05 -0.000898312)
+Angular error    : (0.0247385 0.0269713 0.0333727)
+Optimization time: 1.33
+Reported costs   : 0.75743
+Pose 74 successful
+
+Testing pose 75 out of 100
+Iteration 1 of 2
+Position error   : (0.00105788 -0.00281804 0.000532335)
+Angular error    : (0.027985 0.0361695 0.0258675)
+Optimization time: 4.15
+Reported costs   : 1.82425
+Pose 75 successful
+
+Testing pose 76 out of 100
+Iteration 1 of 2
+Position error   : (0.00483025 0.00446273 0.0193771)
+Angular error    : (0.0647329 0.0972491 0.0871547)
+Joint '4' in point '57' closed to upper limit - offset: -0 
+Joint '4' in point '58' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.00724635 0.00529663 0.026548)
+Angular error    : (0.0695588 0.0618846 0.0729657)
+Joint '4' in point '0' closed to upper limit - offset: -0 
+Joint '4' in point '57' closed to upper limit - offset: -0 
+Joint '4' in point '58' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Optimization time: 11.13
+Reported costs   : 489.329
+Pose 76 failed
+
+Testing pose 77 out of 100
+Iteration 1 of 2
+Position error   : (-0.00147106 0.00272364 0.00192655)
+Angular error    : (0.0125718 0.0152043 0.0123394)
+Optimization time: 1.11
+Reported costs   : 3.57091
+Pose 77 successful
+
+Testing pose 78 out of 100
+Iteration 1 of 2
+Position error   : (-0.0121717 -0.0161897 -0.00971568)
+Angular error    : (0.0154702 0.144383 0.144379)
+Joint '8' in point '55' closed to upper limit - offset: 0 
+Joint '8' in point '56' closed to upper limit - offset: -0 
+Joint '8' in point '57' closed to upper limit - offset: -0 
+Joint '8' in point '58' closed to upper limit - offset: -0 
+Joint '8' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (-0.00142113 -0.00035936 -0.000668285)
+Angular error    : (0.115385 0.076675 0.136486)
+Joint '8' in point '0' closed to upper limit - offset: 0 
+Joint '8' in point '53' closed to upper limit - offset: 0 
+Joint '8' in point '54' closed to upper limit - offset: 0 
+Joint '8' in point '55' closed to upper limit - offset: 0 
+Joint '8' in point '56' closed to upper limit - offset: 0 
+Joint '8' in point '57' closed to upper limit - offset: -0 
+Joint '8' in point '58' closed to upper limit - offset: -0 
+Joint '8' in point '59' closed to upper limit - offset: -0 
+Optimization time: 12.89
+Reported costs   : 89.4321
+Pose 78 failed
+
+Testing pose 79 out of 100
+Iteration 1 of 2
+Position error   : (0.04113 0.0575648 0.0594783)
+Angular error    : (0.126928 0.391989 0.412466)
+Joint '8' in point '0' closed to upper limit - offset: 0 
+Joint '8' in point '40' closed to upper limit - offset: 0 
+Joint '8' in point '41' closed to upper limit - offset: 0 
+Joint '8' in point '42' closed to upper limit - offset: 0 
+Joint '8' in point '43' closed to upper limit - offset: 0 
+Joint '4' in point '47' closed to upper limit - offset: 0 
+Joint '4' in point '48' closed to upper limit - offset: -0 
+Joint '4' in point '49' closed to upper limit - offset: -0 
+Joint '4' in point '50' closed to upper limit - offset: -0 
+Joint '4' in point '51' closed to upper limit - offset: -0 
+Joint '4' in point '52' closed to upper limit - offset: -0 
+Joint '4' in point '53' closed to upper limit - offset: -0 
+Joint '4' in point '54' closed to upper limit - offset: -0 
+Joint '4' in point '55' closed to upper limit - offset: -0 
+Joint '4' in point '56' closed to upper limit - offset: -0 
+Joint '4' in point '57' closed to upper limit - offset: -0 
+Joint '4' in point '58' closed to upper limit - offset: -0 
+Joint '4' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.00293451 -0.00173737 0.000386815)
+Angular error    : (0.0311231 0.0339907 0.0420198)
+Optimization time: 6.79
+Reported costs   : 190.958
+Pose 79 successful
+
+Testing pose 80 out of 100
+Iteration 1 of 2
+Position error   : (0.00362992 0.00124307 -0.00352806)
+Angular error    : (0.0452655 0.0129817 0.0447952)
+Optimization time: 8.08
+Reported costs   : 5.9106
+Pose 80 successful
+
+Testing pose 81 out of 100
+Iteration 1 of 2
+Position error   : (0.00889559 0.00781769 0.00362359)
+Angular error    : (0.0989766 0.057443 0.111553)
+Iteration 2 of 2
+Position error   : (0.00558682 0.00628275 0.0102399)
+Angular error    : (0.0427435 0.0544854 0.0657935)
+Joint '0' in point '59' closed to upper limit - offset: -0 
+Optimization time: 4.36
+Reported costs   : 36.9232
+Pose 81 failed
+
+Testing pose 82 out of 100
+Iteration 1 of 2
+Position error   : (0.00284114 0.00171426 0.000358462)
+Angular error    : (0.0265193 0.023415 0.0353704)
+Optimization time: 1.52
+Reported costs   : 1.40553
+Pose 82 successful
+
+Testing pose 83 out of 100
+Iteration 1 of 2
+Position error   : (0.0301504 0.0289297 0.075625)
+Angular error    : (0.187921 0.217673 0.111804)
+Joint '0' in point '49' closed to upper limit - offset: 0 
+Joint '0' in point '50' closed to upper limit - offset: 0 
+Joint '0' in point '51' closed to upper limit - offset: -0 
+Joint '0' in point '52' closed to upper limit - offset: -0 
+Joint '0' in point '53' closed to upper limit - offset: -0 
+Joint '0' in point '54' closed to upper limit - offset: -0 
+Joint '0' in point '55' closed to upper limit - offset: -0 
+Joint '0' in point '56' closed to upper limit - offset: -0 
+Joint '0' in point '57' closed to upper limit - offset: -0 
+Joint '0' in point '58' closed to upper limit - offset: -0 
+Joint '0' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.0508587 0.0461862 0.121373)
+Angular error    : (0.193267 0.186938 0.0735173)
+Joint '0' in point '0' closed to upper limit - offset: -0 
+Joint '0' in point '1' closed to upper limit - offset: 0 
+Joint '4' in point '4' closed to upper limit - offset: 0 
+Joint '4' in point '5' closed to upper limit - offset: 0 
+Joint '4' in point '55' closed to upper limit - offset: 0 
+Joint '4' in point '56' closed to upper limit - offset: 0 
+Joint '0' in point '57' closed to upper limit - offset: -0 
+Joint '0' in point '58' closed to upper limit - offset: -0 
+Joint '0' in point '59' closed to upper limit - offset: -0 
+Optimization time: 15.24
+Reported costs   : 4373.01
+Pose 83 failed
+
+Testing pose 84 out of 100
+Iteration 1 of 2
+Position error   : (0.00624532 -0.000514463 -0.000655565)
+Angular error    : (0.0218069 0.0225022 0.0306171)
+Optimization time: 1.79
+Reported costs   : 27.7828
+Pose 84 successful
+
+Testing pose 85 out of 100
+Iteration 1 of 2
+Position error   : (-0.0558566 0.0655088 0.0123405)
+Angular error    : (0.273662 0.288872 0.392459)
+Joint '0' in point '54' closed to upper limit - offset: 0 
+Joint '0' in point '55' closed to upper limit - offset: 0 
+Joint '0' in point '56' closed to upper limit - offset: 0 
+Joint '0' in point '57' closed to upper limit - offset: 0 
+Joint '10' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (-0.053547 0.042458 0.0117367)
+Angular error    : (0.179095 0.193539 0.264071)
+Joint '10' in point '0' closed to upper limit - offset: -0 
+Joint '10' in point '1' closed to upper limit - offset: -0 
+Joint '10' in point '2' closed to upper limit - offset: 0 
+Joint '10' in point '3' closed to upper limit - offset: 0 
+Joint '10' in point '4' closed to upper limit - offset: 0 
+Joint '10' in point '5' closed to upper limit - offset: 0 
+Joint '10' in point '6' closed to upper limit - offset: -0 
+Joint '10' in point '7' closed to upper limit - offset: -0 
+Joint '10' in point '8' closed to upper limit - offset: -0 
+Joint '10' in point '9' closed to upper limit - offset: -0 
+Joint '10' in point '10' closed to upper limit - offset: -0 
+Joint '10' in point '11' closed to upper limit - offset: -0 
+Joint '10' in point '12' closed to upper limit - offset: -0 
+Joint '10' in point '13' closed to upper limit - offset: -0 
+Joint '10' in point '14' closed to upper limit - offset: -0 
+Joint '10' in point '15' closed to upper limit - offset: -0 
+Joint '10' in point '16' closed to upper limit - offset: -0 
+Joint '10' in point '17' closed to upper limit - offset: -0 
+Joint '10' in point '18' closed to upper limit - offset: -0 
+Joint '10' in point '19' closed to upper limit - offset: -0 
+Joint '10' in point '20' closed to upper limit - offset: -0 
+Joint '10' in point '21' closed to upper limit - offset: -0 
+Joint '10' in point '22' closed to upper limit - offset: -0 
+Joint '10' in point '23' closed to upper limit - offset: -0 
+Joint '10' in point '24' closed to upper limit - offset: -0 
+Joint '10' in point '25' closed to upper limit - offset: -0 
+Joint '10' in point '26' closed to upper limit - offset: -0 
+Joint '10' in point '27' closed to upper limit - offset: -0 
+Joint '10' in point '28' closed to upper limit - offset: -0 
+Joint '10' in point '29' closed to upper limit - offset: -0 
+Joint '10' in point '30' closed to upper limit - offset: -0 
+Joint '10' in point '31' closed to upper limit - offset: -0 
+Joint '10' in point '32' closed to upper limit - offset: -0 
+Joint '10' in point '33' closed to upper limit - offset: -0 
+Joint '10' in point '34' closed to upper limit - offset: -0 
+Joint '10' in point '35' closed to upper limit - offset: -0 
+Joint '10' in point '36' closed to upper limit - offset: -0 
+Joint '10' in point '37' closed to upper limit - offset: -0 
+Joint '10' in point '38' closed to upper limit - offset: -0 
+Joint '10' in point '39' closed to upper limit - offset: -0 
+Joint '10' in point '40' closed to upper limit - offset: -0 
+Joint '10' in point '41' closed to upper limit - offset: -0 
+Joint '10' in point '42' closed to upper limit - offset: -0 
+Joint '10' in point '43' closed to upper limit - offset: -0 
+Joint '10' in point '44' closed to upper limit - offset: -0 
+Joint '10' in point '45' closed to upper limit - offset: -0 
+Joint '10' in point '46' closed to upper limit - offset: -0 
+Joint '10' in point '47' closed to upper limit - offset: -0 
+Joint '10' in point '48' closed to upper limit - offset: -0 
+Joint '10' in point '49' closed to upper limit - offset: -0 
+Joint '10' in point '50' closed to upper limit - offset: -0 
+Joint '10' in point '51' closed to upper limit - offset: -0 
+Joint '10' in point '52' closed to upper limit - offset: -0 
+Joint '10' in point '53' closed to upper limit - offset: -0 
+Joint '10' in point '54' closed to upper limit - offset: -0 
+Joint '10' in point '55' closed to upper limit - offset: -0 
+Joint '10' in point '56' closed to upper limit - offset: -0 
+Joint '10' in point '57' closed to upper limit - offset: -0 
+Joint '10' in point '58' closed to upper limit - offset: -0 
+Joint '10' in point '59' closed to upper limit - offset: -0 
+Optimization time: 11.84
+Reported costs   : 15784.2
+Pose 85 failed
+
+Testing pose 86 out of 100
+Iteration 1 of 2
+Position error   : (-0.0860486 -0.0160482 -0.201123)
+Angular error    : (0.139694 0.125027 0.0917823)
+Joint '10' in point '0' closed to upper limit - offset: 0 
+Joint '12' in point '57' closed to upper limit - offset: -0 
+Joint '12' in point '58' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (-0.111362 -0.0156022 -0.19462)
+Angular error    : (0.235907 0.187693 0.142772)
+Optimization time: 13.5
+Reported costs   : 373.05
+Pose 86 failed
+
+Testing pose 87 out of 100
+Iteration 1 of 2
+Position error   : (-0.0606244 0.0113275 -0.0206415)
+Angular error    : (0.199288 0.228507 0.295111)
+Joint '0' in point '54' closed to upper limit - offset: 0 
+Joint '0' in point '55' closed to upper limit - offset: 0 
+Joint '6' in point '55' closed to lower limit - offset: 0 
+Joint '0' in point '56' closed to upper limit - offset: 0 
+Joint '8' in point '57' closed to upper limit - offset: -0 
+Joint '8' in point '58' closed to upper limit - offset: -0 
+Joint '8' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (-0.0022308 0.0231403 -0.0229727)
+Angular error    : (0.242227 0.134508 0.276336)
+Joint '8' in point '0' closed to upper limit - offset: -0 
+Joint '8' in point '1' closed to upper limit - offset: 0 
+Joint '8' in point '49' closed to upper limit - offset: 0 
+Joint '8' in point '50' closed to upper limit - offset: 0 
+Joint '8' in point '51' closed to upper limit - offset: 0 
+Joint '8' in point '52' closed to upper limit - offset: -0 
+Joint '8' in point '53' closed to upper limit - offset: -0 
+Joint '4' in point '54' closed to upper limit - offset: 0 
+Joint '8' in point '54' closed to upper limit - offset: -0 
+Joint '8' in point '55' closed to upper limit - offset: -0 
+Joint '8' in point '56' closed to upper limit - offset: -0 
+Joint '8' in point '57' closed to upper limit - offset: -0 
+Joint '8' in point '58' closed to upper limit - offset: -0 
+Joint '8' in point '59' closed to upper limit - offset: -0 
+Optimization time: 12.59
+Reported costs   : 6472.95
+Pose 87 failed
+
+Testing pose 88 out of 100
+Iteration 1 of 2
+Position error   : (-0.000399261 0.00706232 0.0533592)
+Angular error    : (0.292859 0.00588488 0.292804)
+Joint '8' in point '0' closed to upper limit - offset: -0 
+Joint '4' in point '46' closed to upper limit - offset: 0 
+Joint '4' in point '47' closed to upper limit - offset: 0 
+Joint '4' in point '48' closed to upper limit - offset: 0 
+Joint '4' in point '49' closed to upper limit - offset: -0 
+Joint '4' in point '50' closed to upper limit - offset: -0 
+Joint '4' in point '51' closed to upper limit - offset: -0 
+Joint '4' in point '52' closed to upper limit - offset: -0 
+Joint '4' in point '53' closed to upper limit - offset: -0 
+Joint '4' in point '54' closed to upper limit - offset: -0 
+Joint '4' in point '55' closed to upper limit - offset: -0 
+Joint '4' in point '56' closed to upper limit - offset: -0 
+Joint '8' in point '56' closed to upper limit - offset: 0 
+Joint '4' in point '57' closed to upper limit - offset: 0 
+Joint '8' in point '57' closed to upper limit - offset: -0 
+Joint '8' in point '58' closed to upper limit - offset: -0 
+Joint '8' in point '59' closed to upper limit - offset: -0 
+Iteration 2 of 2
+Position error   : (-0.00769048 0.0157979 0.0534583)
+Angular error    : (0.283821 0.0191541 0.284374)
+Joint '8' in point '0' closed to upper limit - offset: -0 
+Joint '8' in point '1' closed to upper limit - offset: -0 
+Joint '4' in point '3' closed to upper limit - offset: 0 
+Joint '4' in point '4' closed to upper limit - offset: 0 
+Joint '4' in point '5' closed to upper limit - offset: 0 
+Joint '4' in point '6' closed to upper limit - offset: 0 
+Joint '4' in point '7' closed to upper limit - offset: 0 
+Joint '8' in point '12' closed to upper limit - offset: 0 
+Joint '8' in point '13' closed to upper limit - offset: 0 
+Joint '8' in point '14' closed to upper limit - offset: 0 
+Joint '8' in point '15' closed to upper limit - offset: 0 
+Joint '8' in point '16' closed to upper limit - offset: 0 
+Joint '8' in point '17' closed to upper limit - offset: 0 
+Joint '8' in point '18' closed to upper limit - offset: 0 
+Joint '8' in point '19' closed to upper limit - offset: 0 
+Joint '8' in point '20' closed to upper limit - offset: 0 
+Joint '8' in point '21' closed to upper limit - offset: 0 
+Joint '8' in point '22' closed to upper limit - offset: 0 
+Joint '8' in point '23' closed to upper limit - offset: 0 
+Joint '8' in point '24' closed to upper limit - offset: 0 
+Joint '8' in point '25' closed to upper limit - offset: 0 
+Joint '8' in point '26' closed to upper limit - offset: 0 
+Joint '8' in point '27' closed to upper limit - offset: 0 
+Joint '8' in point '28' closed to upper limit - offset: 0 
+Joint '8' in point '29' closed to upper limit - offset: 0 
+Joint '8' in point '30' closed to upper limit - offset: 0 
+Joint '8' in point '31' closed to upper limit - offset: 0 
+Joint '8' in point '32' closed to upper limit - offset: 0 
+Joint '8' in point '33' closed to upper limit - offset: 0 
+Joint '8' in point '34' closed to upper limit - offset: 0 
+Joint '8' in point '35' closed to upper limit - offset: 0 
+Joint '8' in point '36' closed to upper limit - offset: 0 
+Joint '8' in point '37' closed to upper limit - offset: 0 
+Joint '8' in point '38' closed to upper limit - offset: 0 
+Joint '8' in point '39' closed to upper limit - offset: 0 
+Joint '8' in point '40' closed to upper limit - offset: 0 
+Joint '8' in point '41' closed to upper limit - offset: 0 
+Joint '8' in point '42' closed to upper limit - offset: 0 
+Joint '8' in point '43' closed to upper limit - offset: 0 
+Joint '8' in point '44' closed to upper limit - offset: 0 
+Joint '0' in point '49' closed to upper limit - offset: 0 
+Joint '0' in point '50' closed to upper limit - offset: 0 
+Joint '0' in point '51' closed to upper limit - offset: -0 
+Joint '0' in point '52' closed to upper limit - offset: -0 
+Joint '0' in point '53' closed to upper limit - offset: -0 
+Joint '0' in point '54' closed to upper limit - offset: -0 
+Joint '0' in point '55' closed to upper limit - offset: -0 
+Joint '0' in point '56' closed to upper limit - offset: 0 
+Joint '8' in point '56' closed to upper limit - offset: -0 
+Joint '8' in point '57' closed to upper limit - offset: -0 
+Joint '8' in point '58' closed to upper limit - offset: -0 
+Joint '8' in point '59' closed to upper limit - offset: -0 
+Optimization time: 14.72
+Reported costs   : 5269.53
+Pose 88 failed
+
+Testing pose 89 out of 100
+Iteration 1 of 2
+Position error   : (-0.0242093 0.0117628 0.00539057)
+Angular error    : (0.122835 0.0720885 0.142207)
+Joint '8' in point '0' closed to upper limit - offset: -0 
+Joint '10' in point '59' closed to lower limit - offset: 0 
+Iteration 2 of 2
+Position error   : (-0.0226641 0.014707 0.0068007)
+Angular error    : (0.0686892 0.0937512 0.116252)
+Joint '10' in point '58' closed to lower limit - offset: 0 
+Joint '10' in point '59' closed to lower limit - offset: -0 
+Optimization time: 14.91
+Reported costs   : 118.449
+Pose 89 failed
+
+Testing pose 90 out of 100
+Iteration 1 of 2
+Position error   : (0.00590333 0.00678613 0.00205926)
+Angular error    : (0.0446515 0.0671553 0.0738607)
+Iteration 2 of 2
+Position error   : (0.000307559 4.98108e-05 -0.000933946)
+Angular error    : (0.0245012 0.0641707 0.0619255)
+Joint '10' in point '55' closed to lower limit - offset: 0 
+Optimization time: 3.64
+Reported costs   : 0.650381
+Pose 90 failed
+
+Testing pose 91 out of 100
+Iteration 1 of 2
+Position error   : (-0.000683845 -0.0048923 0.000374004)
+Angular error    : (0.0307921 0.0172483 0.0255144)
+Optimization time: 1.29
+Reported costs   : 1.88145
+Pose 91 successful
+
+Testing pose 92 out of 100
+Iteration 1 of 2
+Position error   : (0.000351131 0.00178896 -2.76999e-05)
+Angular error    : (0.0193331 0.0139736 0.0188993)
+Optimization time: 1.02
+Reported costs   : 0.27086
+Pose 92 successful
+
+Testing pose 93 out of 100
+Iteration 1 of 2
+Position error   : (0.000555724 -0.00713446 0.00648267)
+Angular error    : (0.0201917 0.0522298 0.0514509)
+Joint '10' in point '32' closed to lower limit - offset: 0 
+Joint '10' in point '33' closed to lower limit - offset: 0 
+Iteration 2 of 2
+Position error   : (6.44996e-05 -0.000149783 0.00013449)
+Angular error    : (0.0122528 0.0178339 0.0163214)
+Optimization time: 2.38
+Reported costs   : 0.0460591
+Pose 93 successful
+
+Testing pose 94 out of 100
+Iteration 1 of 2
+Position error   : (-0.00063991 0.00157527 0.00456385)
+Angular error    : (0.0529949 0.0238978 0.0473052)
+Iteration 2 of 2
+Position error   : (-3.22505e-05 2.13457e-05 1.5187e-05)
+Angular error    : (0.0150149 0.00782063 0.0128446)
+Optimization time: 3
+Reported costs   : 0.00522381
+Pose 94 successful
+
+Testing pose 95 out of 100
+Iteration 1 of 2
+Position error   : (0.00124472 0.000790937 -0.00469303)
+Angular error    : (0.0391777 0.0215069 0.0350916)
+Optimization time: 1.52
+Reported costs   : 3.64017
+Pose 95 successful
+
+Testing pose 96 out of 100
+Iteration 1 of 2
+Position error   : (0.00358567 -0.00796653 0.00265994)
+Angular error    : (0.0286057 0.0221209 0.0223875)
+Optimization time: 1.62
+Reported costs   : 3.15379
+Pose 96 successful
+
+Testing pose 97 out of 100
+Iteration 1 of 2
+Position error   : (0.0524289 0.143988 -0.058435)
+Angular error    : (0.215568 0.146501 0.177023)
+Joint '6' in point '52' closed to lower limit - offset: 0 
+Joint '6' in point '53' closed to lower limit - offset: 0 
+Joint '2' in point '54' closed to lower limit - offset: -0 
+Joint '6' in point '54' closed to lower limit - offset: 0 
+Joint '2' in point '55' closed to lower limit - offset: -0 
+Joint '2' in point '56' closed to lower limit - offset: -0 
+Joint '2' in point '57' closed to lower limit - offset: -0 
+Joint '2' in point '58' closed to lower limit - offset: -0 
+Joint '2' in point '59' closed to lower limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.088553 0.0734565 0.0127314)
+Angular error    : (0.142212 0.18718 0.147765)
+Joint '2' in point '0' closed to lower limit - offset: 0 
+Joint '2' in point '59' closed to lower limit - offset: -0 
+Optimization time: 12.16
+Reported costs   : 1136.28
+Pose 97 failed
+
+Testing pose 98 out of 100
+Iteration 1 of 2
+Position error   : (0.00670557 -0.00370301 0.00446647)
+Angular error    : (0.0113364 0.0201927 0.0182329)
+Optimization time: 1.47
+Reported costs   : 3.37586
+Pose 98 successful
+
+Testing pose 99 out of 100
+Iteration 1 of 2
+Position error   : (-0.00160299 0.00526674 0.000740547)
+Angular error    : (0.0207583 0.0459269 0.0410407)
+Optimization time: 1.82
+Reported costs   : 5.85809
+Pose 99 successful
+
+Testing pose 100 out of 100
+Iteration 1 of 2
+Position error   : (0.0778054 0.0585475 -0.0124463)
+Angular error    : (0.108831 0.166933 0.127971)
+Joint '2' in point '53' closed to lower limit - offset: 0 
+Joint '2' in point '54' closed to lower limit - offset: 0 
+Joint '2' in point '57' closed to lower limit - offset: 0 
+Joint '2' in point '58' closed to lower limit - offset: -0 
+Joint '2' in point '59' closed to lower limit - offset: -0 
+Iteration 2 of 2
+Position error   : (0.0429558 0.0552041 -0.0194833)
+Angular error    : (0.127176 0.132871 0.129926)
+Joint '2' in point '0' closed to lower limit - offset: -0 
+Joint '2' in point '6' closed to lower limit - offset: 0 
+Joint '2' in point '7' closed to lower limit - offset: 0 
+Joint '2' in point '8' closed to lower limit - offset: 0 
+Joint '2' in point '9' closed to lower limit - offset: 0 
+Joint '2' in point '10' closed to lower limit - offset: 0 
+Joint '2' in point '11' closed to lower limit - offset: 0 
+Joint '2' in point '12' closed to lower limit - offset: 0 
+Joint '2' in point '13' closed to lower limit - offset: 0 
+Joint '2' in point '14' closed to lower limit - offset: 0 
+Joint '2' in point '15' closed to lower limit - offset: 0 
+Joint '2' in point '16' closed to lower limit - offset: 0 
+Joint '2' in point '17' closed to lower limit - offset: 0 
+Joint '2' in point '18' closed to lower limit - offset: 0 
+Joint '2' in point '19' closed to lower limit - offset: 0 
+Joint '2' in point '20' closed to lower limit - offset: 0 
+Joint '2' in point '21' closed to lower limit - offset: 0 
+Joint '2' in point '22' closed to lower limit - offset: 0 
+Joint '2' in point '23' closed to lower limit - offset: 0 
+Joint '2' in point '24' closed to lower limit - offset: 0 
+Joint '2' in point '25' closed to lower limit - offset: 0 
+Joint '2' in point '26' closed to lower limit - offset: 0 
+Joint '2' in point '27' closed to lower limit - offset: 0 
+Joint '2' in point '28' closed to lower limit - offset: 0 
+Joint '2' in point '29' closed to lower limit - offset: 0 
+Joint '2' in point '30' closed to lower limit - offset: 0 
+Joint '2' in point '31' closed to lower limit - offset: 0 
+Joint '2' in point '32' closed to lower limit - offset: 0 
+Joint '2' in point '33' closed to lower limit - offset: 0 
+Joint '2' in point '34' closed to lower limit - offset: 0 
+Joint '2' in point '35' closed to lower limit - offset: 0 
+Joint '2' in point '36' closed to lower limit - offset: 0 
+Joint '2' in point '37' closed to lower limit - offset: 0 
+Joint '2' in point '38' closed to lower limit - offset: 0 
+Joint '2' in point '39' closed to lower limit - offset: 0 
+Joint '2' in point '40' closed to lower limit - offset: 0 
+Joint '2' in point '41' closed to lower limit - offset: 0 
+Joint '2' in point '42' closed to lower limit - offset: 0 
+Joint '2' in point '43' closed to lower limit - offset: 0 
+Joint '2' in point '44' closed to lower limit - offset: 0 
+Joint '2' in point '45' closed to lower limit - offset: 0 
+Joint '2' in point '46' closed to lower limit - offset: 0 
+Joint '2' in point '47' closed to lower limit - offset: 0 
+Joint '2' in point '48' closed to lower limit - offset: 0 
+Joint '2' in point '49' closed to lower limit - offset: 0 
+Joint '2' in point '50' closed to lower limit - offset: 0 
+Joint '2' in point '51' closed to lower limit - offset: 0 
+Joint '2' in point '52' closed to lower limit - offset: 0 
+Joint '2' in point '53' closed to lower limit - offset: 0 
+Joint '2' in point '54' closed to lower limit - offset: -0 
+Joint '2' in point '55' closed to lower limit - offset: -0 
+Joint '2' in point '56' closed to lower limit - offset: -0 
+Joint '2' in point '57' closed to lower limit - offset: -0 
+Joint '2' in point '58' closed to lower limit - offset: -0 
+Joint '2' in point '59' closed to lower limit - offset: -0 
+Optimization time: 15.25
+Reported costs   : 2902.26
+Pose 100 failed
+
+Test run completed.
+58 solutions found in iteration 1
+12 solutions found in iteration 2
+30 planning attempts failed!
+ -- SwiftInterface closed

@@ -1,0 +1,5 @@
+/** @defgroup group_Optim Optimization: problem abstractions and solvers
+
+@brief This group defines a set of function types (classes with specific virtual functions, e.g. \ref VectorFunction) and corresponding optimization methods, e.g. \ref optGaussNewton.
+
+*/

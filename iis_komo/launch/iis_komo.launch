@@ -1,0 +1,23 @@
+<launch>
+    
+    <arg name="config_name" default="simulation" />
+    
+    <!-- upload the robot description to the parameter server -->
+    <include file="$(find iis_robot)/launch/upload.launch">
+	<arg name="file_name" value="iis_robot_table.xacro" />
+    </include>
+	
+    <group ns="$(arg config_name)">
+	<!-- launch trajectory controllers -->
+	<include file="$(find iis_komo)/launch/start_controllers.launch" />
+    </group>
+    
+    <!-- start KOMO node -->
+    <node name="iis_komo" pkg="iis_komo" type="run_komo.sh" output="screen" args="$(arg config_name)" />
+    
+    <!-- switch arms to command mode (HANDLE WITH CARE!!!) -->
+    <!-- node name="switch_left" pkg="rostopic" type="rostopic" args="pub -1 /$(arg config_name)/left_arm/settings/switch_mode std_msgs/Int32 10" / -->
+    <!-- node name="switch_right" pkg="rostopic" type="rostopic" args="pub -1 /$(arg config_name)/right_arm/settings/switch_mode std_msgs/Int32 10" / -->
+    
+	      
+</launch>

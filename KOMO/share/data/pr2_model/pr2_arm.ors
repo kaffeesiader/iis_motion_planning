@@ -1,0 +1,139 @@
+body base_footprint {  mass=1  }
+body fl_caster_rotation_link {  mass=3.47308  }
+body fr_caster_rotation_link {  mass=3.47308  }
+body bl_caster_rotation_link {  mass=3.47308  }
+body br_caster_rotation_link {  mass=3.47308  }
+body torso_lift_link {  mass=36.248  }
+body fl_caster_l_wheel_link {  mass=0.44036  }
+body fl_caster_r_wheel_link {  mass=0.44036  }
+body fr_caster_l_wheel_link {  mass=0.44036  }
+body fr_caster_r_wheel_link {  mass=0.44036  }
+body bl_caster_l_wheel_link {  mass=0.44036  }
+body bl_caster_r_wheel_link {  mass=0.44036  }
+body br_caster_l_wheel_link {  mass=0.44036  }
+body br_caster_r_wheel_link {  mass=0.44036  }
+body head_pan_link {  mass=6.339  }
+body laser_tilt_mount_link {  mass=0.591  }
+body r_shoulder_pan_link {  mass=25.7993  }
+body l_shoulder_pan_link {  mass=25.7993  }
+body head_tilt_link {  mass=4.479  }
+body r_shoulder_lift_link {  mass=2.74988  }
+body l_shoulder_lift_link {  mass=2.74988  }
+body r_upper_arm_roll_link {  mass=0.1  }
+body l_upper_arm_roll_link {  mass=0.1  }
+body r_elbow_flex_link {  mass=1.90327  }
+body l_elbow_flex_link {  mass=1.90327  }
+body r_forearm_roll_link {  mass=0.1  }
+body l_forearm_roll_link {  mass=0.1  }
+body r_wrist_flex_link {  mass=0.61402  }
+body l_wrist_flex_link {  mass=0.61402  }
+body r_wrist_roll_link {  mass=0.1  }
+body l_wrist_roll_link {  mass=0.1  }
+body r_gripper_l_finger_link {  mass=0.17126  }
+body r_gripper_r_finger_link {  mass=0.17389  }
+body l_gripper_l_finger_link {  mass=0.17126  }
+body l_gripper_r_finger_link {  mass=0.17389   }
+body r_gripper_l_finger_tip_link {  mass=0.04419  }
+body r_gripper_r_finger_tip_link {  mass=0.04419  }
+body l_gripper_l_finger_tip_link {  mass=0.04419  }
+body l_gripper_r_finger_tip_link {  mass=0.04419  }
+
+body endeff { type=2 size=[0 0 0 .01] contact, }
+
+shape (base_footprint){ type=3 rel=<T 0 0 0.051 1 0 0 0 >  mesh='base_v0/base_L.stl'  }
+shape (base_footprint){ type=0 rel=<T 0 0 0.071 1 0 0 0 >  size=[ 0.001 0.001 0.001 0 ]  }
+shape (base_footprint){ type=0 rel=<T -0.29 0 0.851 1 0 0 0 >  size=[ 0.05 0.37 0.3 0 ]  }
+shape (fl_caster_rotation_link){ type=3 rel=<T 0 0 0 -0.707107 0 -0.707107 0 >  mesh='base_v0/caster_L.stl'  }
+shape (fl_caster_l_wheel_link){ type=2 rel=<T 0 0 0 -0.5 -0.5 0.5 0.5 >  size=[ 0 0 0.034 0.074792 ]  }
+shape (fl_caster_r_wheel_link){ type=2 rel=<T 0 0 0 -0.5 -0.5 0.5 0.5 >  size=[ 0 0 0.034 0.074792 ]  }
+shape (fr_caster_rotation_link){ type=3 rel=<T 0 0 0 -0.707107 0 -0.707107 0 >  mesh='base_v0/caster_L.stl'  }
+shape (fr_caster_l_wheel_link){ type=2 rel=<T 0 0 0 -0.5 -0.5 0.5 0.5 >  size=[ 0 0 0.034 0.074792 ]  }
+shape (fr_caster_r_wheel_link){ type=2 rel=<T 0 0 0 -0.5 -0.5 0.5 0.5 >  size=[ 0 0 0.034 0.074792 ]  }
+shape (bl_caster_rotation_link){ type=3 rel=<T 0 0 0 -0.707107 0 -0.707107 0 >  mesh='base_v0/caster_L.stl'  }
+shape (bl_caster_l_wheel_link){ type=2 rel=<T 0 0 0 -0.5 -0.5 0.5 0.5 >  size=[ 0 0 0.034 0.074792 ]  }
+shape (bl_caster_r_wheel_link){ type=2 rel=<T 0 0 0 -0.5 -0.5 0.5 0.5 >  size=[ 0 0 0.034 0.074792 ]  }
+shape (br_caster_rotation_link){ type=3 rel=<T 0 0 0 -0.707107 0 -0.707107 0 >  mesh='base_v0/caster_L.stl'  }
+shape (br_caster_l_wheel_link){ type=2 rel=<T 0 0 0 -0.5 -0.5 0.5 0.5 >  size=[ 0 0 0.034 0.074792 ]  }
+shape (br_caster_r_wheel_link){ type=2 rel=<T 0 0 0 -0.5 -0.5 0.5 0.5 >  size=[ 0 0 0.034 0.074792 ]  }
+shape (torso_lift_link){ type=3 rel=<T 0 0 0 -0.707107 0 -0.707107 0 >  mesh='torso_v0/torso_lift_L.stl'  }
+shape (head_pan_link){ type=3 rel=<T 0 0 0 -0.707107 0 -0.707107 0 >  mesh='head_v0/head_pan_L.stl'  }
+shape (head_tilt_link){ type=3 rel=<T 0 0 0 -0.707107 0 0 0.707107 >  mesh='head_v0/head_tilt_L.stl'  }
+shape (head_tilt_link){ type=0 rel=<T 5.15143e-18 -0.0232 0.0645 -0.707107 0 0 0.707107 >  size=[ 0.01 0.01 0.01 0 ]  }
+shape (head_tilt_link){ type=1 rel=<T -2.54907e-17 0.1148 0.1555 -0.707107 0 0 0.707107 >  size=[ 0 0 0 0.0005 ]  }
+shape (head_tilt_link){ type=1 rel=<T 0.0125 0.147067 0.291953 -0.707107 0 0 0.707107 >  size=[ 0 0 0 0.0005 ]  }
+shape (head_tilt_link){ type=1 rel=<T -0.0175 0.147067 0.291953 -0.707107 0 0 0.707107 >  size=[ 0 0 0 0.0005 ]  }
+shape (head_tilt_link){ type=1 rel=<T 0.0125 0.161257 0.244421 -0.707107 0 0 0.707107 >  size=[ 0 0 0 0.0005 ]  }
+shape (laser_tilt_mount_link){ type=3 rel=<T 0 0 0 -0.707107 0 0 0.707107 >  mesh='tilting_laser_v0/tilting_hokuyo_L.stl'  }
+shape (r_shoulder_pan_link){ type=3 rel=<T 0 0 0 -0.707107 0 -0.707107 0 >  mesh='shoulder_v0/shoulder_pan.stl'  }
+shape (r_shoulder_lift_link){ type=3 rel=<T 0 0 0 -0.707107 0 0 0.707107 >  mesh='shoulder_v0/shoulder_lift.stl'  }
+shape (r_upper_arm_roll_link){ type=3  mesh='shoulder_v0/upper_arm_roll_L.stl'  }
+shape (r_upper_arm_roll_link){ type=3  mesh='upper_arm_v0/upper_arm.stl'  }
+shape (r_forearm_roll_link){ type=3  mesh='upper_arm_v0/forearm_roll_L.stl'  }
+shape (r_elbow_flex_link){ type=3 rel=<T 0 0 0 -0.707107 0 0 0.707107 >  mesh='upper_arm_v0/elbow_flex.stl'  }
+shape (r_forearm_roll_link){ type=3  mesh='forearm_v0/forearm.stl'  }
+shape (r_wrist_flex_link){ type=3 rel=<T 0 0 0 -0.707107 0 0 0.707107 >  mesh='forearm_v0/wrist_flex.stl'  }
+shape (r_wrist_roll_link){ type=3  mesh='forearm_v0/wrist_roll_L.stl'  }
+shape (r_wrist_roll_link){ type=3  mesh='gripper_v0/gripper_palm.stl'  }
+shape (r_wrist_roll_link){ type=0  size=[ 0.001 0.001 0.001 0 ]  }
+shape (r_gripper_l_finger_link){ type=3 rel=<T 0 0 0 -0.707107 0 -0.707107 0 >  mesh='gripper_v0/l_finger.stl'  }
+shape (r_gripper_r_finger_link){ type=3 rel=<T 0 0 0 7.3123e-14 -0.707107 -7.3123e-14 -0.707107 >  mesh='gripper_v0/l_finger.stl'  }
+shape (r_gripper_l_finger_tip_link){ type=3 rel=<T 0 0 0 -0.707107 0 0.707107 0 >  mesh='gripper_v0/l_finger_tip.stl'  }
+shape (r_gripper_r_finger_tip_link){ type=3 rel=<T 0 0 0 7.3123e-14 -0.707107 7.3123e-14 0.707107 >  mesh='gripper_v0/l_finger_tip.stl'  }
+shape (l_shoulder_pan_link){ type=3 rel=<T 0 0 0 -0.707107 0 -0.707107 0 >  mesh='shoulder_v0/shoulder_pan.stl'  }
+shape (l_shoulder_lift_link){ type=3 rel=<T 0 0 0 -0.707107 0 0 0.707107 >  mesh='shoulder_v0/shoulder_lift.stl'  }
+shape (l_upper_arm_roll_link){ type=3  mesh='shoulder_v0/upper_arm_roll_L.stl'  }
+shape (l_upper_arm_roll_link){ type=3  mesh='upper_arm_v0/upper_arm.stl'  }
+shape (l_forearm_roll_link){ type=3  mesh='upper_arm_v0/forearm_roll_L.stl'  }
+shape (l_elbow_flex_link){ type=3 rel=<T 0 0 0 -0.707107 0 0 0.707107 >  mesh='upper_arm_v0/elbow_flex.stl'  }
+shape (l_forearm_roll_link){ type=3  mesh='forearm_v0/forearm.stl'  }
+shape (l_wrist_flex_link){ type=3 rel=<T 0 0 0 -0.707107 0 0 0.707107 >  mesh='forearm_v0/wrist_flex.stl'  }
+shape (l_wrist_roll_link){ type=3  mesh='forearm_v0/wrist_roll_L.stl'  }
+shape (l_wrist_roll_link){ type=3  mesh='gripper_v0/gripper_palm.stl'  }
+shape (l_wrist_roll_link){ type=0  size=[ 0.001 0.001 0.001 0 ]  }
+shape (l_gripper_l_finger_link){ type=3 rel=<T 0 0 0 -0.707107 0 -0.707107 0 >  mesh='gripper_v0/l_finger.stl'  }
+shape (l_gripper_r_finger_link){ type=3 rel=<T 0 0 0 7.3123e-14 -0.707107 -7.3123e-14 -0.707107 >  mesh='gripper_v0/l_finger.stl'  }
+shape tip1 (l_gripper_l_finger_tip_link){ contact, type=3 rel=<T 0 0 0 -0.707107 0 0.707107 0 >  mesh='gripper_v0/l_finger_tip.stl'  }
+shape tip2 (l_gripper_r_finger_tip_link){ contact, type=3 rel=<T 0 0 0 7.3123e-14 -0.707107 7.3123e-14 0.707107 >  mesh='gripper_v0/l_finger_tip.stl'  }
+
+
+joint (torso_lift_link r_shoulder_pan_link){ from=<T 0 -0.188 0 1 0 0 0 >  type=0  }
+joint (r_shoulder_pan_link r_shoulder_lift_link){ from=<T 2.22045e-17 0 -0.1 -0.5 -0.5 -0.5 -0.5 >  type=0  }
+joint (r_shoulder_lift_link r_upper_arm_roll_link){ from=<T 0 0 0 -0.707107 0 0 0.707107 >  type=0  }
+joint (r_elbow_flex_link r_forearm_roll_link){ from=<T 0 0 0 -0.707107 0 0 0.707107 >  type=0  }
+joint (r_upper_arm_roll_link r_elbow_flex_link){ from=<T 0.4 0 0 -0.707107 0 0 -0.707107 >  type=0  }
+joint (r_forearm_roll_link r_wrist_flex_link){ from=<T 0.321 0 0 -0.707107 0 0 -0.707107 >  type=0  }
+joint (r_wrist_flex_link r_wrist_roll_link){ from=<T 0 0 0 -0.707107 0 0 0.707107 >  type=0  }
+
+joint (r_wrist_roll_link endeff){ A=<T t(0.25 0 0) d(0 0 0 0)> B=<T t(0 0 0)>  Q=<T d(1 0 0 0)> type=10  }
+
+joint (base_footprint fl_caster_rotation_link){ from=<T 0.2246 0.2246 0.0792 0.707107 0 -0.707107 0 >  type=10  }
+joint (fl_caster_rotation_link fl_caster_l_wheel_link){ from=<T 0 0.049 0 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint (fl_caster_rotation_link fl_caster_r_wheel_link){ from=<T 0 -0.049 0 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint (base_footprint fr_caster_rotation_link){ from=<T 0.2246 -0.2246 0.0792 0.707107 0 -0.707107 0 >  type=10  }
+joint (fr_caster_rotation_link fr_caster_l_wheel_link){ from=<T 0 0.049 0 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint (fr_caster_rotation_link fr_caster_r_wheel_link){ from=<T 0 -0.049 0 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint (base_footprint bl_caster_rotation_link){ from=<T -0.2246 0.2246 0.0792 0.707107 0 -0.707107 0 >  type=10  }
+joint (bl_caster_rotation_link bl_caster_l_wheel_link){ from=<T 0 0.049 0 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint (bl_caster_rotation_link bl_caster_r_wheel_link){ from=<T 0 -0.049 0 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint (base_footprint br_caster_rotation_link){ from=<T -0.2246 -0.2246 0.0792 0.707107 0 -0.707107 0 >  type=10  }
+joint (br_caster_rotation_link br_caster_l_wheel_link){ from=<T 0 0.049 0 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint (br_caster_rotation_link br_caster_r_wheel_link){ from=<T 0 -0.049 0 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint (base_footprint torso_lift_link){ from=<T -0.05 0 0.790675 0.707107 0 -0.707107 0 >  type=10  }
+joint (torso_lift_link head_pan_link){ from=<T 0.38145 0 0.01707 1 0 0 0 >  type=10  }
+joint (head_pan_link head_tilt_link){ from=<T 1.5099e-17 0 -0.068 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint (torso_lift_link laser_tilt_mount_link){ from=<T 0.227 0 -0.09893 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint finger_r_l (r_wrist_roll_link r_gripper_l_finger_link){ from=<T 0.07691 0.01 0 -0.707107 0 0.707107 0 >  type=10  }
+joint finger_r_r (r_wrist_roll_link r_gripper_r_finger_link){ from=<T 0.07691 -0.01 0 -0.707107 0 -0.707107 0 >  type=10  }
+#joint (r_gripper_l_finger_link r_gripper_l_finger_tip_link){ from=<T 2.02882e-17 0.00495 -0.09137 -1.5702e-16 0 -1 0 >  coupledTo='finger_r_l'  }
+#joint (r_gripper_r_finger_link r_gripper_r_finger_tip_link){ from=<T 2.02882e-17 -0.00495 0.09137 -1.5702e-16 0 1 0 >  coupledTo='finger_r_r'  }
+joint (torso_lift_link l_shoulder_pan_link){ from=<T 0 0.188 0 1 0 0 0 >  type=10  }
+joint (l_shoulder_pan_link l_shoulder_lift_link){ from=<T 2.22045e-17 0 -0.1 -0.5 -0.5 -0.5 -0.5 >  type=10  }
+joint (l_shoulder_lift_link l_upper_arm_roll_link){ from=<T 0 0 0 -0.707107 0 0 0.707107 >  type=10  }
+joint (l_elbow_flex_link l_forearm_roll_link){ from=<T 0 0 0 -0.707107 0 0 0.707107 >  type=10  }
+joint (l_upper_arm_roll_link l_elbow_flex_link){ from=<T 0.4 0 0 -0.707107 0 0 -0.707107 >  type=10  }
+joint (l_forearm_roll_link l_wrist_flex_link){ from=<T 0.321 0 0 -0.707107 0 0 -0.707107 >  type=10  }
+joint (l_wrist_flex_link l_wrist_roll_link){ from=<T 0 0 0 -0.707107 0 0 0.707107 >  type=10  }
+joint finger_l_l (l_wrist_roll_link l_gripper_l_finger_link){ from=<T 0.07691 0.01 0 -0.707107 0 0.707107 0 >  type=10  }
+joint finger_l_r (l_wrist_roll_link l_gripper_r_finger_link){ from=<T 0.07691 -0.01 0 -0.707107 0 -0.707107 0 >  type=10  }
+#joint (l_gripper_l_finger_link l_gripper_l_finger_tip_link){ from=<T 2.02882e-17 0.00495 -0.09137 -1.5702e-16 0 -1 0 >  coupledTo='finger_l_l'  }
+#joint (l_gripper_r_finger_link l_gripper_r_finger_tip_link){ from=<T 2.02882e-17 -0.00495 0.09137 -1.5702e-16 0 1 0 >  coupledTo='finger_l_r'  }

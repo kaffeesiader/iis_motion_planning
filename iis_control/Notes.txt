@@ -1,0 +1,20 @@
+Test gripper action clients
+===========================
+
+There is a small test programm that can be used to test if the gripper action clients are working.
+This test can be used for the simulator and the real robot as well, but it has to be launched in the correct namespace
+('simulation' or 'real').
+
+Namespace switching is done on the console by setting the 'ROS_NAMESPACE' environment variable.
+
+  To switch to the required namespace you can use
+
+    export ROS_NAMESPACE=simulation
+  or
+    export ROS_NAMESPACE=real
+  
+After that, you can run the test for each gripper seperately, by typing
+
+  rosrun uibk_moveit_adapter test_gripper_action left
+or
+  rosrun uibk_moveit_adapter test_gripper_action right

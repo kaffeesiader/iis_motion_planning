@@ -1,0 +1,50 @@
+body base{ X=<T t(0 0 .1)> }
+shape (base){ type=4 rel=<T t(0 -.02 0)> color=[.7 .7 .7] size=[.3 .3 .1 .16] }
+shape (base){ type=0 rel=<T t(0 -.1 -.03)> color=[.7 .7 .7] size=[.3 .2 .05 .18] }
+
+shape (base){ rel=<T t(.15 -.15 0.02) d(90 0 1 0)> type=4 color=[0 0 0] size=[0 0 .02 .08] }
+shape (base){ rel=<T t(-.15 -.15 0.02) d(90 0 1 0)> type=4 color=[0 0 0] size=[0 0 .02 .08] }
+
+shape (base){ rel=<T t(0 0 .05) d(90 0 1 0)> type=2 color=[.1 .1 .3] size=[0 0 .1 .05] }
+
+body lBase{}
+joint (base lBase){ A=<T t(+.05 0 .05)> Q=<T d(50 1 0 0)> B=<T d(30 0 1 0)> }
+body lBase2{}
+joint (lBase lBase2){ A=<T d(90 0 1 0)> Q=<T d(20 1 0 0)> B=<T d(-90 0 1 0)> }
+shape (lBase2){ rel=<T t(0 0 .15)> type=2 size=[0 0 .3 .03] color=[.1 .1 .3]}
+
+body rBase{}
+joint (base rBase){ A=<T t(-.05 0 .05)> Q=<T d(50 1 0 0)> B=<T d(-30 0 1 0)> }
+body rBase2{}
+joint (rBase rBase2){ A=<T d(90 0 1 0)> Q=<T d(-20 1 0 0)> B=<T d(-90 0 1 0)> }
+shape (rBase2){ rel=<T t(0 0 .15)> type=2 size=[0 0 .3 .03] color=[.1 .1 .3]}
+
+body lArm{}
+joint (lBase2 lArm){ A=<T t(0 0 .3) d(90 1 0 0)> Q=<T d(30 1 0 0)>  }
+body lArm2{}
+joint (lArm lArm2){ A=<T d(90 0 1 0)>  B=<T d(-90 0 1 0)> }
+shape (lArm2) { rel=<T t(0 0 .15)> type=2 size=[0 0 .3 .025] color=[.1 .1 .3]}
+shape (lArm2) { rel=<T t(0 0 .3)> type=0 size=[.03 .08 .03 0] color=[0 0 0]}
+shape (lArm2) { rel=<T t(0 0 .3) t(0 .04 .04)> type=0 size=[.03 .01 .08 0] color=[0 0 0]}
+shape (lArm2) { rel=<T t(0 0 .3) t(0 -.04 .04)> type=0 size=[.03 .01 .08 0] color=[0 0 0]}
+
+body rArm{}
+joint (rBase2 rArm){ A=<T t(0 0 .3) d(90 1 0 0)> Q=<T d(30 1 0 0)> }
+body rArm2{}
+joint (rArm rArm2){ A=<T d(90 0 1 0)>  B=<T d(-90 0 1 0)> }
+shape (rArm2) { rel=<T t(0 0 .15)> type=2 size=[0 0 .3 .025] color=[.1 .1 .3]}
+shape (rArm2) { rel=<T t(0 0 .3)> type=0 size=[.03 .08 .03 0] color=[0 0 0]}
+shape (rArm2) { rel=<T t(0 0 .3) t(0 .04 .04)> type=0 size=[.03 .01 .08 0] color=[0 0 0]}
+shape (rArm2) { rel=<T t(0 0 .3) t(0 -.04 .04)> type=0 size=[.03 .01 .08 0] color=[0 0 0]}
+
+body cam{}
+joint (base cam){ A=<T t(0 -.19 .22) d(90 1 0 0)> Q=<T d(30 1 0 0)> }
+shape (cam) {type=0 size=[.15 .03 .05 0] color=[.5 0 0]}
+
+
+
+shape (base) { rel=<T t(0 .06 .1) d(-60 1 0 0)> type=0 size=[.20 .20 .06 .1]  color=[.7 .7 .7]}
+shape (base) { rel=<T t(0 .06 .1) d(-60 1 0 0) t(0 -.1 0) d(90 0 1 0)> type=4 size=[0 0 .2 .03]  color=[.7 .7 .7]}
+shape (base) { rel=<T t(0 .06 .1) d(-60 1 0 0) t(0 -.1 0) d(50 1 0 0) t(0 -.05 0)> type=0 size=[.20 .1 .06 .1]  color=[.7 .7 .7]}
+shape (base) { rel=<T t(0 .06 .1) d(-60 1 0 0) t(0 -.1 0) d(50 1 0 0) t(0 -.1 0)> type=4 size=[0 0 .06 .1]  color=[.7 .7 .7]}
+shape (base) { rel=<T t(0 .06 .1) d(-60 1 0 0) t(0 -.1 0) t(0 0 .03) d(90 1 0 0)> type=0 size=[.05 .01 .12 0]  color=[.5 0 0]}

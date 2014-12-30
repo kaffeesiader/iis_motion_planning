@@ -1,0 +1,60 @@
+/** @defgroup group_array Array class for linear algebra and Everything else
+
+@brief The array class (the data structure most used throughout for vectors, matricies, tensors, lists, graphs, etc).
+
+This is a standard array lib -- just like many others. (It actually
+evolved from a lib started in Bochum, years ago...)
+
+# The main design goals are
+- compatibility with typical mathematical notation when coding
+  equations (That's in fact most important: It is curcial for us to be
+  able to code as directly as possible equations we've derived on
+  paper!)
+- compatibility with Matlab/Octave conventions (mostly...).
+- full transparacy and minimalism (for easier debugging),
+- Many features: unlimited rank tensors, fast memory handling, links
+  (by default) to LAPACK (is just as fast as any other
+  optimized matrix library), lists -- and everything implemented by only
+  a SINGLE basic class, not a whole lib of classes.
+
+
+# Where to start learning
+- The array doxygen here :)
+- Directly start looking at the 'array' test in the git
+  repository: test/array/main.cpp. Just by reading though all examples I think one learns
+  most.
+- The class has more features (functions) than one might think: I've
+  seem many students reimplementing routines that are actually already
+  there -- frankly I don't know how to avoid that.
+
+
+# Important conventions
+- In all my code, a `list` is an array of pointers. Why? Years back
+  I've implemented double linked lists (O(1) complexity for
+  insertion/deletion) as was typically taught (back then) -- but in
+  practise that's total nonsense. Insertion/deletion in a pointer
+  array is also O(1). And array of point is so so much simpler and
+  easier to debug.
+  Convention: A `ThingList` is a `typedef MT::Array<Thing*>` !
+- Equally for graphs: A `graph` is a list of edges and a list of
+  nodes! (What else?!) I've implemented basic graph template
+  routines. They assume that the node type contains a list of
+  in-edges, and a list of out-edges, and the edge type contains a
+  pointer to the from-node and a pointer to the to-node.
+
+
+# Future changes
+- Instead of having explisit listX routines (for insertion, deletion,
+  sort, etc) there will be a 'listMode' flag in the array class,
+  indicating that this array is to be treated as a list of pointers.
+
+
+# Tip: Debugging with arrays
+- In gdb you can type `print *A.p@A.N`
+- or type `call A.prt()`
+
+
+@section array_cheatsheet Cheat Sheet
+
+\include array_cheatsheet.h
+*/

@@ -1,0 +1,5 @@
+/** @defgroup group_Core Array class, basic utilities, minimalistic dependences
+
+@brief The Core group contains the basic Array class and utilities throughout. It has minimalistic dependencies (optional to LAPACK) and should easily compile everywhere.
+
+*/

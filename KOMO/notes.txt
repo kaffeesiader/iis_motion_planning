@@ -1,0 +1,20 @@
+Installing KOMO on my Ubuntu machine
+====================================
+
+The simple way did not work as some required libraries were missing on my machine.
+So I used the script file in the install folder to get all the necessary components. 
+This worked but after that I was still not able to compile the code.
+The problem is that the linker is not able to find the libCore.so library. Don't know how to get access to this stuff. Googling 
+did not help so far...
+
+Update: 
+
+Marc Toussaint responded my E-Mail.
+Added parameter setting 'GRAPHVIZ = 0' to govMake/config.mk file - now compilation works.
+
+
+Implementation:
+
+Use one KinematicWorld that is used to display all the calculated trajectories, to avoid to pollute the screen with a lot of windows.
+For each planning request, the KinematicWorld has to be reloaded and target link has to be translated and rotated.
+But how to insert additional collision objects???
