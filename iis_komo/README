@@ -2,27 +2,13 @@ iis_komo
 ========
 
 This package contains prototype code to integrate the KOMO motion optimization framework into the iis_lab setup.
-General information about KOMO can be found at http://arxiv.org/pdf/1407.0414v1.pdf.
-Please note that this node is still under development and not very well tested. Also the described service definitions
-might change.
+General information about KOMO can be found at http://arxiv.org/pdf/1407.0414v1.pdf. Please note that this node 
+is still under development and not very well tested.
 
 Installation and build
 ======================
 
-The code within that package depends on the KOMO framework which is located in $IIS_INCLUDE_PATH/external_libs/KOMO.
-Before the framework code can be compiled, it is necessary to install all required dependecies. This can be done,
-using the provided installation script:
-
-  cd $IIS_INCLUDE_PATH/iis_catkin_ws/src/iis_komo
-  ./INSTALL_KOMO_DEPENDENCIES.sh
-
-This script requires root privileges to install the required libraries.
-After that, all compilation steps can be executed, using the make targets in the top-level
-makefile:
-
-  cd $IIS_INCLUDE_PATH
-  make komo
-  make catkin
+Please refer to the README file within the 'iis_motion_planning' folder for installation and build instructions.
 
 Starting the komo node
 ======================

@@ -15,6 +15,6 @@ Namespace switching is done on the console by setting the 'ROS_NAMESPACE' enviro
   
 After that, you can run the test for each gripper seperately, by typing
 
-  rosrun uibk_moveit_adapter test_gripper_action left
+  rosrun iis_control test_gripper_action left
 or
-  rosrun uibk_moveit_adapter test_gripper_action right
+  rosrun iis_control test_gripper_action right
