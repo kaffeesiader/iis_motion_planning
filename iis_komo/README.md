@@ -18,8 +18,8 @@ This launch file also starts the controllers that are required to execute the ge
 
 The planning service handles trajectory planning requests, based on the provided parameters. There are two modes available - planning in joint space and planning in Cartesian space.
 
-**Service name:** `/[NAMESPACE]/motion_control/plan_trajectory` 
-**Service type:** `iis_msgs/PlanTrajectory.srv`
+**Service name:** `/[NAMESPACE]/motion_control/plan_trajectory`  
+**Service type:** `iis_msgs/PlanTrajectory.srv`  
 
 ####Request params:
 
@@ -108,8 +108,8 @@ The measured planning time in seconds
 
 The execution service can be used to execute previously planned trajectories. The desired execution speed can be specified as a percentage of maximum allowed speed.
 
-**Service name:** `/[NAMESPACE]/motion_control/execute_trajectory`
-**Service type:** `iis_msgs/ExecuteTrajectory.srv`
+**Service name:** `/[NAMESPACE]/motion_control/execute_trajectory`  
+**Service type:** `iis_msgs/ExecuteTrajectory.srv`  
 
 ####Request params:
 
@@ -131,8 +131,8 @@ The folder `iis_komo/test` contains different examples for using those services.
 
 ##Adding primitive shapes to the planning scene
 
-**Topic name:**   `/[NAMESPACE]/motion_control/scene/add_primitive_shape`
-**Message type:** `iis_msgs/AddPrimitiveShape`
+**Topic name:**   `/[NAMESPACE]/motion_control/scene/add_primitive_shape`  
+**Message type:** `iis_msgs/AddPrimitiveShape`  
     
 Adds a primitive shape to the planning scene. The shape will be inserted at the given pose, with given name. The message type is the same that is used by the simulator to add shapes to the simulation scene, but the message definition was moved into the `iis_msgs` package to avoid unnecessary dependecies. The message definitions of the simulator could also be moved into that package in future. The `mass` parameter can be set but it is ignored currently. The origin of the shape reference frame is always located at the center of the shape. The `type` parameter specifies the type of the required shape. Supported shape types are BOX (type: 1), SPHERE (type: 2) and CYLINDER (type: 3).
 
@@ -167,8 +167,8 @@ Example call (creates a cylinder named 'my_cylinder' with given dimensions on gi
 
 ##Removing objects from the planning scene
 
-**Topic name:**   `/[NAMESPACE]/motion_control/scene/remove_object`
-**Message type:** `std_msgs/String`
+**Topic name:**   `/[NAMESPACE]/motion_control/scene/remove_object`  
+**Message type:** `std_msgs/String`  
 
 Removes the object with given name from the planning scene.
 
