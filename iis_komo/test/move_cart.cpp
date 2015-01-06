@@ -53,9 +53,9 @@ int main(int argc, char *argv[])
 	// tell komo to use cartesian space planning mode
 	plan_request.mode = plan_request.CART_SPACE_MODE;
 	// allow some tolerances for the goal position
-	plan_request.position_tolerance.x = 0.01;
-	plan_request.position_tolerance.y = 0.01;
-	plan_request.position_tolerance.z = 0.01;
+	plan_request.position_tolerance.x = 0.01; // 1 cm
+	plan_request.position_tolerance.y = 0.01; // 1 cm
+	plan_request.position_tolerance.z = 0.01; // 1 cm
 
 	plan_request.angular_tolerance.x = 0.05; // around 2.8 deg
 	plan_request.angular_tolerance.y = 0.05; // around 2.8 deg
@@ -98,7 +98,9 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
-	if(plan_response.status == plan_response.APPROXIMATE) { // only approximate solution
+	// only approximate solution, that means no collisions and no joint limit violations
+	// but the provided goal tolerances are not met
+	if(plan_response.status == plan_response.APPROXIMATE) { 
 		ROS_WARN("Planner returned APPROXIMATE solution!");
 		ROS_WARN("Status message: %s", plan_response.error.c_str());
 	} else { // planning successful
@@ -121,7 +123,7 @@ int main(int argc, char *argv[])
 	iis_msgs::ExecuteTrajectoryRequest exec_request;
 	exec_request.planning_group = arm;
 	exec_request.trajectory = plan_response.trajectory;
-	exec_request.velocity_factor = 0.9;
+	exec_request.velocity_factor = 0.9; // needs to be a value between 0 and 1
 
 	iis_msgs::ExecuteTrajectoryResponse exec_response;
 
