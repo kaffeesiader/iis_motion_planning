@@ -92,6 +92,16 @@ int main(int argc, char *argv[])
 	vector<double> &state = plan_response.trajectory.points[last].positions;
 	ROS_INFO("Resulting state: [ %f %f %f %f %f %f %f ]", state[0], state[1], state[2], state[3], state[4], state[5], state[6]);
 
+	// ask user to confirm trajectory execution
+	cout << "Confirm execution (y/n): ";
+	string input;
+	cin >> input;
+
+	if(input != "y" && input != "Y") {
+		ROS_INFO("Execution canceled!");
+		return EXIT_SUCCESS;
+	}
+
 	/* ------------------- execution phase --------------------- */
 
 	ROS_INFO("Executing trajectory...");

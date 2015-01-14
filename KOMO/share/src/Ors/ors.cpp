@@ -1542,6 +1542,14 @@ SwiftInterface& ors::KinematicWorld::swift(){
   return *s->swift;
 }
 
+/// reset the current Swift extension (inserted by Martin Griesser for uibk usage)
+void ors::KinematicWorld::resetSwift(){
+	if(s->swift) {
+		delete s->swift;
+		s->swift=NULL;
+	}
+}
+
 /// return a PhysX extension
 PhysXInterface& ors::KinematicWorld::physx(){
   if(!s->physx){

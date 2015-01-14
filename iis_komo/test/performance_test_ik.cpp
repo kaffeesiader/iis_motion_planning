@@ -251,8 +251,8 @@ int main(int argc, char *argv[])
 	test_count = test_count > poses.size() ? poses.size() : test_count;
 
 	// generate random test set
-//	srand(time(NULL));
-	srand(12345);
+	srand(time(NULL));
+//	srand(12345);
 
 	vector<geometry_msgs::Pose> test_set;
 	for (int i = 0; i < test_count; ++i) {

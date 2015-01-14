@@ -116,6 +116,16 @@ int main(int argc, char *argv[])
 	vec = plan_response.angular_error;
 	ROS_INFO("Angular error: [%.5f,%.5f,%.5f]", vec.x, vec.y, vec.z);
 
+	// ask user to confirm trajectory execution
+	cout << "Confirm execution (y/n): ";
+	string input;
+	cin >> input;
+
+	if(input != "y" && input != "Y") {
+		ROS_INFO("Execution canceled!");
+		return EXIT_SUCCESS;
+	}
+
 	/* ------------------- execution phase --------------------- */
 
 	ROS_INFO("Executing trajectory...");

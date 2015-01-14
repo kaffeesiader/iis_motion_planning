@@ -18,7 +18,7 @@ using namespace std;
 void setup_MP(MotionProblem &MP, const char *link, const char *target, bool useHoming) {
 
 	double posPrec = 1e4;
-	double alignPrec = 1e5; // original 1e3
+	double alignPrec = 1e6; // original 1e3
 	double collPrec = 1e0;
 	double collMarg = 0.04;
 	double jntLimitPrec = 1e1;
@@ -232,8 +232,8 @@ int main(int argc, char *argv[])
 	test_count = test_count > poses.size() ? poses.size() : test_count;
 
 	// generate random test set
-//	srand(time(NULL));
-	srand(12345);
+	srand(time(NULL));
+//	srand(12345);
 
 	vector<geometry_msgs::Pose> test_set;
 	for (int i = 0; i < test_count; ++i) {

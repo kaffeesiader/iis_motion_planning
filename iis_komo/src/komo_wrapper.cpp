@@ -19,6 +19,7 @@ KomoWrapper::KomoWrapper(const char *config_name)
 {
 	cout << "Loading robot description from file '" << string(config_name) << "'." << endl;
 	_world = new ors::KinematicWorld(config_name);
+	_world->swift().initActivations(*_world);
 
 	// initialize list of activated joints
 	for(ors::Joint *j:_world->joints) {
@@ -146,13 +147,17 @@ void KomoWrapper::addCollisionObject(const string &object_id, const ors::ShapeTy
 	// enable collision checking
 	shape->cont = true;
 
-	// somehow necessary, otherwise swift crashes...
+	// somehow necessary to correctly initialize the shape...
 	shape->parseAts();
 
 	cout << "Pose: " << pose << endl;
 
 	_world->calc_fwdPropagateFrames();
-	_world->swift().initActivations(*_world);
+	_world->checkConsistency();
+	// this is necessary, otherwise swift crashes (I added this method to the KOMO sourcecode
+	// because otherwise manually creating shapes is not possible...)
+	// REMEMBER WHEN SWITCHING TO A NEW KOMO VERSION!!!
+	_world->resetSwift();
 }
 
 void KomoWrapper::removeCollisionObject(const string &object_id)
@@ -162,6 +167,8 @@ void KomoWrapper::removeCollisionObject(const string &object_id)
 		cerr << "Object with name '" << object_id << "'' not found!" << endl;
 	} else {
 		delete shape;
+		// same as above :)
+		_world->resetSwift();
 	}
 }
 

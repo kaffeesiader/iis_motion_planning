@@ -11,6 +11,7 @@
 #include <controller_manager/controller_manager.h>
 #include <boost/shared_ptr.hpp>
 #include <boost/thread/mutex.hpp>
+#include <std_msgs/Bool.h>
 
 using namespace std;
 using namespace ros;
@@ -64,6 +65,10 @@ bool load_configuration(NodeHandle &nh) {
 	return true;
 }
 
+void CBSetReadOnly(const std_msgs::BoolPtr &msg) {
+	hw_->setReadOnly(msg->data);
+}
+
 int main(int argc, char **argv) {
 	ros::init(argc, argv, "iis_controller_manager");
 
@@ -83,6 +88,10 @@ int main(int argc, char **argv) {
 	cm_thread = boost::thread(controller_manager_thread);
 
 	ROS_INFO("Controller manager launched.");
+
+	NodeHandle public_nh;
+	Subscriber sub = public_nh.subscribe("iis_control/set_readonly", 1, CBSetReadOnly);
+
 	// handle spinning in the original thread!
 	ros::spin();
 

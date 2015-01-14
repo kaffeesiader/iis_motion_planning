@@ -54,6 +54,7 @@ private:
 
 	bool initialized_;
 	bool readonly_;
+	bool muted_;
     string jnt_name_prefix;
 	/**
 	 * Callback for the JointState topic subscription
@@ -89,6 +90,12 @@ public:
 	 * @return
 	 */
 	bool isReadOnly();
+	/**
+	 * Switch the muted state of this JointStateAdapter.
+	 * If a JointStateAdapter is muted, it will not publish commanded values.
+	 * @param muted
+	 */
+	void setMuted(bool muted);
 };
 
 typedef boost::shared_ptr<JointStateAdapter> JointStateAdapterPtr;
@@ -113,12 +120,13 @@ public:
 	 * Force state adapters to publish the commanded values
 	 */
 	void publish();
-
+	void setReadOnly(bool read_only);
 	bool initialStateReceived();
 
 private:
 
 	bool initialized_;
+	bool read_only_;
 
 	JointStateInterface jnt_state_interface_;
 	PositionJointInterface jnt_pos_interface_;

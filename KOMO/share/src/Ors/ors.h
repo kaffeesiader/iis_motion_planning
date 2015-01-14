@@ -316,6 +316,9 @@ struct KinematicWorld {
   void stepOde(double tau);
   void stepDynamics(const arr& u_control, double tau, double dynamicNoise);
 
+  /// @name inserted by Martin Griesser (for uibk usage)
+  void resetSwift();
+
   /// @name I/O
   void write(std::ostream& os) const;
   void read(std::istream& is);

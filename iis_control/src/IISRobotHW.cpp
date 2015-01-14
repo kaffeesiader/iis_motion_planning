@@ -13,7 +13,7 @@ using namespace hardware_interface;
 using namespace std;
 using namespace XmlRpc;
 
-IISRobotHW::IISRobotHW() :initialized_(false) {
+IISRobotHW::IISRobotHW() :initialized_(false), read_only_(false) {
 }
 
 IISRobotHW::~IISRobotHW() {
@@ -114,6 +114,8 @@ bool IISRobotHW::initialStateReceived() {
  * Force Command adapters to publish JointPositions
  */
 void IISRobotHW::publish() {
+	if(read_only_)
+		return;
 
 	for (size_t i = 0; i < jntStateAdapters_.size(); ++i) {
 		jntStateAdapters_[i]->Update();
@@ -121,10 +123,22 @@ void IISRobotHW::publish() {
 
 }
 
+void IISRobotHW::setReadOnly(bool read_only)
+{
+	if(read_only_ == read_only)
+		return;
+
+	for (size_t i = 0; i < jntStateAdapters_.size(); ++i) {
+		jntStateAdapters_[i]->setMuted(read_only);
+	}
+
+	read_only_ = read_only;
+}
+
 /* -------------------- JointStateAdapter ----------------------- */
 
 JointStateAdapter::JointStateAdapter(ros::NodeHandle &nh, JointStateInterface *state_itf, JointCommandInterface *cmd_itf):
-		initialized_(false), readonly_(false) {
+		initialized_(false), readonly_(false), muted_(false) {
 
 	string state_topic;
 	// Create public Nodehandle for topic subscriptions and use private one
@@ -178,7 +192,7 @@ JointStateAdapter::JointStateAdapter(ros::NodeHandle &nh, JointStateInterface *s
 	command_interface_ = cmd_itf;
 
 	sub_ = public_nh.subscribe(state_topic, 1, &JointStateAdapter::JointStateCB, this);
-	// receive absolute topic name (in case that node runs under a different namespace...)
+	// receive absolute topic name (in case that node runs in a different namespace...)
 	string topic_name = sub_.getTopic();
 
 	ROS_INFO("JointStateAdapter listens on topic '%s'", topic_name.c_str());
@@ -257,21 +271,20 @@ void JointStateAdapter::initialize(const sensor_msgs::JointState &initialState) 
 }
 
 void JointStateAdapter::Update() {
-	// do nothing if this adapter is readonly
-	if(readonly_)
+	// do nothing if this adapter is readonly or muted
+	if(readonly_ || muted_)
 		return;
 
-    pos_msg_.data.clear();
+	pos_msg_.data.clear();
 
-    for (size_t i = 0; i < joint_names_.size(); ++i) {
-        string jnt_name = joint_names_[i];
-	JointPtr jnt = joints_[jnt_name];
-        if(!jnt) {
-            ROS_WARN_STREAM("No joint with name " << jnt_name << " exists!");
-        } else {
-            pos_msg_.data.push_back(jnt->targetPosition);
-        }
-//        pos_msg_.data.push_back(jnt->targetPosition);
+	for (size_t i = 0; i < joint_names_.size(); ++i) {
+		string jnt_name = joint_names_[i];
+		JointPtr jnt = joints_[jnt_name];
+		if(!jnt) {
+			ROS_WARN_STREAM("No joint with name " << jnt_name << " exists!");
+		} else {
+			pos_msg_.data.push_back(jnt->targetPosition);
+		}
 	}
 
 	pub_.publish(pos_msg_);
@@ -283,6 +296,25 @@ bool JointStateAdapter::isInitialized() {
 
 bool JointStateAdapter::isReadOnly() {
 	return readonly_;
+}
+
+void JointStateAdapter::setMuted(bool muted)
+{
+	if(!muted) {
+		// set target position of each joint to it's current position to avoid
+		// unintended motions
+		for (size_t i = 0; i < joint_names_.size(); ++i) {
+			string jnt_name = joint_names_[i];
+			JointPtr jnt = joints_[jnt_name];
+			if(!jnt) {
+				ROS_WARN_STREAM("No joint with name " << jnt_name << " exists!");
+			} else {
+				jnt->targetPosition = jnt->position;
+			}
+		}
+	}
+
+	muted_ = muted;
 }
 
 JointStateAdapter::~JointStateAdapter() {

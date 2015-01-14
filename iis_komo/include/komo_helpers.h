@@ -206,13 +206,13 @@ void ensureJointLimits(ors::KinematicWorld &w, arr &x) {
 
 			if(wp(j) < lo) {
 				cerr << boost::format("Lower joint limit violated for joint %d in waypoint %d - value: %.3f\n") % j % i % wp(j) << endl;
-				wp(j) == lo;
+				wp(j) = lo;
 				cerr << "corrected!" << endl;
 			}
 
 			if(wp(j) > hi){
 				cerr << boost::format("Upper joint limit violated for joint %d in waypoint %d - value: %.3f\n") % j % i % wp(j) << endl;
-				wp(j) == hi;
+				wp(j) = hi;
 				cerr << "corrected!" << endl;
 			}
 		}
@@ -243,8 +243,7 @@ bool validateCollisions(ors::KinematicWorld &w, const arr &x, string &error_msg)
 					string sA(w.shapes(p->a)->name);
 					string sB(w.shapes(p->b)->name);
 
-					error_msg.append(STRING(boost::format("Collision in waypoint %d between '%s' and '%s' detected!\n")
-											% i % sA % sB));
+					error_msg.append(STRING(boost::format("Collision in waypoint %d between '%s' and '%s' detected!\n")	% i % sA % sB));
 
 //					w.watch(true, error_msg.c_str());
 
@@ -263,8 +262,7 @@ bool validateCollisions(ors::KinematicWorld &w, const arr &x, string &error_msg)
 				string sA(w.shapes(p->a)->name);
 				string sB(w.shapes(p->b)->name);
 
-				error_msg.append(STRING(boost::format("Collision between '%s' and '%s' detected!\n")
-										% sA % sB));
+				error_msg.append(STRING(boost::format("Collision between '%s' and '%s' detected!\n") % sA % sB));
 
 				cerr << error_msg << endl;
 				w.watch(true, error_msg.c_str());

@@ -3,6 +3,8 @@
 #include <iis_msgs/ExecuteTrajectory.h>
 #include <iis_schunk_hardware/GripCmd.h>
 
+using namespace std;
+
 int main(int argc, char *argv[])
 {
 	ros::init(argc, argv, "test_KOMO_pick");
@@ -88,6 +90,16 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
+	// ask user to confirm trajectory execution
+	cout << "Confirm execution (y/n): ";
+	string input;
+	cin >> input;
+
+	if(input != "y" && input != "Y") {
+		ROS_INFO("Execution canceled!");
+		return EXIT_SUCCESS;
+	}
+
 	// execute reaching phase
 	iis_msgs::ExecuteTrajectoryRequest exec_request;
 	exec_request.planning_group = "right_arm";
@@ -138,6 +150,8 @@ int main(int argc, char *argv[])
 	plan_request.angular_tolerance.x = 0.1; // around 5 deg
 	plan_request.angular_tolerance.y = 0.1; // around 5 deg
 	plan_request.angular_tolerance.z = 0.1; // around 5 deg
+
+	plan_request.allow_support_surface_contact = true;
 
 	if(!plan_srv.call(plan_request, plan_response)) {
 		ROS_ERROR("Error executing KOMO service request!");
@@ -195,6 +209,8 @@ int main(int argc, char *argv[])
 	plan_request.angular_tolerance.y = 0.1; // around 5 deg
 	plan_request.angular_tolerance.z = 0.1; // around 5 deg
 
+	plan_request.allow_support_surface_contact = true;
+
 	if(!plan_srv.call(plan_request, plan_response)) {
 		ROS_ERROR("Error executing KOMO service request!");
 		return EXIT_FAILURE;
@@ -204,6 +220,15 @@ int main(int argc, char *argv[])
 	if(!plan_response.status) {
 		ROS_ERROR("Trajectory planning failed: %s", plan_response.error.c_str());
 		return EXIT_FAILURE;
+	}
+
+	// ask user to confirm trajectory execution
+	cout << "Confirm execution (y/n): ";
+	cin >> input;
+
+	if(input != "y" && input != "Y") {
+		ROS_INFO("Execution canceled!");
+		return EXIT_SUCCESS;
 	}
 
 	// execute depart phase

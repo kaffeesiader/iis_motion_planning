@@ -29,7 +29,7 @@ Currently either 'left_arm' or 'right_arm'. The plan is to create additional pla
 #####string eef_link
 The name of the reference frame we want to plan for (only considered in CART_SPACE_MODE).
     
-Currently available: 'left_arm_7_link', 'left_sdh_palm_link', 'left_sdh_grasp_link', 'left_sdh_tip_link', 'right_arm_7_link', 'right_sdh_...'
+Currently available: 'left_eef', 'left_sdh_palm_link', 'left_sdh_grasp_link', 'left_sdh_tip_link', 'right_eef', 'right_sdh_...'
       
 Those reference frames are defined within the file `iis_komo/data/iis_robot.kvg`. Additional frames can easily be added, if required.
 
