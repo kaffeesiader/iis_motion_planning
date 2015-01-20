@@ -86,6 +86,7 @@ ors::Shape *target = w.getShapeByName("target");
 
 ors::Vector pos(X, Y, Z);
 ors::Quaternion quat(W, X, Y, Z);
+quat.normalize();
 
 // set target position...
 target->rel.pos = pos;
@@ -96,6 +97,8 @@ target->rel.rot = quat;
 // force KOMO to propagate the shape frames
 w.calc_fwnPropagateShapeFrames();
 ```
+
+It is very important that the quaternion is always normalized, otherwise KOMO delivers unpredictable results!
 
 #### End effector position
 End effector position constraints are defined by adding an instance of `DefaultTaskMap`. The constructor takes the `TaskMapType` which is `posTMT` and the indices of the end effector and the target marker frames:
@@ -119,16 +122,71 @@ The `DefaultTaskMap` of type `vecAlignTMT` allows to align an axis of the end ef
 ors::Vector axis(1,0,0); // X-Axis
 
 c = MP.addTask("align_x", new DefaultTaskMap(vecAlignTMT, eef_idx, axis, target_idx, axis));
-c->setCostSpecs(MP.T, MP.T, {1.}, _alignmentPrecision);
+c->setCostSpecs(MP.T, MP.T, {1.}, _alignmentPrecision); // {1.} make axes orthogonal
 ```
 
-#### End effector orientation
+The code example adds a constraint that aligns the x-axis of the end effector reference frame with the x-axis of the target frame and enforces this constraint on the last time slice. This constraint could also be used as a path constraint, for example to keep the end effector in a certain orientation during the whole trajectory, simply by enforcing it on all time slices (`0 to MP.T`. The target value in the above example is set to `{1.}`, because this constraint optimizes the dot product of the two vectors. A dot product of 1 means both vectors are in parallel and point in the same direction. Setting the target value to {0.} would force KOMO to make the two vectors orthogonal to each other. 
 
 #### End effector velocity
+KOMO also allows to constrain the velocity of the specified end effector. This is done by using the same constraint as for the end effector position, but setting the order parameter of the `TaskMap` to 1, which indicates that it should work with velocities (2 -> accelerations).
+
+```cpp
+c = MP.addTask("EEF_vel", new DefaultTaskMap(posTMT, eef_idx));
+c->setCostSpecs(MP.T, MP.T, {0.}, 1e1);
+c->map.order=1; //make this a velocity variable!
+```
+
+The example adds a constraint that enforces the velocity of the end effector link to be zero on the last time slice. This technique could probably also be used to constrain the velocity of the end effector during the trajctory, but I did not test that.
 
 #### Joint state
+Planning for joint space goals is done by constraining for a certain robot configuration at specified time slices. Therefore a `DefaultTaskMap` of type `qItselfTMT` is used:
+
+```cpp
+// the goal configuration must contain exactly one value per joint!
+arr goal_config(w.getJointStateDimension());
+// set the desired values for each single joint at the correct qIndex
+goal_config(w.getJointByName("right_arm_0_joint")->qIndex) = 0.0;
+... // repeat for all joints
+goal_config(w.getJointByName("right_arm_6_joint")->qIndex) = 0.0;
+
+// TaskMap for goal state
+c = MP.addTask("Goal_state", new DefaultTaskMap(qItselfTMT));
+c->setCostSpecs(MP.T, MP.T, goal_config, 1e5);
+```
+
+It is very important that the `arr` that specifies the target configuration has the correct dimensionality and contains a value for each single joint. Otherwise KOMO will chrash as a critical assertion is violated. This can be achieved by first creating an `arr` instance with the joint state dimension of our `KinematicWorld`. After that, the desired joint target positions need to be set at the correct index within our `arr`. This index is called the `qIndex` and can be queried by first finding the joint by its name and then read the `qIndex` parameter. Don't confuse that with the `index` parameter, which indicates the joint's index within the list of joints in the `KinematicWorld`!
+
+The same `TaskMap` could be used to constrain the target joint velocities, by simply setting the `order` parameter to 1:
+
+```cpp
+// TaskMap for zero velocity at goal
+c = MP.addTask("Goal_vel", new DefaultTaskMap(qItselfTMT));
+c->setCostSpecs(MP.T, MP.T, {0.}, 1e1);
+c->map.order = 1; //make this a velocity variable!
+```
+
+The example adds a constraint for all joint velocities to be zero at the last time slice.
 
 #### Joint limits
+During trajectory planning it is also necessary to enforce that all the joints stay within some configured limits. This can be achieved on two different ways - either by using a `LimitsConstraint` or using a `DefaultTaskMap` of type `qLimitsTMT`. The advantage on using a `LimitsConstraint` is that it allows to configure a desired margin whereas the `DefaultTaskMap` uses a default margin of 0.1. The following code snippets show the usage of both approaches:
+
+##### LimitsConstraint approach
+```cpp
+// first approach - LimitsConstraint
+LimitsConstraint *lc = new LimitsConstraint();
+lc->margin = 0.005;
+c = MP.addTask("Joint_limits", lc);
+c->setCostSpecs(0, MP.T, {0.}, 1e1);
+```
+
+##### TaskMap approach
+```cpp
+// second approach - DefaultTaskMap
+c = MP.addTask("Joint_limits", new DefaultTaskMap(qLimitsTMT));
+c->setCostSpecs(0, MP.T, {0.}, 1e1);
+```
+
+On both approaches, the joint limits are considered throughout the whole trajectory. The limits are configured within the .ors description files and can be accessed by the function `KinematicWorld::getLimits()`. This returns a 2 times n matrix (`arr`), containing the upper and lower joint limits. If no limits are configured then it is assumed that the joint has no limit. However, limit constraints can be violated, so it is always necessary to check the resulting trajectories for such violations before sending them to the robot. An example, how this can be achieved can be found within `komo_helpers.h` in the `iis_komo` package .
 
 #### Collisions
 
