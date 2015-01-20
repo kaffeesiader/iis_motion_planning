@@ -265,13 +265,13 @@ void KomoWrapper::plan(const string &eef_link, ors::Transformation &goal, int ax
 		MP.prefix.clear();
 		MP.x0 = state;
 
-		arr x = replicate (MP.x0, MP.T+1);
+		arr x = replicate(MP.x0, MP.T+1);
 		rndGauss(x, .01, true); //don't initialize at a singular config
 
 		optConstrained(x, NoArr, Convert(MF), OPT(verbose=0, stopIters=100, maxStep=.5, stepInc=2., allowOverstep=false));
 		MP.costReport(false);
 
-		// ensure that all joints are within calculated limits before do collision validation
+		// ensure that all joints are within calculated limits before doing collision validation
 		ensureJointLimits(*_world, x);
 
 		if(!validateCollisions(*_world, x, result.error_msg)) {

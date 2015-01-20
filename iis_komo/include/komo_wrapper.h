@@ -71,8 +71,27 @@ public:
 	void addCollisionObject(const string &object_id, const ors::ShapeType type, const ors::Transformation &pose,
 							const arr size, const arr color=ARR(1.0,0.0,0.0));
 	void removeCollisionObject(const string &object_id);
-
+	/**
+	 * Plans for given Cartesian space goal and given end effektor link. Planning outcome is stored
+	 * in provided PlanningResult structure
+	 *
+	 * @param eef_link
+	 * The end effector reference frame that should be aligned with goal reference frame
+	 * @param goal
+	 * The Transformation of the goal reference frame
+	 * @param axes_to_align
+	 * Which axes of the end effector reference frame should be aligned with the
+	 * goal reference frame. This value is bit-coded: 1=X-Axis, 2=Y-Axis, 4=Z-Axis.
+	 * For example to align all 3 axes use X-Axis + Y-Axis + Z-Axis = 7
+	 * @param result
+	 * A PlanningResult structure that is used to store the planning result information
+	 */
 	void plan(const string &eef_link, ors::Transformation &goal, int axes_to_align, PlanningResult &result);
+	/**
+	 * @brief plan
+	 * @param goal_state
+	 * @param result
+	 */
 	void plan(const vector<double> &goal_state, PlanningResult &result);
 
 	void display(bool block = false, const char *msg = "Ready...");
@@ -100,12 +119,7 @@ private:
 	MT::String _support_surface_name;
 	MT::String _world_link_name;
 
-	// validates the planning outcome
-	// checks for correctness and if all constraints are met
-//	bool validateJointLimits(const arr &traj, string &error_msg);
-//	bool validateCollisions(const arr &traj, string &error_msg);
 	void pathToTrajectory(trajectory_msgs::JointTrajectory &traj, const arr &path);
-
 	void setJointPosition(const string &name, const double pos);
 };
 

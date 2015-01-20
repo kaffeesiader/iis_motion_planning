@@ -43,7 +43,7 @@ public:
 			_mutex.lock();
 			_komo->setState(_robot->getCurrentState());
 			_komo->display();
-			ROS_DEBUG("Update UI");
+//			ROS_DEBUG("Update UI");
 			_mutex.unlock();
 
 			rate.sleep();
