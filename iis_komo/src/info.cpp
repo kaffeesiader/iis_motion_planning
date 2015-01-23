@@ -26,6 +26,19 @@ int main(int argc, char *argv[])
 //		cout << "Distance: " << p->d << endl;
 //	}
 
+	MotionProblem MP(w);
+	TaskCost *c;
+	c = MP.addTask("Collision", new CollisionConstraint());
+	c->setCostSpecs(0, MP.T, {0.}, 1e0);
+
+	uintA shapes;
+	c = MP.addTask("Collision", new ProxyTaskMap(allPTMT, shapes, 0.02));
+	c->setCostSpecs(0, MP.T, {0.}, 1e0);
+
+	arr x1 = ARR(2.,3.,4.);
+	arr x2 = x1 * 3.;
+	x2 = x1 / 3.;
+
 	ors::Body *target = w.getBodyByName("target");
 
 	target->X.pos.x = 0.3;

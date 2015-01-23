@@ -7,3 +7,6 @@
 *.user
 *.includes
 *.files
+
+# KOMO
+KOMO/share/examples/Ors/ors_editor/MT.log
