@@ -8,7 +8,7 @@ Identifier | ShapeType |  Description
 ts    | inhalt    |  inhalt
 
 ShapeType | Identifier | Description
---------- | -- | -----------
+--------- | ---- | -----------
 so | a | schaas
 
 # KOMO motion optimization framework
