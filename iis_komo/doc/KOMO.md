@@ -33,8 +33,8 @@ Represents a rigid body within a `KinematicWorld` instance. Each body has a defi
 #### `ors::Shape`
 Represents a geometric shape. Shapes can be primitives like cylinders, boxes, spheres, cones... but also complex meshes or just simple marker reference frames. Each shape is associated to a body. The shape type is determined by the `type` parameter of a `ors::Shape` instance. Possible values are:
 
-| ShapeType            | ID | Description   |
-| ShapeType            | ID | Description   |
+ShapeType            | ID | Description
+ShapeType            | ID | Description
 
 | ShapeType            | ID | Description   |
 | ---------------------| -- | ------------- |
