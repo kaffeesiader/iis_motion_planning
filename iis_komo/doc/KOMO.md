@@ -3,13 +3,13 @@ First Header | Second Header
 Content from cell 1 | Content from cell 2
 Content in the first column | Content in the second column
 
-sonst | ShapeType |  Description
+Identifier | ShapeType |  Description
 ----- | --------- |  -----------
 ts    | inhalt    |  inhalt
 
-ShapeType | ID | Description
+ShapeType | Identifier | Description
 --------- | -- | -----------
-ShapeType | ID | Description
+ShapeType | Identifier | Description
 
 # KOMO motion optimization framework
 
