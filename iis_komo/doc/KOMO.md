@@ -1,16 +1,3 @@
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
-
-Identifier | ShapeType |  Description
------ | --------- |  -----------
-ts    | inhalt    |  inhalt
-
-ShapeType | ID | Description
---------- | ---- | -----------
-so | a | schaas
-
 # KOMO motion optimization framework
 
 This document gives an overview about Marc Toussaint's motion optimization framework KOMO, along with some detailed usage instructions. General information about KOMO can be found in [this paper](http://arxiv.org/pdf/1407.0414v1.pdf). As there is no detailed documentation about the framework available, most of the information within this document was acquired by reading the KOMO source code, analyzing the `ikea_chair` example and of course by trial and error. Therefore not everything explained within this document claims absolute correctness as it only reflects my personal opinion about how things can be used.
@@ -50,38 +37,38 @@ ShapeType|ID|Description
 ---------|--|-----------
 ShapeType|ID|Description
 
-| ShapeType            | ID | Description   |
-| ---------------------| -- | ------------- |
-| `noneST`             | -1 | never used... |
-| `boxST`              |  0 | Box           |
-| `sphereST`           |  1 | Sphere        |
-| `cappedCylinderST`   |  2 | never used... |
-| `meshST`             |  3 | Complex mesh  |
-| `cylinderST`         |  4 | Cylinder      |
-| `markerST`           |  5 | Marker        |
-| `pointCloudST`       |  6 | never used... |
+| ShapeType            | ID   | Description   |
+| ---------------------| ---- | ------------- |
+| `noneST`             | -1   | never used... |
+| `boxST`              |  0   | Box           |
+| `sphereST`           |  1   | Sphere        |
+| `cappedCylinderST`   |  2   | never used... |
+| `meshST`             |  3   | Complex mesh  |
+| `cylinderST`         |  4   | Cylinder      |
+| `markerST`           |  5   | Marker        |
+| `pointCloudST`       |  6   | never used... |
 
 Each shape is identified by its unique name. There are two transformations associated to each shape - one determines the transformation relative to the containing body (parameter `rel`) and the other one seems to be an absolute transformation relative to the world reference frame (parameter `X`). The `index` parameter determines the index of the shape within the list of all shapes of the `ors::KinematicWorld` instance. The boolean parameter `cont` specifies whether contacts with this shape should be registered or not. Setting this parameter to `false` excludes the underlying shape from collision checking. Other shape parameters are `size`, `color` and `body`, which is a pointer to the containing `ors::Body` instance.
 
 #### `ors::Joint`
 Represents a robot joint. Joints are connections between bodies. Each joint has a unique name and a clearly defined joint type. There are several possible types of joints but I only used revolute joints and fixed joints for our model.
 
-| JointType            | ID | Description   |
-| ---------------------| -- | ------------- |
-| `JT_none`            | -1 | never used... |
-| `JT_hingeX`          |  0 | revolute joint (default) |
-| `JT_hingeY`          |  1 | never used... |
-| `JT_hingeZ`          |  2 | never used... |
-| `JT_transX`          |  3 | never used... |
-| `JT_transY`          |  4 | never used... |
-| `JT_transZ`          |  5 | never used... |
-| `JT_transXY`         |  6 | never used... |
-| `JT_trans3`          |  7 | never used... |
-| `JT_transXYPhi`      |  8 | never used... |
-| `JT_universal`       |  9 | never used... |
-| `JT_fixed`           | 10 | Fixed connection |
-| `JT_quatBall`        | 11 | never used... |
-| `JT_glue`            | 12 | used to temporarily connect two bodies |
+| JointType            | ID   | Description   |
+| ---------------------| ---- | ------------- |
+| `JT_none`            | -1   | never used... |
+| `JT_hingeX`          |  0   | revolute joint (default) |
+| `JT_hingeY`          |  1   | never used... |
+| `JT_hingeZ`          |  2   | never used... |
+| `JT_transX`          |  3   | never used... |
+| `JT_transY`          |  4   | never used... |
+| `JT_transZ`          |  5   | never used... |
+| `JT_transXY`         |  6   | never used... |
+| `JT_trans3`          |  7   | never used... |
+| `JT_transXYPhi`      |  8   | never used... |
+| `JT_universal`       |  9   | never used... |
+| `JT_fixed`           | 10   | Fixed connection |
+| `JT_quatBall`        | 11   | never used... |
+| `JT_glue`            | 12   | used to temporarily connect two bodies |
 
 Joints can also be identified by their unique name. The `index` parameter determines the index of the joint within the list of all joints of the `ors::KinematicWorld` instance. The `qIndex` parameter represents the index of the joint within the `arr` instance that represents the robot's current configuration within the `KinematicWorld` (more on that later). There are several other parameters available - please have a look into the `Ors/ors.h` header file.
 
