@@ -7,7 +7,7 @@ Identifier | ShapeType |  Description
 ----- | --------- |  -----------
 ts    | inhalt    |  inhalt
 
-ShapeType | Identifier | Description
+ShapeType | ID | Description
 --------- | ---- | -----------
 so | a | schaas
 
