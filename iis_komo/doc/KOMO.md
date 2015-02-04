@@ -7,9 +7,9 @@ ShapeType | ID
 ------ | -----
 inhalt | inhalt
 
-ShapeType|ID|Description
----------|--|-----------
-ShapeType|ID|Description
+ShapeType | ID | Description
+--------- | -- | -----------
+ShapeType | ID | Description
 
 # KOMO motion optimization framework
 
