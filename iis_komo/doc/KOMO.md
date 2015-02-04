@@ -4,11 +4,9 @@ This document gives an overview about Marc Toussaint's motion optimization frame
 
 ## KOMO overview
 
-The KOMO framework allows to plan complex robot motions by translating a specified motion problem into a general-case mathematical optimization problem and then finding the best solution for it.
+The KOMO framework allows to plan complex robot motions by translating a specified motion problem into a general-case mathematical optimization problem and then finding the best solution for it. The following sections describe the most important data structures:
 
-#### MotionProblem
-#### TaskMap
-#### KinematicWorld
+## The ORS robot description
 
 ## Basic data structures
 
@@ -27,25 +25,70 @@ Represents a unit-quaternion and provides common quaternion functionality.
 #### `ors::Transformation`
 Represents a transformation in Cartesian space, composed from a `ors::Vector` (pos) and a `ors::Quaternion` (rot).
 
-#### `ors::Shape`
-
+##Environment representation
 
 #### `ors::Body`
+Represents a rigid body within a `KinematicWorld` instance. Each body has a defined mass and inertial matrix and is composed from one or more shapes. Bodies are identified by their unique `name`. The `index` parameter determines the index of the body within the list of all bodies of the `ors::KinematicWorld` instance.
+
+#### `ors::Shape`
+Represents a geometric shape. Shapes can be primitives like cylinders, boxes, spheres, cones... but also complex meshes or just simple marker reference frames. Each shape is associated to a body. The shape type is determined by the `type` parameter of a `ors::Shape` instance. Possible values are:
+
+| ShapeType            | ID | Description   |
+| ---------------------| -- | ------------- |
+| `noneST`             | -1 | never used... |
+| `boxST`              |  0 | Box           |
+| `sphereST`           |  1 | Sphere        |
+| `cappedCylinderST`   |  2 | never used... |
+| `meshST`             |  3 | Complex mesh  |
+| `cylinderST`         |  4 | Cylinder      |
+| `markerST`           |  5 | Marker        |
+| `pointCloudST`       |  6 | never used... |
+
+Each shape is identified by its unique name. There are two transformations associated to each shape - one determines the transformation relative to the containing body (parameter `rel`) and the other one seems to be an absolute transformation relative to the world reference frame (parameter `X`). The `index` parameter determines the index of the shape within the list of all shapes of the `ors::KinematicWorld` instance. The boolean parameter `cont` specifies whether contacts with this shape should be registered or not. Setting this parameter to `false` excludes the underlying shape from collision checking. Other shape parameters are `size`, `color` and `body`, which is a pointer to the containing `ors::Body` instance.
 
 #### `ors::Joint`
+Represents a robot joint. Joints are connections between bodies. Each joint has a unique name and a clearly defined joint type. There are several possible types of joints but I only used revolute joints and fixed joints for our model.
+
+| JointType            | ID | Description   |
+| ---------------------| -- | ------------- |
+| `JT_none`            | -1 | never used... |
+| `JT_hingeX`          |  0 | revolute joint (default) |
+| `JT_hingeY`          |  1 | never used... |
+| `JT_hingeZ`          |  2 | never used... |
+| `JT_transX`          |  3 | never used... |
+| `JT_transY`          |  4 | never used... |
+| `JT_transZ`          |  5 | never used... |
+| `JT_transXY`         |  6 | never used... |
+| `JT_trans3`          |  7 | never used... |
+| `JT_transXYPhi`      |  8 | never used... |
+| `JT_universal`       |  9 | never used... |
+| `JT_fixed`           | 10 | Fixed connection |
+| `JT_quatBall`        | 11 | never used... |
+| `JT_glue`            | 12 | used to temporarily connect two bodies |
+
+Joints can also be identified by their unique name. The `index` parameter determines the index of the joint within the list of all joints of the `ors::KinematicWorld` instance. The `qIndex` parameter represents the index of the joint within the `arr` instance that represents the robot's current configuration within the `KinematicWorld` (more on that later). There are several other parameters available - please have a look into the `Ors/ors.h` header file.
+
+#### `ors::Proxy`
+A data structure to store proximity information (when two shapes become close) as return value from external collision libs (Swift, ODE, ...). Each proxy contains the indices of the two shapes and information about distance, contact normal vectors and closest points on surface of both shapes. The parameters are well described in the above mentioned header file.
 
 #### `ors::KinematicWorld`
+Data structure that represents the robot and its environment. A `KinematicWorld` instance is composed from lists of bodies, shapes, joints and proxies and provides several functions to access specific instances of those types. The parameters are also described within the `Ors/ors.h` header file.
+
+## Usage of the `ors::KinematicWorld` data structure
+This section describes how specific tasks can be performed, using the KOMO framework.
+
+#### Modifying joint positions
+
+#### Retrieving and interpreting joint configurations
+
+#### Retrieving collision information
+
+#### Modifying shape poses
+
+#### Working with Agents
 
 ## Motion optimization
 This document only describes the practical usage of the KOMO framework. Please see the [KOMO paper](http://arxiv.org/pdf/1407.0414v1.pdf) for exact definitions of the used terminology.
-
-### Data structures
-
-#### MotionProblem
-
-#### TaskMap
-
-#### TaskCost
 
 ### Defining MotionProblems
 The first step is to create an instance of type `MotionProblem`, based on a `KinematicWorld` instance that represents the robot and its environment and force KOMO to load the configured transition parameters from the configuration file `config/MT.cfg`:

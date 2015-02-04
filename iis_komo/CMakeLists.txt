@@ -107,6 +107,20 @@ add_dependencies(komo_info iis_msgs_generate_messages_cpp)
 target_link_libraries(komo_info Ors Core Motion Optim Gui ${catkin_LIBRARIES})
 set_target_properties(komo_info PROPERTIES COMPILE_FLAGS -std=c++0x)
 
+## examples
+
+add_executable(move_cart examples/move_cart.cpp)
+add_dependencies(move_cart iis_msgs_generate_messages_cpp)
+target_link_libraries(move_cart ${catkin_LIBRARIES})
+
+add_executable(move_joint examples/move_joint.cpp)
+add_dependencies(move_joint iis_msgs_generate_messages_cpp)
+target_link_libraries(move_joint ${catkin_LIBRARIES})
+
+add_executable(planning_scene examples/planning_scene.cpp)
+add_dependencies(planning_scene iis_msgs_generate_messages_cpp)
+target_link_libraries(planning_scene ${catkin_LIBRARIES})
+
 ## tests
 add_executable(test_komo_pick test/test_KOMO_pick.cpp)
 add_dependencies(test_komo_pick iis_msgs_generate_messages_cpp)
@@ -116,21 +130,14 @@ add_executable(test_arm_move test/test_arm_move.cpp)
 add_dependencies(test_arm_move iis_msgs_generate_messages_cpp)
 target_link_libraries(test_arm_move ${catkin_LIBRARIES})
 
-add_executable(move_cart test/move_cart.cpp)
-add_dependencies(move_cart iis_msgs_generate_messages_cpp)
-target_link_libraries(move_cart ${catkin_LIBRARIES})
-
-add_executable(move_joint test/move_joint.cpp)
-add_dependencies(move_joint iis_msgs_generate_messages_cpp)
-target_link_libraries(move_joint ${catkin_LIBRARIES})
-
 add_executable(performance_test test/performance_test.cpp)
 target_link_libraries(performance_test Ors Core Motion Optim ${catkin_LIBRARIES})
 set_target_properties(performance_test PROPERTIES COMPILE_FLAGS -std=c++0x)
 
-add_executable(performance_test_ik test/performance_test_ik.cpp)
-target_link_libraries(performance_test_ik Ors Core Motion Optim ${catkin_LIBRARIES})
-set_target_properties(performance_test_ik PROPERTIES COMPILE_FLAGS -std=c++0x)
+## deactivated because of unknown dependency problems...
+#add_executable(performance_test_ik test/performance_test_ik.cpp)
+#target_link_libraries(performance_test_ik Ors Core Motion Optim ${catkin_LIBRARIES})
+#set_target_properties(performance_test_ik PROPERTIES COMPILE_FLAGS -std=c++0x)
 
 add_executable(reachability_test test/reachability_test.cpp)
 target_link_libraries(reachability_test Ors Core Motion Optim ${catkin_LIBRARIES})

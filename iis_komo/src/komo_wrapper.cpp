@@ -33,7 +33,7 @@ KomoWrapper::KomoWrapper(const char *config_name)
 	_pos_tolerance = {def_pos_tolerance, def_pos_tolerance, def_pos_tolerance};
 	_ang_tolerance = {def_ang_tolerance, def_ang_tolerance, def_ang_tolerance};
 
-	//-- parameters
+	//-- parameters (defined within confg/MT.cfg)
 	_positionPrecision = MT::getParameter<double>("KOMO/moveTo/positionPrecision", 1e4); // original 1e3
 	_collisionPrecision = MT::getParameter<double>("KOMO/moveTo/collisionPrecision", -1e0);
 	_collisionMargin = MT::getParameter<double>("KOMO/moveTo/collisionMargin", .1);
