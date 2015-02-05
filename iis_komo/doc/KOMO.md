@@ -170,12 +170,85 @@ for(ors::Proxy *p : w.proxies) {
 The above code iterates over all `Proxy` instances in the list of proxies. The data structure contains (among others) the indices of both involved shapes, the distance between the shapes and the normal vector pointing from shape B to shape A. 
 
 #### Modifying shape poses
+Sometimes it is necessary to modify the position/orientation of a specific shape within the `KinematicWorld`, for example to place the target reference frame before planning. This can be done as follows:
+
+```cpp
+// define position and rotation
+ors::Vector goal_pos(X,Y,Z);
+ors::Quaternion goal_quat(W,X,Y,Z);
+// get pointer to desired shape
+ors::Shape *target = w.getShapeByName("target");
+// set new position and orientation
+target->rel.pos = goal_pos;
+target->rel.rot = goal_rot;
+// force KOMO to update the transformations
+w.calc_fwdPropagateShapeFrames();
+```
+
+#### FK calculation
+The `KinematicWorld` instance can also be used to compute forward kinematics problems. This can be done by setting the joint positions to the desired values and then check the resulting transformation of the desired reference frame:
+```cpp
+// set the desired state
+w.setJointState(state);
+// force KOMO to compute all the transformations
+w.calc_fwdPropagateShapeFrames();
+// retrieve the desired shape (reference frame)
+ors::Shape *s = w.getShapeByName("right_sdh_palm_link");
+// read the resulting transformation
+ors::Transformation trans = s->X;
+ors::Vector position = trans.pos;
+ors::Quaternion orientation = trans.rot;
+```
 
 #### Validating joint limits
+The `KinematicWorld` allows to set the joints to arbitrary values, without checking if the provided position lies within the configured limits or not. Joint limits are enforced during motion planning only if a corresponding constraint is added to the `MotionProblem` and even then it is possible that the limits are violated. Therefore it is sometimes necessary to validate if a robot configuration violates joint limits. This can be done as follows:
+```cpp
+arr config(w.getJointStateDimension());
+... // fill config with the desired joint positions
 
-#### Displaying robot states
+// retrieve the limits as configured in ors description
+arr limits = w.getLimits(); // n*2 array where n is joint state dimension
+// iterate over all joints and check positions
+for(int i = 0; i < config.d0; ++i) {
+    // extract upper and lower limits for joint i
+    double upper = limits(i, 1);
+    double lower = limits(i, 0);
+    // ensure that there are configured limits, i.e. upper-lower > 0
+    // otherwise skip this joint
+    if(upper == lower)
+        continue;
 
-#### Displaying trajectories
+    // get the joint position
+    double position = config(i);
+    // check if limits are violated
+    if(position < lower || position > upper) {
+        ... // we have a violation detected!
+    }
+}
+```
+
+The above code snippet assumes that the configuration to check is stored in the `config` array. The call to `w.getLimits()` returns a n*2 array where n is the number of active joints. If no limits for given joint are configured then upper and lower limits are set to zero. Therefore it is always necessary to check, whether upper and lower limits defer. All values in the given configuration are validated against upper and lower limits.
+
+#### Displaying robot states and trajectories
+Each `KinematicWorld` instance has an associated OpenGL window, that can be used to visualize robot states or trajectories. The window gets created during the first call to one of the display methods. The following example shows how to display the current state:
+```cpp
+bool block = true;
+w.watch(block, "Message to display");
+```
+
+The above snippet displays the UI window, shows the current configuration and displays the given message. If the parameter `block` is set to true, this call blocks, until the user hits the ENTER key within the window, otherwise, the call returns immediately. There are also two convenience functions to display arbitrary states or trajectories:
+```cpp
+displayState(state, w, "Message to display");
+```
+
+Displays given `arr` instance `state`, using `KinematicWorld` instance `w` and given message in unblocking mode.
+```cpp
+int steps = 1; // use -1 for unblocking mode
+double delay = 0.01; // delay between waypoints (configurations) 
+displayTrajectory(traj, steps, w, "Message to display", delay);
+```
+
+Displays given trajectory. The `steps` parameter can be used to switch between blocking(1) and non-blocking(-1) mode. The `delay` parameter indicates the amount of time, each single waypoint is displayed and can therefore be used to control the speed of trajectory visualization. The trajectory is assumed to be an array with dimensions NUM_WAYPOINTS*NUM_JOINTS.
 
 ## Motion optimization
 This document only describes the practical usage of the KOMO framework. Please see the [KOMO paper](http://arxiv.org/pdf/1407.0414v1.pdf) for exact definitions of the used terminology.
