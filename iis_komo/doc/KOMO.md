@@ -75,17 +75,107 @@ A data structure to store proximity information (when two shapes become close) a
 Data structure that represents the robot and its environment. A `KinematicWorld` instance is composed from lists of bodies, shapes, joints and proxies and provides several functions to access specific instances of those types. The parameters are also described within the `Ors/ors.h` header file.
 
 ## Usage of the `ors::KinematicWorld` data structure
-This section describes how specific tasks can be performed, using the KOMO framework.
+This section describes how some common tasks can be performed, using the KOMO framework. The provided code snippets assume variable `w` to be an instance of `ors::KinematicWorld`. This instance can be created based on the ors model, by providing the file path of the description file **relative** to the current working directory:
+
+```cpp
+ors::KinematicWorld w("../data/iis_robot.kvg");
+```
+
+The above code snippet loads the robot description from the file `iis_komo/data/iis_robot.kvg` and creates a new instance of our `KinematicWorld`. It is assumed that the current working directory is `iis_komo/tmp`.
+
+#### Working with Agents
+TODO: explain agent concept
 
 #### Modifying joint positions
+The current configuration of the robot model within the `KinematicWorld` data structure can be modified in different ways. The most common approach is to pass an `arr` data structure, containing the current joint positions to the `setJointState` method:
 
-#### Retrieving and interpreting joint configurations
+```cpp
+// create an arr instance with correct dimensionality
+arr state(w.getJointStateDimension());
+// find the qIndex of each single joint and set the desired position
+state(w.getJointByName("right_arm_0_joint")->qIndex) = 0.0;
+state(w.getJointByName("right_arm_1_joint")->qIndex) = 1.0;
+... // repeat for all joints in the model
+state(w.getJointByName("left_arm_5_joint")->qIndex) = 2.0;
+state(w.getJointByName("left_arm_6_joint")->qIndex) = 1.5;
+
+// pass the new state to our KinematicWorld instance
+w.setJointState(state);
+// force KOMO to recalculate all the transformations based on the new state
+w.calc_fwdPropagateFrames();
+```
+
+The above code snippet creates an `arr` instance with the expected dimensions. This results in a one dimensional array. The size of the array depends on the number of active (non fixed) joints of the currently active agent within the model. The call to `w.getJointByName(JOINT_NAME)` results in a pointer to the `Joint` data structure with the given name. The `qIndex` property of the joint denotes the correct index within our `state` array. After setting all target positions, the state array is passed to the `KinematicWorld` instance. The function call `w.calc_fwdPropagateFrames()` forces KOMO to recompute all transformations, based on the new state.
+
+Another approach is to set the joint position directly within the `Joint` data structure:
+
+```cpp
+double new_pos = 0.12;
+ors::Joint *jnt = w.getJointByName("right_arm_0_joint");
+jnt->Q.rot.setRad(new_pos, 1, 0, 0);
+... // repeat for other joints as well 
+
+// force KOMO to recalculate all the transformations based on the new state
+w.calc_fwdPropagateFrames();
+// force the KinematicWorld to update its internal q data structure
+// to the new values (necessary for consistence)
+w.calc_q_from_Q();
+```
+
+The above code snippet finds the joint by its name and returns a pointer to it. Then, the joints transformation is modified by directly modifying the underlying quaternion. After that it is also necessary to force KOMO to update all transformations based on the new settings. The last function call is necessary because the KinematicWorld data structure also holds an instance parameter called `q`, which also contains the current configuration. The statement `w.calc_q_from_Q()` forces KOMO to update this array, based on the new settings.
+
+#### Retrieving and interpreting joint states
+
+The current joint state can easily be accessed as follows:
+```cpp
+arr state = w.getJointState();
+```
+
+The `state` variable now holds a one dimensional array with all joint positions. The following code snippet shows, how the positions of specific joints can be  extracted from this array:
+
+```cpp
+int qIdx = w.getJointByName("right_arm_0_joint")->qIndex;
+double jnt0Pos = state(qIdx);
+```
 
 #### Retrieving collision information
+To do collision checking, it is necessary to first set the `KinematicWorld` to the desired joint state, as already explained above. After that, the underlying physics engine has to be triggered to perform a 'step', which simply means to compute proximity/collision information (but also velocities and accelerations if necessary). The collision checking results are then stored in a list of `ors::Proxy` data structures within the `KinematicWorld` instance:
+
+```cpp
+// set the desired joint state
+w.setJointState(state);
+// trigger physics computation (using swift engine)
+w.swift().step(w);
+// iterate over list of resulting proxies
+for(ors::Proxy *p : w.proxies) {
+    if(p->d <= MIN_DISTANCE) {
+        // do whatever you want with that info :)
+    }
+}
+```
+
+Each `ors::Proxy` stores proximity information, concerning two close-up shapes. The physics engine only considers shapes that are not part of the same body and where the corresponding `cont` property is set to true. Adjacent shapes seem also to be excluded from collision checking (shapes that are always in collision, because their bodies are connected via joints) but I was not able to figure out the exact rules that are applied. The following code snippet shows how the proximity information can be interpreted:
+
+```cpp
+// iterate over list of resulting proxies
+for(ors::Proxy *p : w.proxies) {
+    ors::Shape *shapeA = w.shapes(p->a); // pointer to shape A
+    ors::Shape *shapeB = w.shapes(p->b); // pointer to shape B
+    double distance = p->d;              // distance
+    ors::Vector normal = p->normal       // contact normal
+    ... // other possible parameters in 'Ors/ors.h'
+}
+```
+
+The above code iterates over all `Proxy` instances in the list of proxies. The data structure contains (among others) the indices of both involved shapes, the distance between the shapes and the normal vector pointing from shape B to shape A. 
 
 #### Modifying shape poses
 
-#### Working with Agents
+#### Validating joint limits
+
+#### Displaying robot states
+
+#### Displaying trajectories
 
 ## Motion optimization
 This document only describes the practical usage of the KOMO framework. Please see the [KOMO paper](http://arxiv.org/pdf/1407.0414v1.pdf) for exact definitions of the used terminology.
@@ -311,4 +401,4 @@ optConstrained(x, NoArr, Convert(MF), OPT(verbose=0, stopIters=100, maxStep=.5, 
 MP.costReport(true);
 ```
 
-First, the initial state of the `MotionProblem` is set to the current state of our `KinematicWorld` instance. The trajectory is then initialized by replicating the initial state for the amount of time slices T (+1). After that, the `MotionProblem` is converted into a kOrderMarkov optimization problem and the optimization process is started. The `verbose` parameter specifies the amount of console output during the optimization process (0-2). I was not able to figure out the meaning of all the other parameters. The last line triggers KOMO to create a cost report. If the parameter `gnuPlot` is set to true, the reported costs are also shown in a plot window. Otherwise the costs are only printed on the console output and stored in the file `z.costReport` in the current working directory.
+First, the initial state of the `MotionProblem` is set to the current state of our `KinematicWorld` instance. The trajectory is then initialized by replicating the initial state for the amount of time slices T (+1). After that, the `MotionProblem` is converted into a kOrderMarkov optimization problem and the optimization process is started. The `verbose` parameter specifies the amount of console output during the optimization process (0-2). I was not able to figure out the meaning of all the other parameters. The last line triggers KOMO to create a cost report. If the parameter `gnuPlot` is set to true, the reported costs are also shown in a plot window. Otherwise the costs are only printed on the console output and stored in the file `z.costReport` in the current working directory. The array `x` finally holds the resulting trajectory.
