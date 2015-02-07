@@ -6,8 +6,6 @@ This document gives an overview about Marc Toussaint's motion optimization frame
 
 The KOMO framework allows to plan complex robot motions by translating a specified motion problem into a general-case mathematical optimization problem and then finding the best solution for it. The following sections describe the most important data structures:
 
-## The ORS robot description
-
 ## Basic data structures
 
 #### `arr` (= `MT::Array<double>`)
@@ -249,6 +247,56 @@ displayTrajectory(traj, steps, w, "Message to display", delay);
 ```
 
 Displays given trajectory. The `steps` parameter can be used to switch between blocking(1) and non-blocking(-1) mode. The `delay` parameter indicates the amount of time, each single waypoint is displayed and can therefore be used to control the speed of trajectory visualization. The trajectory is assumed to be an array with dimensions NUM_WAYPOINTS*NUM_JOINTS.
+
+## The ORS robot description format
+The model description of the two robot arms and hands is spread across various files, located within the `iis_komo/data/iis_robot` folder. The file `iis_komo/data/iis_robot.kvg` brings everything together and the path to this file needs to be passed as constructor argument when creating an instance of our `KinematicWorld`. As explained above, the model consists of various bodies, connected by joints and each body is composed from one or more shapes. All those components need to be defined in a special text format, called ORS format.
+```
+body  NAME                                    { ARGUMENT_LIST }
+shape NAME (ASSOCIATED_BODY_NAME)             { ARGUMENT_LIST }
+joint NAME (PARENT_BODY_NAME CHILD_BODY_NAME) { ARGUMENT_LIST }
+```
+
+The lines above show the basic syntax of an ORS description file. Each line describes a single part of the model and begins with the keyword that identifies the type of the described component (body, shape or joint). The NAME argument is used to uniquely identify each body/shape/joint. For shapes it is necessary to declare the name of the body, the shape belongs to, enclosed between parenthesis. When defining joints, the parenthesis hold the names of the parent and child bodies. The argument list is written between curly brackets and depends on the type of the described part.
+```
+{ argument_1 argument_2 ... argument_n }   // arguments are separated by whitspaces (commas are allowed, but not necessary)
+{ boolean_arg }     // boolean argument (consists only of one keyword, e.g. 'fixed')
+{ key=value }       // argument as key/value pair, e.g. 'type=0'
+{ key=[val_1 val_2 ... val_n]}  // argument where value is a list, e.g. 'color=[.1 .1 .1]'
+{ key=<T ... > }    // argument where value is a transformation
+
+```
+
+As can be seen above, arguments can be either of boolean type (only one keyword) or key-value pairs. The value part can be a single value like a number or a string, a list of values (between brackets, separated by whitspace) or a transformation. 
+
+#### Defining transformations
+The final transformation is described as a sequential series of single transformations/rotations in the following syntax:
+```
+<T t_1 t_2 ... t_n>
+```
+
+A transformation value starts with `<T`. Then comes a list, containing one or more transformation steps (`t_1` - `t_n`), separated by whitespace characters. The transformation description is closed with `>`. The transformation steps are applied sequentially. The following steps can be used:
+```
+t(x y z)     // translation along vector (x y z)>
+d(DEG x y z) // rotation of DEG degrees around vector (x y z)
+q(w x y z)   // rotation, defined as quaternion
+r(RAD x y z) // rotation of RAD radiants aroung vector (x y z)
+E(r p y)     // Euler angle rotation (roll pitch yaw) 
+```
+
+Here are some example transformation descriptions:
+```
+<T t(0.1 0.1 0.3)>  // simple translation
+<T t(0.1 0.1 0.3) d(90 1 0 0)>  // translation and rotation
+<T t(0.1 0.1 0.3) E(3.14 0 0)>  // translation and rotation, using Euler angle notation
+<T r(1.57 1 0 0) t(0 0 0.1) d(45 0 1 0)> // rotation, translation, rotation
+```
+
+#### Defining bodies
+
+#### Defining shapes
+
+#### Defining joints
+
 
 ## Motion optimization
 This document only describes the practical usage of the KOMO framework. Please see the [KOMO paper](http://arxiv.org/pdf/1407.0414v1.pdf) for exact definitions of the used terminology.

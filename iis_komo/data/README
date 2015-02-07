@@ -1,0 +1,14 @@
+Robot description
+=================
+
+This folder contains the ORS description of IIS Lab robot setup.
+Description files of arms and hands, along with the required meshes are located in the 'iis_robot' subfolder.
+Static objects like the table and the robot torso are described within 'env.ors'.
+The file 'iis_robot.kvg' brings all parts together.
+
+The following statement can be used to view the model (needs to be executed from within this folder!!!):
+	
+	./ors_edit iis_robot.kvg
+
+This brings up an OpenGL window, displaying the model. Hitting the ENTER key within this window reloads
+the model and can therefore be used to quickly visualize modifications on those description files.

@@ -1,6 +1,6 @@
 %include iis_robot/left_arm.ors
 %include iis_robot/right_arm.ors
-%include iis_robot/right_sdh.ors
+# %include iis_robot/right_sdh.ors
 %include iis_robot/left_sdh.ors
 
 %include env.ors
