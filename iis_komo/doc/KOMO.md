@@ -249,6 +249,7 @@ displayTrajectory(traj, steps, w, "Message to display", delay);
 Displays given trajectory. The `steps` parameter can be used to switch between blocking(1) and non-blocking(-1) mode. The `delay` parameter indicates the amount of time, each single waypoint is displayed and can therefore be used to control the speed of trajectory visualization. The trajectory is assumed to be an array with dimensions NUM_WAYPOINTS*NUM_JOINTS.
 
 ## The ORS robot description format
+TODO: Lines, starting with `#` are ignored - use for comments.
 The model description of the two robot arms and hands is spread across various files, located within the `iis_komo/data/iis_robot` folder. The file `iis_komo/data/iis_robot.kvg` brings everything together and the path to this file needs to be passed as constructor argument when creating an instance of our `KinematicWorld`. As explained above, the model consists of various bodies, connected by joints and each body is composed from one or more shapes. All those components need to be defined in a special text format, called ORS format.
 ```
 body  NAME                                    { ARGUMENT_LIST }
@@ -259,14 +260,15 @@ joint NAME (PARENT_BODY_NAME CHILD_BODY_NAME) { ARGUMENT_LIST }
 The lines above show the basic syntax of an ORS description file. Each line describes a single part of the model and begins with the keyword that identifies the type of the described component (body, shape or joint). The NAME argument is used to uniquely identify each body/shape/joint. For shapes it is necessary to declare the name of the body, the shape belongs to, enclosed between parenthesis. When defining joints, the parenthesis hold the names of the parent and child bodies. The argument list is written between curly brackets and depends on the type of the described part.
 ```
 { argument_1 argument_2 ... argument_n }   // arguments are separated by whitspaces (commas are allowed, but not necessary)
-{ boolean_arg }     // boolean argument (consists only of one keyword, e.g. 'fixed')
-{ key=value }       // argument as key/value pair, e.g. 'type=0'
-{ key=[val_1 val_2 ... val_n]}  // argument where value is a list, e.g. 'color=[.1 .1 .1]'
-{ key=<T ... > }    // argument where value is a transformation
+{ boolean_arg }         // boolean argument (consists only of one keyword, e.g. 'fixed')
+{ key=value }           // argument as key/value pair, e.g. 'type=0'
+{ key='string value' }  // value is a string
+{ key=[val_1 val_2 ... val_n]}  // value is a list, e.g. 'color=[.1 .1 .1]'
+{ key=<T ... > }        // value is a transformation, e.g. 'rel=<T t(0.1 0 0)>'
 
 ```
 
-As can be seen above, arguments can be either of boolean type (only one keyword) or key-value pairs. The value part can be a single value like a number or a string, a list of values (between brackets, separated by whitspace) or a transformation. 
+As can be seen above, arguments can be either of boolean type (only one keyword) or key-value pairs. The value part can be a single value like a number or a string, a list of values (between brackets, separated by whitspace) or a transformation (see next section). 
 
 #### Defining transformations
 The final transformation is described as a sequential series of single transformations/rotations in the following syntax:
@@ -292,10 +294,69 @@ Here are some example transformation descriptions:
 ```
 
 #### Defining bodies
+The following text fragment shows an example body definition:
+```
+body my_body { X=<T t(-0.1 0.1 0) E(1.57 0 0)> mass=1.75 fixed }
+```
+
+Known parameters for bodies:
+
+| Parameter name   | Value type     | Description                           |
+| ----------------| -------------- | ------------------------------------- |
+| `X`             | Transformation | Transformation relative to world reference frame |
+| `mass`          | double         | The mass of the body                  |
+| `fixed`         | boolean        | Results in a body with type `staticBT`  |
+| `kinematic`     | boolean        | Results in a body with type `dynamicBT` |
+
+The above table shows the arguments allowed within the argument list of a body definition section. The boolean arguments `static`, `kinematic` influence the resulting body type.
 
 #### Defining shapes
+Shapes are usually defined after the bodies, because each shape belongs to a specific body which has to be predefined. The following text fragment shows an example shape definition:
+```
+shape my_shape (my_body) { type=4 size=[.1 .1 .02 .061] rel=<T t(0.2 0.0 0) d(90 1 0 0)> color=[.55 .55 .55] contact}
+```
+
+The above shape definition creates a shape with name 'my_shape' that belongs to the body 'my_body'.
+
+Known parameters for shapes:
+
+| Parameter name   | Value type     | Description                          |
+| ----------------| -------------- | ------------------------------------- |
+| `rel`           | Transformation | Transformation relative to the reference frame of the containing body|
+| `size`          | [X Y Z ?]      | 4 values                              |
+| `type`          | int            | The type of the resulting shape       |
+| `color`         | [R G B A]      | The color of the resulting shape      |
+| `mesh`          | string         | Relative path to mesh file            |
+| `contact`       | boolean        | When set, collision checking for this shape is enabled |
+
+The `rel` parameter defines the transformation with respect to the body reference frame. The `size` parameter expects a list of 4 values but I was not able to figure out, what the 4th value means. Please refer to the `ors::Shape` section above for a list of available shape types. The `mesh` parameter expects the path to the mesh file and is only required for shapes with `type=3`(`meshST`). The `contact` parameter enables collision checking for the resulting shape. Setting this parameter has the same effect as the following code snippet:
+```
+ors::Shape *s = w.getShapeByName("my_shape");
+s->cont = true; // enable collision checking for this shape
+```
+
 
 #### Defining joints
+The following text fragment shows an example joint definition:
+```
+joint left_arm_0_joint (left_arm_base_link left_arm_1_link)  { q=-.35 A=<T t(0 0 0) d(-90 0 1 0)> B=<T t(0.11 0 0)> Q=<T d(0 1 0 0)> limits=[-2.96705972839 2.96705972839]  ctrl_limits=[0.191986217719 204] }
+
+```
+
+Known parameters for joints:
+
+| Parameter name | Value type     | Description                           |
+| ---------------| -------------- | ------------------------------------- |
+| `A`            | Transformation | Transformation from parent body to joint |
+| `B`            | Transformation | Transformation from joint to child    |
+| `Q`            | Transformation | Transformation within the joint, e.g. rotation |
+| `X`            | Transformation | joint pose in world coordinates (same as from->X*A) |
+| `type`         | int            | The type of the joint, e.g. `type=0` -> `JT_hingeX` |
+| `q`            | double         | The initial joint position            |
+| `agent`        | int            | Number of move group, this joint belongs to |
+| `limits`       | [LOWER UPPER]  | Two values, describing the lower and upper movement limits of the joint      |
+| `ctrl_limits`  | [VEL ACC]      | Two values, describing the motor limits (velocity and acceleration) | 
+| `mimic`        | string         | Name of connected joint, e.g. `mimic='left_arm_0_joint'` |
 
 
 ## Motion optimization
