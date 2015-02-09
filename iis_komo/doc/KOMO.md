@@ -14,8 +14,38 @@ The definition can be found within `KOMO/share/src/Core/array.h` header file.
 
 A robot configuration within a KinematicWorld instance is represented as `arr` where each value represents a joint position. Trajectories are represented as two-dimensional `arr` structures (arrays of configurations).
 
+Usage:
+```cpp
+arr a(3);              // create a one dimensional arr of size 3
+arr b(2,3);            // create a two dimensional arr of size 2*3
+arr c = {1,2,3};       // create and initialize a one dimensional arr
+
+a(0) = 1.2;            // value assignment
+b(0,1) = 1.3;          // value assignment
+
+double value = b(0,1); // retrieving single value
+arr d = b[0]           // results in a one dimensional arr
+
+arr e = a + c    // addition of two arr instances (dimensions must match)
+...              // various operators are defined (+,-,*,/,...)
+```
+
 #### `ors::Vector`
 A three dimensional vector. Provides common vector functions like normalization, angle calculation and of course operations like addition, subtraction,...
+
+Usage:
+```cpp
+ors::vector a(1,2,3);
+ors::vector b;
+b(0) = 2;                  // same as b.x = 2;
+b(1) = 3;                  // same as b.y = 3;
+b(2) = 4;                  // same as b.z = 4;
+
+ors::vector c = b - a;     // various operators are defined
+double angle = b.angle(a); // angle betw. a and b
+a.normalize();             // normalization
+...                        // various other vector operations
+```
 
 #### `ors::Quaternion`
 Represents a unit-quaternion and provides common quaternion functionality.
@@ -23,7 +53,10 @@ Represents a unit-quaternion and provides common quaternion functionality.
 #### `ors::Transformation`
 Represents a transformation in Cartesian space, composed from a `ors::Vector` (pos) and a `ors::Quaternion` (rot).
 
+Please have a look into `KOMO/share/src/Core/geo.h` header file for more information about vectors, quaternions and transformations.
+
 ##Environment representation
+This section describes the most important data types that are used to represent the planning environment. The textual description of the environment is done in ORS format, which is explained later on.
 
 #### `ors::Body`
 Represents a rigid body within a `KinematicWorld` instance. Each body has a defined mass and inertial matrix and is composed from one or more shapes. Bodies are identified by their unique `name`. The `index` parameter determines the index of the body within the list of all bodies of the `ors::KinematicWorld` instance.
@@ -82,7 +115,7 @@ ors::KinematicWorld w("../data/iis_robot.kvg");
 The above code snippet loads the robot description from the file `iis_komo/data/iis_robot.kvg` and creates a new instance of our `KinematicWorld`. It is assumed that the current working directory is `iis_komo/tmp`.
 
 #### Working with Agents
-TODO: explain agent concept
+Agents are the KOMO representation of move groups. A move group can be seen as a group of joints that belong to a component of the robot (left arm, right gripper,...). Each joint of the robot can be associated to an agent (usually done within the ORS description). This concept allows to divide the model into various components and do planning only for a subset of joints that belong to the selected agent. Unfortunately this feature of KOMO is not well tested and therefore still buggy. Maybe this can be fixed in future releases of the framework. I only used this functionality to disable the hand joints of the model by setting the agent of those joints to value 1 (within `move_groups.ors`) and do planning for agent 0.
 
 #### Modifying joint positions
 The current configuration of the robot model within the `KinematicWorld` data structure can be modified in different ways. The most common approach is to pass an `arr` data structure, containing the current joint positions to the `setJointState` method:
@@ -249,26 +282,33 @@ displayTrajectory(traj, steps, w, "Message to display", delay);
 Displays given trajectory. The `steps` parameter can be used to switch between blocking(1) and non-blocking(-1) mode. The `delay` parameter indicates the amount of time, each single waypoint is displayed and can therefore be used to control the speed of trajectory visualization. The trajectory is assumed to be an array with dimensions NUM_WAYPOINTS*NUM_JOINTS.
 
 ## The ORS robot description format
-TODO: Lines, starting with `#` are ignored - use for comments.
-The model description of the two robot arms and hands is spread across various files, located within the `iis_komo/data/iis_robot` folder. The file `iis_komo/data/iis_robot.kvg` brings everything together and the path to this file needs to be passed as constructor argument when creating an instance of our `KinematicWorld`. As explained above, the model consists of various bodies, connected by joints and each body is composed from one or more shapes. All those components need to be defined in a special text format, called ORS format.
+The model description of the two robot arms and hands is spread across various files, located within the `iis_komo/data/iis_robot` folder. The file `iis_komo/data/iis_robot.kvg` brings everything together and the path to this file needs to be passed as constructor argument when creating an instance of `KinematicWorld`. As explained above, the model consists of various bodies, connected by joints and each body is composed from one or more shapes. All those components need to be defined in a special text format, called ORS format.
 ```
-body  NAME                                    { ARGUMENT_LIST }
-shape NAME (ASSOCIATED_BODY_NAME)             { ARGUMENT_LIST }
-joint NAME (PARENT_BODY_NAME CHILD_BODY_NAME) { ARGUMENT_LIST }
+# This is a comment
+# Include the contents of another file
+%include FILE_NAME
+body  NAME                                    { PARAMETER_LIST }
+shape NAME (ASSOCIATED_BODY_NAME)             { PARAMETER_LIST }
+joint NAME (PARENT_BODY_NAME CHILD_BODY_NAME) { PARAMETER_LIST }
+
+# Extend the definition of a named component
+Merge NAME { PARAMETER_LIST }
 ```
 
-The lines above show the basic syntax of an ORS description file. Each line describes a single part of the model and begins with the keyword that identifies the type of the described component (body, shape or joint). The NAME argument is used to uniquely identify each body/shape/joint. For shapes it is necessary to declare the name of the body, the shape belongs to, enclosed between parenthesis. When defining joints, the parenthesis hold the names of the parent and child bodies. The argument list is written between curly brackets and depends on the type of the described part.
+The lines above show the basic syntax of an ORS description file. Lines beginning with a sharp (#) sign are ignored during parsing. An `%include` statement loads the content of another file and allows therefore to spread the model description across various files. A `Merge` statement allows to extend the parameter list of a component that was previously defined (maybe in one of the included files). This was used for example to define the move group assignment (`move_groups.ors`).
+
+Each line describes a single part of the model, beginning with the keyword that identifies the type of the described component (body, shape or joint). The NAME argument is used to uniquely identify each body/shape/joint. For shapes it is necessary to declare the name of the body, the shape belongs to, enclosed between parenthesis. When defining joints, the parenthesis hold the names of the parent and child bodies. The parameter list is written between curly brackets and depends on the type of the described part.
 ```
-{ argument_1 argument_2 ... argument_n }   // arguments are separated by whitspaces (commas are allowed, but not necessary)
-{ boolean_arg }         // boolean argument (consists only of one keyword, e.g. 'fixed')
-{ key=value }           // argument as key/value pair, e.g. 'type=0'
+{ param_1 param_2 ... param_n }   // parameters are separated by whitspaces (commas are allowed, but not necessary)
+{ boolean_arg }         // boolean parameter (consists only of one keyword, e.g. 'fixed')
+{ key=value }           // parameter definition as key/value pair, e.g. 'type=0'
 { key='string value' }  // value is a string
 { key=[val_1 val_2 ... val_n]}  // value is a list, e.g. 'color=[.1 .1 .1]'
 { key=<T ... > }        // value is a transformation, e.g. 'rel=<T t(0.1 0 0)>'
 
 ```
 
-As can be seen above, arguments can be either of boolean type (only one keyword) or key-value pairs. The value part can be a single value like a number or a string, a list of values (between brackets, separated by whitspace) or a transformation (see next section). 
+As can be seen above, parameters can be either of boolean type (only one keyword) or key-value pairs. The value part can be a single value like a number or a string, a list of values (between brackets, separated by whitspace) or a transformation (see next section). 
 
 #### Defining transformations
 The final transformation is described as a sequential series of single transformations/rotations in the following syntax:
@@ -308,7 +348,7 @@ Known parameters for bodies:
 | `fixed`         | boolean        | Results in a body with type `staticBT`  |
 | `kinematic`     | boolean        | Results in a body with type `dynamicBT` |
 
-The above table shows the arguments allowed within the argument list of a body definition section. The boolean arguments `static`, `kinematic` influence the resulting body type.
+The above table shows the arguments allowed within the argument list of a body definition section. The boolean arguments `static`, `kinematic` influence the resulting body type, but I was not able to figure out the exact difference between those types.
 
 #### Defining shapes
 Shapes are usually defined after the bodies, because each shape belongs to a specific body which has to be predefined. The following text fragment shows an example shape definition:
@@ -348,16 +388,17 @@ Known parameters for joints:
 | Parameter name | Value type     | Description                           |
 | ---------------| -------------- | ------------------------------------- |
 | `A`            | Transformation | Transformation from parent body to joint |
-| `B`            | Transformation | Transformation from joint to child    |
+| `B`            | Transformation | Transformation from joint to child body  |
 | `Q`            | Transformation | Transformation within the joint, e.g. rotation |
 | `X`            | Transformation | joint pose in world coordinates (same as from->X*A) |
 | `type`         | int            | The type of the joint, e.g. `type=0` -> `JT_hingeX` |
 | `q`            | double         | The initial joint position            |
 | `agent`        | int            | Number of move group, this joint belongs to |
-| `limits`       | [LOWER UPPER]  | Two values, describing the lower and upper movement limits of the joint      |
+| `limits`       | [LOW UPP]  | Two values, describing the lower and upper movement limits of the joint      |
 | `ctrl_limits`  | [VEL ACC]      | Two values, describing the motor limits (velocity and acceleration) | 
-| `mimic`        | string         | Name of connected joint, e.g. `mimic='left_arm_0_joint'` |
+| `mimic`        | string         | Name of connected joint, e.g. `mimic='left_sdh_knuckle_joint'` |
 
+The `type` parameter specifies the joint type. All available joint types (along with their IDs) are listed in the `ors::Joint` section above. If no type parameter is specifies, the joint will be of type `JT_hingeX` which is a revolute joint that rotates around its x-axis. The parameters `limits` and `ctrl_limits` expect a list with two values. A mimic joint simply copies the position of the connected joint. Mimic joints are used for the second pivoting joint within the hand model (`left_sdh.ors` and `right_sdh.ors`). The `agent` parameter specifies the move group, this joint belongs to. I used `agent=0` for all arm joints and `agent=1` for all hand joints. Therefore all the hand joints are disabled and not considered during motion planning. The agent-assignment is done within `move_groups.ors`.
 
 ## Motion optimization
 This document only describes the practical usage of the KOMO framework. Please see the [KOMO paper](http://arxiv.org/pdf/1407.0414v1.pdf) for exact definitions of the used terminology.
@@ -385,7 +426,9 @@ TaskCost c = MP.addTask("Joint_limits", lc);
 c->setCostSpecs(0, MP.T, {0.}, 1e2);
 ```
 
-On the first two lines an instance of `LimitsConstraint` is created, using a margin of 0.005 radiants. The call to the function `MotionProblem::addTask` adds the constraint to the `MotionProblem` and returns a pointer to a `TaskCost` instance associated with our constraint. The function `TaskCost::setCostSpecs` is then used to further specify on which time slices the constraint should be enforced, a desired target value (`{.0}` in our case) and the desired precision value (`1e2`). In the given example, the `LimitsConstraint` is enforced on all time slices (`0 to MP.T`). Each TaskMap/Constraint can be enforced on one or more time slices. Constraints like collision checking or joint limits need to be enforced during the whole trajectory. Other constraints like target end effector position/orientation need to be enforced only on the last time slice as they form the trajectory goal. But an orientation constraint could also be applied to the whole trajectory, for example to keep the end end effector in an upright position during the movement. It is also possible to define waypoints, by placing position constraints on certain time slices of the MotionProblem.
+On the first two lines an instance of `LimitsConstraint` is created, using a margin of 0.005 radiants. The call to the function `MotionProblem::addTask` adds the constraint to the `MotionProblem` and returns a pointer to a `TaskCost` instance associated with our constraint. The function `TaskCost::setCostSpecs` is then used to further specify on which time slices the constraint should be enforced, a desired target value (`{.0}` in our case) and the desired precision value (`1e2`). In the given example, the `LimitsConstraint` is enforced on all time slices (`0 to MP.T`).
+
+Each TaskMap/Constraint can be enforced on one or more time slices. Constraints like collision checking or joint limits need to be enforced during the whole trajectory. Other constraints like target end effector position/orientation need to be enforced only on the last time slice as they form the trajectory goal. But an orientation constraint could also be applied to the whole trajectory, for example to keep the end end effector in an upright position during the movement. It is also possible to define waypoints, by placing position constraints on certain time slices of the MotionProblem.
 
 An arbitrary number of `TaskMaps` can be added to each `MotionProblem` instance. The precision parameters influence, how much impact a specific `TaskMap` instance has to the overall optimization process as it controls the amount of penalization in case of constraint violations.
 
@@ -553,7 +596,7 @@ c->map.order = 2; // penalize accelerations
 c->setCostSpecs(0, MP.T, {0.}, 1e0);
 ```
 
-The `map.order` parameter in the above example specifies whether to penalize high velocities (=1) or high accelerations (=2). If a trajectory is initialized before starting the optimization process, the `TransitionTaskMap` is not really necessary. For example when planning for joint space goals it is possible to initialize the trajectory by simply interpolating between start and goal state before running the optimization process. In that case it is not necessary to use a `TransitionTaskMap`. The following code snippet shows, how a trajectory could be initialized:
+The `map.order` parameter in the above example specifies whether to penalize high velocities (=1) or high accelerations (=2). If a trajectory is initialized before starting the optimization process, the `TransitionTaskMap` is not really necessary. For example when planning for joint space goals it is possible to initialize the trajectory by simply interpolating between start and goal state before running the optimization process. In that case it is not necessary to use a `TransitionTaskMap`. The following code snippet shows two ways, how a trajectory could be initialized:
 
 ```cpp
 arr traj;
@@ -570,17 +613,37 @@ After adding all constraints it is necessary to set the desired start configurat
 MP.x0 = w.getJointState();
 
 // initialize the trajectory
-arr x = replicate(MP.x0, MP.T+1);
-rndGauss(x, .01, true); //don't initialize at a singular config
+arr traj = replicate(MP.x0, MP.T+1);
+rndGauss(traj, .01, true); //don't initialize at a singular config
+
+// interpolation initialization (ALTERNATIVE)
+// arr traj;
+// sineProfile(traj, start_state, goal_state, MP.T);
 
 //-- create the Optimization problem (of type kOrderMarkov)
 MotionProblemFunction MF(MP);
 
 // run the optimization
-optConstrained(x, NoArr, Convert(MF), OPT(verbose=0, stopIters=100, maxStep=.5, stepInc=2., allowOverstep=false));
+optConstrained(traj, NoArr, Convert(MF), OPT(verbose=0, stopIters=100, maxStep=.5, stepInc=2., allowOverstep=false));
 
 // report the costs
 MP.costReport(true);
 ```
 
-First, the initial state of the `MotionProblem` is set to the current state of our `KinematicWorld` instance. The trajectory is then initialized by replicating the initial state for the amount of time slices T (+1). After that, the `MotionProblem` is converted into a kOrderMarkov optimization problem and the optimization process is started. The `verbose` parameter specifies the amount of console output during the optimization process (0-2). I was not able to figure out the meaning of all the other parameters. The last line triggers KOMO to create a cost report. If the parameter `gnuPlot` is set to true, the reported costs are also shown in a plot window. Otherwise the costs are only printed on the console output and stored in the file `z.costReport` in the current working directory. The array `x` finally holds the resulting trajectory.
+First, the initial state of the `MotionProblem` is set to the current state of our `KinematicWorld` instance. The trajectory is then initialized by replicating the initial state for the amount of time slices T (+1). The initialization can also be done by interpolating between start state and an arbitrary goal state and depends on the nature of the planning problem.
+
+After that, the `MotionProblem` is converted into a kOrderMarkov optimization problem and the optimization process is started. The `verbose` parameter specifies the amount of console output during the optimization process (0-2). I was not able to figure out the meaning of all the other parameters. The last line triggers KOMO to create a cost report. If the parameter `gnuPlot` is set to true, the reported costs are also shown in a plot window. Otherwise the costs are only printed on the console output and stored in the file `z.costReport` in the current working directory. The array `traj` finally holds the resulting trajectory.
+
+### Interpreting the resulting trajectory
+The resulting trajectory is stored in a two dimensional `arr` data structure. The first dimension represents the time slice, the second one represents the joint configuration on each time slice:
+```cpp
+// iterate over all waypoints
+for(int i = 0; i < traj.d0 - 1; ++i) {
+    // get waypoint on index i
+    arr wp = traj[i];   // represents a robot configuration
+    // extract joint positions
+    double pos0 = wp(w.getJointByName("right_arm_0_joint")->qIndex);
+    double pos1 = wp(w.getJointByName("right_arm_1_joint")->qIndex);
+    ... // repeat for all joints
+}
+```
