@@ -42,7 +42,8 @@ tcl8.5-dev \
 tk-dev \
 tk8.5-dev \
 libfreenect-dev \
-libavcodec-extra-53
+libavcodec-extra-54
+# use libavcodec-extra-53 for Ubuntu 12.04
 
 # install google test
 cd /usr/src/gtest
